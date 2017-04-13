@@ -1,0 +1,5 @@
+<map id="Recombee.ApiClient.ApiRequests.SetValues" name="Recombee.ApiClient.ApiRequests.SetValues">
+<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetItemValues.html" title="Set/update (some) property values of a given item" alt="" coords="397,5,623,47"/>
+<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetUserValues.html" title="Set/update (some) property values of a given user" alt="" coords="397,71,623,112"/>
+<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html" title="Base class for all the requests" alt="" coords="5,46,76,73"/>
+</map>
