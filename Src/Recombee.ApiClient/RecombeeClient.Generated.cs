@@ -14,25 +14,6 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
-        protected IEnumerable<Item> ParseResponse(string json, ListItems request)
-        {
-            var strArray = JsonConvert.DeserializeObject<string[]>(json);
-            return strArray.Select(x => new Item(x));
-        }
-        
-        /// <summary>Send the ListItems request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Response from the API</returns>
-        public IEnumerable<Item> Send(ListItems request)
-        {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
-        }
-        
-        /// <summary>Parse JSON response</summary>
-        /// <param name="json">JSON string from the API</param>
-        /// <param name="request">Request sent to the API</param>
-        /// <returns>Parsed response</returns>
         protected PropertyInfo ParseResponse(string json, GetItemPropertyInfo request)
         {
             return JsonConvert.DeserializeObject<PropertyInfo>(json);
@@ -134,25 +115,6 @@ namespace Recombee.ApiClient
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<GroupItem> Send(ListGroupItems request)
-        {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
-        }
-        
-        /// <summary>Parse JSON response</summary>
-        /// <param name="json">JSON string from the API</param>
-        /// <param name="request">Request sent to the API</param>
-        /// <returns>Parsed response</returns>
-        protected IEnumerable<User> ParseResponse(string json, ListUsers request)
-        {
-            var strArray = JsonConvert.DeserializeObject<string[]>(json);
-            return strArray.Select(x => new User(x));
-        }
-        
-        /// <summary>Send the ListUsers request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Response from the API</returns>
-        public IEnumerable<User> Send(ListUsers request)
         {
             var json = SendRequest(request);
             return ParseResponse(json, request);

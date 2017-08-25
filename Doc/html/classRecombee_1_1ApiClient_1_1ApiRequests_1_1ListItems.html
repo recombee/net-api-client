@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.ListItems:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7287a6ef787e5ac290494454a900c928"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#a7287a6ef787e5ac290494454a900c928">ListItems</a> (string filter=null)</td></tr>
-<tr class="memdesc:a7287a6ef787e5ac290494454a900c928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a7287a6ef787e5ac290494454a900c928">More...</a><br /></td></tr>
-<tr class="separator:a7287a6ef787e5ac290494454a900c928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98238e990fd48ed3de4dfd32213612a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#a98238e990fd48ed3de4dfd32213612a8">ListItems</a> (string filter=null, long?count=null, long?offset=null, bool?returnProperties=null, string[] includedProperties=null)</td></tr>
+<tr class="memdesc:a98238e990fd48ed3de4dfd32213612a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a98238e990fd48ed3de4dfd32213612a8">More...</a><br /></td></tr>
+<tr class="separator:a98238e990fd48ed3de4dfd32213612a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb9abba723d2ff5ea2a17a116f8c59a9"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#aeb9abba723d2ff5ea2a17a116f8c59a9">Path</a> ()</td></tr>
 <tr class="memdesc:aeb9abba723d2ff5ea2a17a116f8c59a9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#aeb9abba723d2ff5ea2a17a116f8c59a9">More...</a><br /></td></tr>
@@ -101,6 +101,18 @@ Properties</h2></td></tr>
 <tr class="memitem:aeb3901847cd267d78c714307bca0b198"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#aeb3901847cd267d78c714307bca0b198">Filter</a><code> [get]</code></td></tr>
 <tr class="memdesc:aeb3901847cd267d78c714307bca0b198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean-returning <a href="https://docs.recombee.com/reql.html">ReQL</a> expression, which allows you to filter items to be listed. Only the items for which the expression is <em>true</em> will be returned. <a href="#aeb3901847cd267d78c714307bca0b198">More...</a><br /></td></tr>
 <tr class="separator:aeb3901847cd267d78c714307bca0b198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a58f75f7ce0018d4cde06b9c2dd3c45"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#a6a58f75f7ce0018d4cde06b9c2dd3c45">Count</a><code> [get]</code></td></tr>
+<tr class="memdesc:a6a58f75f7ce0018d4cde06b9c2dd3c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of items to be listed. <a href="#a6a58f75f7ce0018d4cde06b9c2dd3c45">More...</a><br /></td></tr>
+<tr class="separator:a6a58f75f7ce0018d4cde06b9c2dd3c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13c60f7253e824b18c2109f6f9a0187d"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#a13c60f7253e824b18c2109f6f9a0187d">Offset</a><code> [get]</code></td></tr>
+<tr class="memdesc:a13c60f7253e824b18c2109f6f9a0187d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of items to skip (ordered by <code>itemId</code>). <a href="#a13c60f7253e824b18c2109f6f9a0187d">More...</a><br /></td></tr>
+<tr class="separator:a13c60f7253e824b18c2109f6f9a0187d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a53e47565f9467cd06ba591d79b080"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#a25a53e47565f9467cd06ba591d79b080">ReturnProperties</a><code> [get]</code></td></tr>
+<tr class="memdesc:a25a53e47565f9467cd06ba591d79b080"><td class="mdescLeft">&#160;</td><td class="mdescRight">With <code>returnProperties=true</code>, property values of the listed items are returned along with their IDs in a JSON dictionary. Example response: </p><div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Electronics&quot;</span>, <span class="stringliteral">&quot;Televisions&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/tv-178&quot;</span></div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Home &amp; Kitchen&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/mixer-42&quot;</span></div><div class="line">  }</div><div class="line">]</div></div><!-- fragment -->  <a href="#a25a53e47565f9467cd06ba591d79b080">More...</a><br /></td></tr>
+<tr class="separator:a25a53e47565f9467cd06ba591d79b080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae05dc6d02c3fd5cef3692f5fe8ca1eb0"><td class="memItemLeft" align="right" valign="top">string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html#ae05dc6d02c3fd5cef3692f5fe8ca1eb0">IncludedProperties</a><code> [get]</code></td></tr>
+<tr class="memdesc:ae05dc6d02c3fd5cef3692f5fe8ca1eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify, which properties should be returned when <code>returnProperties=true</code> is set. The properties are given as a comma-separated list. Example response for <code>includedProperties=description,price</code>: </p><div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342</div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39</div><div class="line">  }</div><div class="line">]</div></div><!-- fragment -->  <a href="#ae05dc6d02c3fd5cef3692f5fe8ca1eb0">More...</a><br /></td></tr>
+<tr class="separator:ae05dc6d02c3fd5cef3692f5fe8ca1eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -124,7 +136,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>List items</p>
 <p>Gets a list of IDs of items currently present in the catalog.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7287a6ef787e5ac290494454a900c928"></a>
+<a class="anchor" id="a98238e990fd48ed3de4dfd32213612a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -135,8 +147,36 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Recombee.ApiClient.ApiRequests.ListItems.ListItems </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>null</code></td><td>)</td>
+          <td class="paramname"><em>filter</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">long?&#160;</td>
+          <td class="paramname"><em>count</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long?&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool?&#160;</td>
+          <td class="paramname"><em>returnProperties</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string[]&#160;</td>
+          <td class="paramname"><em>includedProperties</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -150,6 +190,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filter</td><td>Boolean-returning <a href="https://docs.recombee.com/reql.html">ReQL</a> expression, which allows you to filter items to be listed. Only the items for which the expression is <em>true</em> will be returned.</td></tr>
+    <tr><td class="paramname">count</td><td>The number of items to be listed.</td></tr>
+    <tr><td class="paramname">offset</td><td>Specifies the number of items to skip (ordered by <code>itemId</code>).</td></tr>
+    <tr><td class="paramname">returnProperties</td><td>With <code>returnProperties=true</code>, property values of the listed items are returned along with their IDs in a JSON dictionary. Example response: <div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Electronics&quot;</span>, <span class="stringliteral">&quot;Televisions&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/tv-178&quot;</span></div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Home &amp; Kitchen&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/mixer-42&quot;</span></div><div class="line">  }</div><div class="line">]</div></div><!-- fragment --> </td></tr>
+    <tr><td class="paramname">includedProperties</td><td>Allows to specify, which properties should be returned when <code>returnProperties=true</code> is set. The properties are given as a comma-separated list. Example response for <code>includedProperties=description,price</code>: <div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342</div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39</div><div class="line">  }</div><div class="line">]</div></div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -242,6 +286,28 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a6a58f75f7ce0018d4cde06b9c2dd3c45"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Recombee.ApiClient.ApiRequests.ListItems.Count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of items to be listed.</p>
+
+</div>
+</div>
 <a class="anchor" id="aeb3901847cd267d78c714307bca0b198"></a>
 <div class="memitem">
 <div class="memproto">
@@ -261,6 +327,72 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Boolean-returning <a href="https://docs.recombee.com/reql.html">ReQL</a> expression, which allows you to filter items to be listed. Only the items for which the expression is <em>true</em> will be returned.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae05dc6d02c3fd5cef3692f5fe8ca1eb0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string [] Recombee.ApiClient.ApiRequests.ListItems.IncludedProperties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows to specify, which properties should be returned when <code>returnProperties=true</code> is set. The properties are given as a comma-separated list. Example response for <code>includedProperties=description,price</code>: </p><div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342</div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39</div><div class="line">  }</div><div class="line">]</div></div><!-- fragment --> </p>
+
+</div>
+</div>
+<a class="anchor" id="a13c60f7253e824b18c2109f6f9a0187d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Recombee.ApiClient.ApiRequests.ListItems.Offset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies the number of items to skip (ordered by <code>itemId</code>).</p>
+
+</div>
+</div>
+<a class="anchor" id="a25a53e47565f9467cd06ba591d79b080"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Recombee.ApiClient.ApiRequests.ListItems.ReturnProperties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>With <code>returnProperties=true</code>, property values of the listed items are returned along with their IDs in a JSON dictionary. Example response: </p><div class="fragment"><div class="line">[</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;tv-178&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;4K TV with 3D feature&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Electronics&quot;</span>, <span class="stringliteral">&quot;Televisions&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 342,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/tv-178&quot;</span></div><div class="line">  },</div><div class="line">  {</div><div class="line">    <span class="stringliteral">&quot;itemId&quot;</span>: <span class="stringliteral">&quot;mixer-42&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;description&quot;</span>: <span class="stringliteral">&quot;Stainless Steel Mixer&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;categories&quot;</span>:   [<span class="stringliteral">&quot;Home &amp; Kitchen&quot;</span>],</div><div class="line">    <span class="stringliteral">&quot;price&quot;</span>: 39,</div><div class="line">    <span class="stringliteral">&quot;url&quot;</span>: <span class="stringliteral">&quot;myshop.com/mixer-42&quot;</span></div><div class="line">  }</div><div class="line">]</div></div><!-- fragment --> </p>
 
 </div>
 </div>

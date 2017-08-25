@@ -12,6 +12,7 @@ namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>User based recommendation</summary>
     /// <remarks>Based on user's past interactions (purchases, ratings, etc.) with the items, recommends top-N items that are most likely to be of high value for a given user.
+    /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
     public class UserBasedRecommendation : Request
     {
@@ -127,11 +128,18 @@ namespace Recombee.ApiClient.ApiRequests
             get {return rotationRate;}
         }
         private readonly double? rotationTime;
-        /// <summary>**Expert option** Taking *rotationRate* into account, specifies how long time it takes to an item to fully recover from the penalization. For example, `rotationTime=7200.0` means that items recommended more than 2 hours ago are definitely not penalized anymore. Currently, the penalization is linear, so for `rotationTime=7200.0`, an item is still penalized by `0.5` to the user after 1 hour.
+        /// <summary>**Expert option** Taking *rotationRate* into account, specifies how long time it takes to an item to recover from the penalization. For example, `rotationTime=7200.0` means that items recommended less than 2 hours ago are penalized.
         /// </summary>
         public double? RotationTime
         {
             get {return rotationTime;}
+        }
+        private readonly Dictionary<string, object> expertSettings;
+        /// <summary>Dictionary of custom options.
+        /// </summary>
+        public Dictionary<string, object> ExpertSettings
+        {
+            get {return expertSettings;}
         }
     
         /// <summary>Construct the request</summary>
@@ -186,9 +194,11 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="rotationRate">**Expert option** If your users browse the system in real-time, it may easily happen that you wish to offer them recommendations multiple times. Here comes the question: how much should the recommendations change? Should they remain the same, or should they rotate? Recombee API allows you to control this per-request in backward fashion. You may penalize an item for being recommended in the near past. For the specific user, `rotationRate=1` means maximal rotation, `rotationRate=0` means absolutely no rotation. You may also use, for example `rotationRate=0.2` for only slight rotation of recommended items.
         /// </param>
-        /// <param name="rotationTime">**Expert option** Taking *rotationRate* into account, specifies how long time it takes to an item to fully recover from the penalization. For example, `rotationTime=7200.0` means that items recommended more than 2 hours ago are definitely not penalized anymore. Currently, the penalization is linear, so for `rotationTime=7200.0`, an item is still penalized by `0.5` to the user after 1 hour.
+        /// <param name="rotationTime">**Expert option** Taking *rotationRate* into account, specifies how long time it takes to an item to recover from the penalization. For example, `rotationTime=7200.0` means that items recommended less than 2 hours ago are penalized.
         /// </param>
-        public UserBasedRecommendation (string userId, long count, string filter = null, string booster = null, bool? allowNonexistent = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null): base(HttpMethod.Get, 3000)
+        /// <param name="expertSettings">Dictionary of custom options.
+        /// </param>
+        public UserBasedRecommendation (string userId, long count, string filter = null, string booster = null, bool? allowNonexistent = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.count = count;
@@ -203,6 +213,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.minRelevance = minRelevance;
             this.rotationRate = rotationRate;
             this.rotationTime = rotationTime;
+            this.expertSettings = expertSettings;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -214,6 +225,17 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Get query parameters</summary>
         /// <returns>Dictionary containing values of query parameters (name of parameter: value of the parameter)</returns>
         public override Dictionary<string, object> QueryParameters()
+        {
+           var parameters =  new Dictionary<string, object>()
+            {
+        
+            };
+            return parameters;
+        }
+    
+        /// <summary>Get body parameters</summary>
+        /// <returns>Dictionary containing  values of body parameters (name of parameter: value of the parameter)</returns>
+        public override Dictionary<string, object> BodyParameters()
         {
            var parameters =  new Dictionary<string, object>()
             {
@@ -241,17 +263,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["rotationRate"] = RotationRate.Value;
             if (RotationTime.HasValue)
                 parameters["rotationTime"] = RotationTime.Value;
-            return parameters;
-        }
-    
-        /// <summary>Get body parameters</summary>
-        /// <returns>Dictionary containing  values of body parameters (name of parameter: value of the parameter)</returns>
-        public override Dictionary<string, object> BodyParameters()
-        {
-           var parameters =  new Dictionary<string, object>()
-            {
-        
-            };
+            if (ExpertSettings != null)
+                parameters["expertSettings"] = ExpertSettings;
             return parameters;
         }
     

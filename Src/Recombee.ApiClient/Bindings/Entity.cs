@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Base class for the entities</summary>
-    public class Entity: RecombeeBinding
+    public abstract class Entity: RecombeeBinding
     {
         private readonly Dictionary<string, object> values;
         
@@ -14,7 +14,7 @@ namespace Recombee.ApiClient.Bindings
             get
             {
                 if(values == null)
-                    throw new InvalidOperationException("The request was not meant to return values");
+                    throw new InvalidOperationException("The request was not meant to return values (use returnProperties parameter)");
                 return values;
             }
         }

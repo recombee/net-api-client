@@ -25,6 +25,10 @@ namespace Recombee.ApiClient.Tests
             req = new ListUsers();
             resp = client.Send(req);
             Assert.Equal (new User[]{new User("entity_id")},resp);
+            // it 'return properties'
+            req = new ListUsers();
+            resp = client.Send(req);
+            Assert.Equal(1, resp.Count());
         }
     }
 }

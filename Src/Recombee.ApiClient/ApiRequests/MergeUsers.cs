@@ -28,12 +28,6 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return sourceUserId;}
         }
-        private readonly string keepSourceUser;
-        /// <summary>If true, the source user will not be deleted, but also kept in the database.</summary>
-        public string KeepSourceUser
-        {
-            get {return keepSourceUser;}
-        }
         private readonly bool? cascadeCreate;
         /// <summary>Sets whether the user *targetUserId* should be created if not present in the database.</summary>
         public bool? CascadeCreate
@@ -44,13 +38,11 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="targetUserId">ID of the source user.</param>
         /// <param name="sourceUserId">ID of the target user.</param>
-        /// <param name="keepSourceUser">If true, the source user will not be deleted, but also kept in the database.</param>
         /// <param name="cascadeCreate">Sets whether the user *targetUserId* should be created if not present in the database.</param>
-        public MergeUsers (string targetUserId, string sourceUserId, string keepSourceUser = null, bool? cascadeCreate = null): base(HttpMethod.Put, 1000)
+        public MergeUsers (string targetUserId, string sourceUserId, bool? cascadeCreate = null): base(HttpMethod.Put, 10000)
         {
             this.targetUserId = targetUserId;
             this.sourceUserId = sourceUserId;
-            this.keepSourceUser = keepSourceUser;
             this.cascadeCreate = cascadeCreate;
         }
     
@@ -68,8 +60,6 @@ namespace Recombee.ApiClient.ApiRequests
             {
         
             };
-            if (KeepSourceUser != null)
-                parameters["keepSourceUser"] = KeepSourceUser;
             if (CascadeCreate.HasValue)
                 parameters["cascadeCreate"] = CascadeCreate.Value;
             return parameters;

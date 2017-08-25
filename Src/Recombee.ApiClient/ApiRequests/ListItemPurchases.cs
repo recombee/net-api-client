@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item of which the pucrhases are to be listed.
         /// </param>
-        public ListItemPurchases (string itemId): base(HttpMethod.Get, 1000)
+        public ListItemPurchases (string itemId): base(HttpMethod.Get, 100000)
         {
             this.itemId = itemId;
         }

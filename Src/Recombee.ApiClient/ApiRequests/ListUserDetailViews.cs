@@ -23,7 +23,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user whose detail views are to be listed.</param>
-        public ListUserDetailViews (string userId): base(HttpMethod.Get, 1000)
+        public ListUserDetailViews (string userId): base(HttpMethod.Get, 100000)
         {
             this.userId = userId;
         }

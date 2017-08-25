@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item of which the bookmarks are to be listed.
         /// </param>
-        public ListItemBookmarks (string itemId): base(HttpMethod.Get, 1000)
+        public ListItemBookmarks (string itemId): base(HttpMethod.Get, 100000)
         {
             this.itemId = itemId;
         }

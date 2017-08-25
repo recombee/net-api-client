@@ -23,7 +23,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user whose ratings are to be listed.</param>
-        public ListUserRatings (string userId): base(HttpMethod.Get, 1000)
+        public ListUserRatings (string userId): base(HttpMethod.Get, 100000)
         {
             this.userId = userId;
         }

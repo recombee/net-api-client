@@ -35,11 +35,18 @@ namespace Recombee.ApiClient
             this.databaseId = databaseId;
             this.secretTokenBytes = Encoding.ASCII.GetBytes(secretToken);
             this.useHttpsAsDefault = useHttpsAsDefault;
-            this.httpClient = new HttpClient();
+            this.httpClient = createHttpClient();
 
             var envHostUri = Environment.GetEnvironmentVariable("RAPI_URI");
             if(envHostUri != null)
                 this.hostUri = envHostUri; 
+        }
+
+        private HttpClient createHttpClient()
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/1.4.0");
+            return httpClient;
         }
 
         public StringBinding Send(Request request)
@@ -51,6 +58,18 @@ namespace Recombee.ApiClient
         public StringBinding ParseResponse(string json, Request request)
         {
             return new StringBinding(json);
+        }
+
+        public IEnumerable<Item> Send(ListItems request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
+
+        public IEnumerable<User> Send(ListUsers request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
         }
 
         public IEnumerable<Recommendation> Send(UserBasedRecommendation request)
@@ -87,6 +106,36 @@ namespace Recombee.ApiClient
                 //might have failed because it returned also the item properties
                 var valsArray = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(json);
                 return valsArray.Select(vals => new Recommendation((string)vals["itemId"], vals));
+            }
+        }
+
+        private IEnumerable<Item> ParseResponse(string json, ListItems request)
+        {
+            try
+            {
+                var strArray = JsonConvert.DeserializeObject<string[]>(json);
+                return strArray.Select(x => new Item(x));
+            }
+            catch(Newtonsoft.Json.JsonReaderException)
+            {
+                //might have failed because it returned also the item properties
+                var valsArray = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(json);
+                return valsArray.Select(vals => new Item((string)vals["itemId"], vals));
+            }
+        }
+
+        private IEnumerable<User> ParseResponse(string json, ListUsers request)
+        {
+            try
+            {
+                var strArray = JsonConvert.DeserializeObject<string[]>(json);
+                return strArray.Select(x => new User(x));
+            }
+            catch(Newtonsoft.Json.JsonReaderException)
+            {
+                //might have failed because it returned also the item properties
+                var valsArray = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(json);
+                return valsArray.Select(vals => new User((string)vals["userId"], vals));
             }
         }
 
@@ -187,7 +236,7 @@ namespace Recombee.ApiClient
             if (httpClient.Timeout != request.Timeout)
             {
                 if (httpClient.Timeout != null)
-                    httpClient = new HttpClient();
+                    httpClient = createHttpClient();
                 httpClient.Timeout = request.Timeout;
             }
             

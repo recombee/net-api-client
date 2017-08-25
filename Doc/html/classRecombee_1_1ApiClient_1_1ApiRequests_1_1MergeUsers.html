@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.MergeUsers:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af3736317c27ee5f704f4f555f93afb01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#af3736317c27ee5f704f4f555f93afb01">MergeUsers</a> (string targetUserId, string sourceUserId, string keepSourceUser=null, bool?cascadeCreate=null)</td></tr>
-<tr class="memdesc:af3736317c27ee5f704f4f555f93afb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#af3736317c27ee5f704f4f555f93afb01">More...</a><br /></td></tr>
-<tr class="separator:af3736317c27ee5f704f4f555f93afb01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059a69f996fd7eceb8dcc0541debe34f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#a059a69f996fd7eceb8dcc0541debe34f">MergeUsers</a> (string targetUserId, string sourceUserId, bool?cascadeCreate=null)</td></tr>
+<tr class="memdesc:a059a69f996fd7eceb8dcc0541debe34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a059a69f996fd7eceb8dcc0541debe34f">More...</a><br /></td></tr>
+<tr class="separator:a059a69f996fd7eceb8dcc0541debe34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd1fe85eca50a462136c7ad0c836a44"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#afcd1fe85eca50a462136c7ad0c836a44">Path</a> ()</td></tr>
 <tr class="memdesc:afcd1fe85eca50a462136c7ad0c836a44"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#afcd1fe85eca50a462136c7ad0c836a44">More...</a><br /></td></tr>
@@ -104,9 +104,6 @@ Properties</h2></td></tr>
 <tr class="memitem:a410ed11eb378baf7dfdf28cc6f04752e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#a410ed11eb378baf7dfdf28cc6f04752e">SourceUserId</a><code> [get]</code></td></tr>
 <tr class="memdesc:a410ed11eb378baf7dfdf28cc6f04752e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of the target user. <a href="#a410ed11eb378baf7dfdf28cc6f04752e">More...</a><br /></td></tr>
 <tr class="separator:a410ed11eb378baf7dfdf28cc6f04752e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90e62654728a6a93d704f7a12b066fb8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#a90e62654728a6a93d704f7a12b066fb8">KeepSourceUser</a><code> [get]</code></td></tr>
-<tr class="memdesc:a90e62654728a6a93d704f7a12b066fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, the source user will not be deleted, but also kept in the database. <a href="#a90e62654728a6a93d704f7a12b066fb8">More...</a><br /></td></tr>
-<tr class="separator:a90e62654728a6a93d704f7a12b066fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c06d3683143f7ca7e97373559ed1b58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html#a9c06d3683143f7ca7e97373559ed1b58">CascadeCreate</a><code> [get]</code></td></tr>
 <tr class="memdesc:a9c06d3683143f7ca7e97373559ed1b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the user <em>targetUserId</em> should be created if not present in the database. <a href="#a9c06d3683143f7ca7e97373559ed1b58">More...</a><br /></td></tr>
 <tr class="separator:a9c06d3683143f7ca7e97373559ed1b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +130,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Merge users</p>
 <p>Merges purchases, ratings, bookmarks, and detail views of two different users under a single user ID. This is especially useful for online e-commerce applications working with anonymous users identified by unique tokens such as the session ID. In such applications, it may often happen that a user owns a persistent account, yet accesses the system anonymously while, e.g., putting items into a shopping cart. At some point in time, such as when the user wishes to confirm the purchase, (s)he logs into the system using his/her username and password. The interactions made under anonymous session ID then become connected with the persistent account, and merging these two together becomes desirable. Merging happens between two users referred to as the <em>target</em> and the <em>source</em>. After the merge, all the interactions of the source user are attributed to the target user, and the source user is <b>deleted</b> unless special parameter <code>keepSourceUser</code> is set <code>true</code>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af3736317c27ee5f704f4f555f93afb01"></a>
+<a class="anchor" id="a059a69f996fd7eceb8dcc0541debe34f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -151,12 +148,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>sourceUserId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>keepSourceUser</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -182,7 +173,6 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">targetUserId</td><td>ID of the source user.</td></tr>
     <tr><td class="paramname">sourceUserId</td><td>ID of the target user.</td></tr>
-    <tr><td class="paramname">keepSourceUser</td><td>If true, the source user will not be deleted, but also kept in the database.</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the user <em>targetUserId</em> should be created if not present in the database.</td></tr>
   </table>
   </dd>
@@ -295,28 +285,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets whether the user <em>targetUserId</em> should be created if not present in the database.</p>
-
-</div>
-</div>
-<a class="anchor" id="a90e62654728a6a93d704f7a12b066fb8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string Recombee.ApiClient.ApiRequests.MergeUsers.KeepSourceUser</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>If true, the source user will not be deleted, but also kept in the database.</p>
 
 </div>
 </div>
