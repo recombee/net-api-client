@@ -15,7 +15,8 @@ namespace Recombee.ApiClient.Tests
                     new AddPurchase("user", "item", timestamp: UnixTimeStampToDateTime(0)),
                     new AddRating("user", "item", 1, timestamp: UnixTimeStampToDateTime(0)),
                     new AddCartAddition("user", "item", timestamp: UnixTimeStampToDateTime(0)),
-                    new AddBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0))
+                    new AddBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0)),
+                    new SetViewPortion("user", "item", 1, timestamp: UnixTimeStampToDateTime(0))
                 });
 
                 client.Send(requests);

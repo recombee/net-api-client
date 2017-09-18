@@ -335,6 +335,42 @@ namespace Recombee.ApiClient
             var json = SendRequest(request);
             return ParseResponse(json, request);
         }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected IEnumerable<ViewPortion> ParseResponse(string json, ListItemViewPortions request)
+        {
+            return JsonConvert.DeserializeObject<ViewPortion[]>(json);
+        }
+        
+        /// <summary>Send the ListItemViewPortions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public IEnumerable<ViewPortion> Send(ListItemViewPortions request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected IEnumerable<ViewPortion> ParseResponse(string json, ListUserViewPortions request)
+        {
+            return JsonConvert.DeserializeObject<ViewPortion[]>(json);
+        }
+        
+        /// <summary>Send the ListUserViewPortions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public IEnumerable<ViewPortion> Send(ListUserViewPortions request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);
@@ -382,6 +418,10 @@ namespace Recombee.ApiClient
             if (request is ListItemBookmarks) return ParseResponse(json, (ListItemBookmarks) request); 
             
             if (request is ListUserBookmarks) return ParseResponse(json, (ListUserBookmarks) request); 
+            
+            if (request is ListItemViewPortions) return ParseResponse(json, (ListItemViewPortions) request); 
+            
+            if (request is ListUserViewPortions) return ParseResponse(json, (ListUserViewPortions) request); 
             
             if (request is UserBasedRecommendation) return ParseResponse(json, (UserBasedRecommendation) request); 
             
