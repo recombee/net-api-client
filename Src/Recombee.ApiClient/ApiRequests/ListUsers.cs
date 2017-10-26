@@ -111,7 +111,7 @@ namespace Recombee.ApiClient.ApiRequests
         ///   ]
         /// ```
         /// </param>
-        public ListUsers (string filter = null, long? count = null, long? offset = null, bool? returnProperties = null, string[] includedProperties = null): base(HttpMethod.Get, 239000)
+        public ListUsers (string filter = null, long? count = null, long? offset = null, bool? returnProperties = null, string[] includedProperties = null): base(HttpMethod.Get, 100000)
         {
             this.filter = filter;
             this.count = count;

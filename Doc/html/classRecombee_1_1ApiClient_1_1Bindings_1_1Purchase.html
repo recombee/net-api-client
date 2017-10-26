@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.Purchase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aad3bd2ae1806e2e5b0e577256d122ab6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#aad3bd2ae1806e2e5b0e577256d122ab6">Purchase</a> (string userId, string itemId, DateTime?timestamp=null)</td></tr>
-<tr class="separator:aad3bd2ae1806e2e5b0e577256d122ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac12a69cecfc0574575a716b8c9597d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6ac12a69cecfc0574575a716b8c9597d">Purchase</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, double?profit=null)</td></tr>
+<tr class="separator:a6ac12a69cecfc0574575a716b8c9597d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6804571f76b8b4ef9c8543c5c4fad0bf">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a6804571f76b8b4ef9c8543c5c4fad0bf">More...</a><br /></td></tr>
 <tr class="separator:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,11 +98,20 @@ Properties</h2></td></tr>
 <tr class="memitem:af7ea1ab08f5c74e6e48c3a25fd96e68a"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#af7ea1ab08f5c74e6e48c3a25fd96e68a">Timestamp</a><code> [get]</code></td></tr>
 <tr class="memdesc:af7ea1ab08f5c74e6e48c3a25fd96e68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC timestamp of the purchase as ISO8601-1 pattern or UTC epoch time. The default value is the current time. <a href="#af7ea1ab08f5c74e6e48c3a25fd96e68a">More...</a><br /></td></tr>
 <tr class="separator:af7ea1ab08f5c74e6e48c3a25fd96e68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05002bcde2cecd641e13eafb7a4c84c6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a05002bcde2cecd641e13eafb7a4c84c6">Amount</a><code> [get]</code></td></tr>
+<tr class="memdesc:a05002bcde2cecd641e13eafb7a4c84c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount (number) of purchased items. The default is 1. For example if <code>user-x</code> purchases two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2. <a href="#a05002bcde2cecd641e13eafb7a4c84c6">More...</a><br /></td></tr>
+<tr class="separator:a05002bcde2cecd641e13eafb7a4c84c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a628fac8dd886be3a977813528f84e1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a7a628fac8dd886be3a977813528f84e1">Price</a><code> [get]</code></td></tr>
+<tr class="memdesc:a7a628fac8dd886be3a977813528f84e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Price paid by the user for the item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given. <a href="#a7a628fac8dd886be3a977813528f84e1">More...</a><br /></td></tr>
+<tr class="separator:a7a628fac8dd886be3a977813528f84e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#aaae6a9ef7c081cb42f5857b4a7d604d4">Profit</a><code> [get]</code></td></tr>
+<tr class="memdesc:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your profit from the purchased item. The profit is natural in e-commerce domain (for example if <code>user-x</code> purchases <code>item-y</code> for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If <code>amount</code> is greater than 1, sum of profit of all the items should be given. <a href="#aaae6a9ef7c081cb42f5857b4a7d604d4">More...</a><br /></td></tr>
+<tr class="separator:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html" title="Purchase Binding">Purchase</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aad3bd2ae1806e2e5b0e577256d122ab6"></a>
+<a class="anchor" id="a6ac12a69cecfc0574575a716b8c9597d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -125,7 +134,25 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">DateTime?&#160;</td>
-          <td class="paramname"><em>timestamp</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>timestamp</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>amount</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>price</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>profit</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,6 +230,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a05002bcde2cecd641e13eafb7a4c84c6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.Bindings.Purchase.Amount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount (number) of purchased items. The default is 1. For example if <code>user-x</code> purchases two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4d9ce0604eec54c8b4d0fba000ac0a47"></a>
 <div class="memitem">
 <div class="memproto">
@@ -222,6 +271,50 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Purchased item</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a628fac8dd886be3a977813528f84e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.Bindings.Purchase.Price</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Price paid by the user for the item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaae6a9ef7c081cb42f5857b4a7d604d4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.Bindings.Purchase.Profit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Your profit from the purchased item. The profit is natural in e-commerce domain (for example if <code>user-x</code> purchases <code>item-y</code> for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If <code>amount</code> is greater than 1, sum of profit of all the items should be given.</p>
 
 </div>
 </div>

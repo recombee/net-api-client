@@ -29,6 +29,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return itemId;}
         }
+        private readonly double portion;
+        /// <summary>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</summary>
+        public double Portion
+        {
+            get {return portion;}
+        }
         private readonly string sessionId;
         /// <summary>Id of session in which the user viewed the item</summary>
         public string SessionId
@@ -41,12 +47,6 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return timestamp;}
         }
-        private readonly double portion;
-        /// <summary>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</summary>
-        public double Portion
-        {
-            get {return portion;}
-        }
         private readonly bool? cascadeCreate;
         /// <summary>Sets whether the given user/item should be created if not present in the database.</summary>
         public bool? CascadeCreate
@@ -57,17 +57,17 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who viewed a portion of the item</param>
         /// <param name="itemId">Viewed item</param>
+        /// <param name="portion">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</param>
         /// <param name="sessionId">Id of session in which the user viewed the item</param>
         /// <param name="timestamp">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
-        /// <param name="portion">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         public SetViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, bool? cascadeCreate = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
+            this.portion = portion;
             this.sessionId = sessionId;
             this.timestamp = timestamp;
-            this.portion = portion;
             this.cascadeCreate = cascadeCreate;
         }
     

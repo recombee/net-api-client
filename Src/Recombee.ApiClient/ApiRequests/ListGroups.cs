@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.ApiRequests
     {
     
         /// <summary>Construct the request</summary>
-        public ListGroups (): base(HttpMethod.Get, 239000)
+        public ListGroups (): base(HttpMethod.Get, 100000)
         {
         }
     

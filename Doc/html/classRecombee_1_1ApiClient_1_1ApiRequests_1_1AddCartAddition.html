@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.AddCartAddition:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a438e5c9556961db011d271a8c033fbd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#a438e5c9556961db011d271a8c033fbd4">AddCartAddition</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null)</td></tr>
-<tr class="memdesc:a438e5c9556961db011d271a8c033fbd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a438e5c9556961db011d271a8c033fbd4">More...</a><br /></td></tr>
-<tr class="separator:a438e5c9556961db011d271a8c033fbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc82c2007a6b873b8fd9cdc808a3fea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#acfc82c2007a6b873b8fd9cdc808a3fea">AddCartAddition</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null, double?amount=null, double?price=null)</td></tr>
+<tr class="memdesc:acfc82c2007a6b873b8fd9cdc808a3fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#acfc82c2007a6b873b8fd9cdc808a3fea">More...</a><br /></td></tr>
+<tr class="separator:acfc82c2007a6b873b8fd9cdc808a3fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ce0e6f747f093ad4d71db7216e11165"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#a8ce0e6f747f093ad4d71db7216e11165">Path</a> ()</td></tr>
 <tr class="memdesc:a8ce0e6f747f093ad4d71db7216e11165"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#a8ce0e6f747f093ad4d71db7216e11165">More...</a><br /></td></tr>
@@ -110,6 +110,12 @@ Properties</h2></td></tr>
 <tr class="memitem:a2932ec31f2c4a219141f70b4b80390d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#a2932ec31f2c4a219141f70b4b80390d7">CascadeCreate</a><code> [get]</code></td></tr>
 <tr class="memdesc:a2932ec31f2c4a219141f70b4b80390d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the given user/item should be created if not present in the database. <a href="#a2932ec31f2c4a219141f70b4b80390d7">More...</a><br /></td></tr>
 <tr class="separator:a2932ec31f2c4a219141f70b4b80390d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a68fbb1933fd515c766f1b844e7f899"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#a0a68fbb1933fd515c766f1b844e7f899">Amount</a><code> [get]</code></td></tr>
+<tr class="memdesc:a0a68fbb1933fd515c766f1b844e7f899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount (number) added to cart. The default is 1. For example if <code>user-x</code> adds two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2. <a href="#a0a68fbb1933fd515c766f1b844e7f899">More...</a><br /></td></tr>
+<tr class="separator:a0a68fbb1933fd515c766f1b844e7f899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff12fcff09b6dab20d3465e817623e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html#a7ff12fcff09b6dab20d3465e817623e6">Price</a><code> [get]</code></td></tr>
+<tr class="memdesc:a7ff12fcff09b6dab20d3465e817623e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given. <a href="#a7ff12fcff09b6dab20d3465e817623e6">More...</a><br /></td></tr>
+<tr class="separator:a7ff12fcff09b6dab20d3465e817623e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -133,7 +139,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Add cart addition</p>
 <p>Adds a cart addition of a given item made by a given user. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a438e5c9556961db011d271a8c033fbd4"></a>
+<a class="anchor" id="acfc82c2007a6b873b8fd9cdc808a3fea"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -162,7 +168,19 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool?&#160;</td>
-          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>amount</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>price</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,6 +202,8 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">itemId</td><td>Item added to the cart</td></tr>
     <tr><td class="paramname">timestamp</td><td>UTC timestamp of the cart addition as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the given user/item should be created if not present in the database.</td></tr>
+    <tr><td class="paramname">amount</td><td>Amount (number) added to cart. The default is 1. For example if <code>user-x</code> adds two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2.</td></tr>
+    <tr><td class="paramname">price</td><td>Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</td></tr>
   </table>
   </dd>
 </dl>
@@ -276,6 +296,28 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a0a68fbb1933fd515c766f1b844e7f899"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.ApiRequests.AddCartAddition.Amount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount (number) added to cart. The default is 1. For example if <code>user-x</code> adds two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2.</p>
+
+</div>
+</div>
 <a class="anchor" id="a2932ec31f2c4a219141f70b4b80390d7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -317,6 +359,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Item added to the cart</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ff12fcff09b6dab20d3465e817623e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.ApiRequests.AddCartAddition.Price</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</p>
 
 </div>
 </div>

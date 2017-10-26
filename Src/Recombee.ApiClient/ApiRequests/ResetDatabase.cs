@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.ApiRequests
     {
     
         /// <summary>Construct the request</summary>
-        public ResetDatabase (): base(HttpMethod.Delete, 239000)
+        public ResetDatabase (): base(HttpMethod.Delete, 100000)
         {
         }
     

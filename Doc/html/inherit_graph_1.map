@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html" title="Base class for all the requests" alt="" coords="5,1868,231,1909"/>
+<area shape="rect" id="node1" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html" title="Base class for all the requests" alt="" coords="5,1999,231,2040"/>
 <area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html" title="Add bookmark" alt="" coords="279,5,504,47"/>
 <area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html" title="Add cart addition" alt="" coords="279,71,504,112"/>
 <area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html" title="Add detail view" alt="" coords="279,136,504,177"/>
@@ -52,12 +52,16 @@
 <area shape="rect" id="node51" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUsers.html" title="List users" alt="" coords="279,3207,504,3248"/>
 <area shape="rect" id="node52" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserViewPortions.html" title="List user view portions" alt="" coords="279,3272,504,3313"/>
 <area shape="rect" id="node53" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html" title="Merge users" alt="" coords="279,3337,504,3379"/>
-<area shape="rect" id="node54" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromGroup.html" title="Remove from group" alt="" coords="279,3403,504,3444"/>
-<area shape="rect" id="node55" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromSeries.html" title="Remove from series" alt="" coords="279,3468,504,3509"/>
-<area shape="rect" id="node56" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ResetDatabase.html" title="Reset database" alt="" coords="279,3533,504,3575"/>
-<area shape="rect" id="node57" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetValues.html" title="Set/update (some) property values of an entity" alt="" coords="279,3599,504,3640"/>
-<area shape="rect" id="node60" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html" title="Set view portion" alt="" coords="279,3664,504,3705"/>
-<area shape="rect" id="node61" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1UserBasedRecommendation.html" title="User based recommendation" alt="" coords="279,3729,504,3771"/>
-<area shape="rect" id="node58" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetItemValues.html" title="Set/update (some) property values of a given item" alt="" coords="552,3567,777,3608"/>
-<area shape="rect" id="node59" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetUserValues.html" title="Set/update (some) property values of a given user" alt="" coords="552,3632,777,3673"/>
+<area shape="rect" id="node54" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToItem.html" title="Recommend items to item" alt="" coords="279,3403,504,3444"/>
+<area shape="rect" id="node55" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToUser.html" title="Recommend items to user" alt="" coords="279,3468,504,3509"/>
+<area shape="rect" id="node56" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToItem.html" title="Recommend users to item" alt="" coords="279,3533,504,3575"/>
+<area shape="rect" id="node57" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToUser.html" title="Recommend users to user" alt="" coords="279,3599,504,3640"/>
+<area shape="rect" id="node58" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromGroup.html" title="Remove from group" alt="" coords="279,3664,504,3705"/>
+<area shape="rect" id="node59" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromSeries.html" title="Remove from series" alt="" coords="279,3729,504,3771"/>
+<area shape="rect" id="node60" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ResetDatabase.html" title="Reset database" alt="" coords="279,3795,504,3836"/>
+<area shape="rect" id="node61" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetValues.html" title="Set/update (some) property values of an entity" alt="" coords="279,3860,504,3901"/>
+<area shape="rect" id="node64" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html" title="Set view portion" alt="" coords="279,3925,504,3967"/>
+<area shape="rect" id="node65" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1UserBasedRecommendation.html" title="User based recommendation" alt="" coords="279,3991,504,4032"/>
+<area shape="rect" id="node62" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetItemValues.html" title="Set/update (some) property values of a given item" alt="" coords="552,3828,777,3869"/>
+<area shape="rect" id="node63" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetUserValues.html" title="Set/update (some) property values of a given user" alt="" coords="552,3893,777,3935"/>
 </map>

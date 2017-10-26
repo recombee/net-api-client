@@ -371,6 +371,78 @@ namespace Recombee.ApiClient
             var json = SendRequest(request);
             return ParseResponse(json, request);
         }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemsToUser request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Send the RecommendItemsToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemsToUser request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendUsersToUser request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Send the RecommendUsersToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendUsersToUser request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemsToItem request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Send the RecommendItemsToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemsToItem request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendUsersToItem request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Send the RecommendUsersToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendUsersToItem request)
+        {
+            var json = SendRequest(request);
+            return ParseResponse(json, request);
+        }
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);
@@ -422,6 +494,14 @@ namespace Recombee.ApiClient
             if (request is ListItemViewPortions) return ParseResponse(json, (ListItemViewPortions) request); 
             
             if (request is ListUserViewPortions) return ParseResponse(json, (ListUserViewPortions) request); 
+            
+            if (request is RecommendItemsToUser) return ParseResponse(json, (RecommendItemsToUser) request); 
+            
+            if (request is RecommendUsersToUser) return ParseResponse(json, (RecommendUsersToUser) request); 
+            
+            if (request is RecommendItemsToItem) return ParseResponse(json, (RecommendItemsToItem) request); 
+            
+            if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
             
             if (request is UserBasedRecommendation) return ParseResponse(json, (UserBasedRecommendation) request); 
             

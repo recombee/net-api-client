@@ -32,12 +32,26 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return timestamp;}
         }
+        private readonly double? amount;
+        /// <summary>Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        public double? Amount
+        {
+            get {return amount;}
+        }
+        private readonly double? price;
+        /// <summary>Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        public double? Price
+        {
+            get {return price;}
+        }
     
-        public CartAddition (string userId, string itemId, DateTime? timestamp = null)
+        public CartAddition (string userId, string itemId, DateTime? timestamp = null, double? amount = null, double? price = null)
         {
             this.userId = userId;
             this.itemId = itemId;
             this.timestamp = timestamp;
+            this.amount = amount;
+            this.price = price;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -55,6 +69,8 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.UserId)
                 .With(m => m.ItemId)
                 .With(m => m.Timestamp)
+                .With(m => m.Amount)
+                .With(m => m.Price)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -65,6 +81,8 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.UserId)
                 .With(m => m.ItemId)
                 .With(m => m.Timestamp)
+                .With(m => m.Amount)
+                .With(m => m.Price)
                 .HashCode;
         }
     }

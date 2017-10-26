@@ -24,6 +24,12 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return itemId;}
         }
+        private readonly double portion;
+        /// <summary>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</summary>
+        public double Portion
+        {
+            get {return portion;}
+        }
         private readonly string sessionId;
         /// <summary>Id of session in which the user viewed the item</summary>
         public string SessionId
@@ -38,20 +44,14 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return timestamp;}
         }
-        private readonly double portion;
-        /// <summary>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</summary>
-        public double Portion
-        {
-            get {return portion;}
-        }
     
         public ViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null)
         {
             this.userId = userId;
             this.itemId = itemId;
+            this.portion = portion;
             this.sessionId = sessionId;
             this.timestamp = timestamp;
-            this.portion = portion;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -68,9 +68,9 @@ namespace Recombee.ApiClient.Bindings
              return new EqualsBuilder<ViewPortion>(this, that)
                 .With(m => m.UserId)
                 .With(m => m.ItemId)
+                .With(m => m.Portion)
                 .With(m => m.SessionId)
                 .With(m => m.Timestamp)
-                .With(m => m.Portion)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -80,9 +80,9 @@ namespace Recombee.ApiClient.Bindings
              return new HashCodeBuilder<ViewPortion>(this)
                 .With(m => m.UserId)
                 .With(m => m.ItemId)
+                .With(m => m.Portion)
                 .With(m => m.SessionId)
                 .With(m => m.Timestamp)
-                .With(m => m.Portion)
                 .HashCode;
         }
     }

@@ -23,7 +23,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="groupId">ID of the group items of which are to be listed.</param>
-        public ListGroupItems (string groupId): base(HttpMethod.Get, 1000)
+        public ListGroupItems (string groupId): base(HttpMethod.Get, 100000)
         {
             this.groupId = groupId;
         }

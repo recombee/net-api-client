@@ -24,7 +24,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="propertyName">Name of the property about which the information is to be retrieved.</param>
-        public GetUserPropertyInfo (string propertyName): base(HttpMethod.Get, 1000)
+        public GetUserPropertyInfo (string propertyName): base(HttpMethod.Get, 100000)
         {
             this.propertyName = propertyName;
         }

@@ -24,7 +24,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="propertyName">Name of the property to be deleted.</param>
-        public DeleteUserProperty (string propertyName): base(HttpMethod.Delete, 1000)
+        public DeleteUserProperty (string propertyName): base(HttpMethod.Delete, 100000)
         {
             this.propertyName = propertyName;
         }

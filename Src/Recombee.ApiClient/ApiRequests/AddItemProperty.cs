@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="type">Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`
         /// </param>
-        public AddItemProperty (string propertyName, string type): base(HttpMethod.Put, 1000)
+        public AddItemProperty (string propertyName, string type): base(HttpMethod.Put, 100000)
         {
             this.propertyName = propertyName;
             this.type = type;

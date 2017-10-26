@@ -23,7 +23,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="seriesId">ID of the series items of which are to be listed.</param>
-        public ListSeriesItems (string seriesId): base(HttpMethod.Get, 1000)
+        public ListSeriesItems (string seriesId): base(HttpMethod.Get, 100000)
         {
             this.seriesId = seriesId;
         }

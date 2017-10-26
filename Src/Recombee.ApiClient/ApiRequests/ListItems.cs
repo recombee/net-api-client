@@ -123,7 +123,7 @@ namespace Recombee.ApiClient.ApiRequests
         ///   ]
         /// ```
         /// </param>
-        public ListItems (string filter = null, long? count = null, long? offset = null, bool? returnProperties = null, string[] includedProperties = null): base(HttpMethod.Get, 600000)
+        public ListItems (string filter = null, long? count = null, long? offset = null, bool? returnProperties = null, string[] includedProperties = null): base(HttpMethod.Get, 100000)
         {
             this.filter = filter;
             this.count = count;

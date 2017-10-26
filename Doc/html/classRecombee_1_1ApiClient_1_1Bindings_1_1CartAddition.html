@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.CartAddition:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0222b46d723ef3c77786358a7133f78d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a0222b46d723ef3c77786358a7133f78d">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null)</td></tr>
-<tr class="separator:a0222b46d723ef3c77786358a7133f78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada74c7450d0997368cebbd479e93c403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#ada74c7450d0997368cebbd479e93c403">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null)</td></tr>
+<tr class="separator:ada74c7450d0997368cebbd479e93c403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bff32eeeab0f5516aae8974873b55e"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a86bff32eeeab0f5516aae8974873b55e">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a86bff32eeeab0f5516aae8974873b55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a86bff32eeeab0f5516aae8974873b55e">More...</a><br /></td></tr>
 <tr class="separator:a86bff32eeeab0f5516aae8974873b55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,11 +98,17 @@ Properties</h2></td></tr>
 <tr class="memitem:aaf70b1c67c36e5a3c74a394438bb3508"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#aaf70b1c67c36e5a3c74a394438bb3508">Timestamp</a><code> [get]</code></td></tr>
 <tr class="memdesc:aaf70b1c67c36e5a3c74a394438bb3508"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC timestamp of the cart addition as ISO8601-1 pattern or UTC epoch time. The default value is the current time. <a href="#aaf70b1c67c36e5a3c74a394438bb3508">More...</a><br /></td></tr>
 <tr class="separator:aaf70b1c67c36e5a3c74a394438bb3508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4eb6c350a5e34e8b1ee2061fd2dcc22"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#aa4eb6c350a5e34e8b1ee2061fd2dcc22">Amount</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa4eb6c350a5e34e8b1ee2061fd2dcc22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount (number) added to cart. The default is 1. For example if <code>user-x</code> adds two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2. <a href="#aa4eb6c350a5e34e8b1ee2061fd2dcc22">More...</a><br /></td></tr>
+<tr class="separator:aa4eb6c350a5e34e8b1ee2061fd2dcc22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359299ea35cc165f025c5e9430e8f262"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a359299ea35cc165f025c5e9430e8f262">Price</a><code> [get]</code></td></tr>
+<tr class="memdesc:a359299ea35cc165f025c5e9430e8f262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given. <a href="#a359299ea35cc165f025c5e9430e8f262">More...</a><br /></td></tr>
+<tr class="separator:a359299ea35cc165f025c5e9430e8f262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html" title="CartAddition Binding">CartAddition</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0222b46d723ef3c77786358a7133f78d"></a>
+<a class="anchor" id="ada74c7450d0997368cebbd479e93c403"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -125,7 +131,19 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">DateTime?&#160;</td>
-          <td class="paramname"><em>timestamp</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>timestamp</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>amount</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double?&#160;</td>
+          <td class="paramname"><em>price</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,6 +221,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="aa4eb6c350a5e34e8b1ee2061fd2dcc22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.Bindings.CartAddition.Amount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount (number) added to cart. The default is 1. For example if <code>user-x</code> adds two <code>item-y</code> during a single order (session...), the <code>amount</code> should equal to 2.</p>
+
+</div>
+</div>
 <a class="anchor" id="afcea38c369b66d705396b29c0d55bb37"></a>
 <div class="memitem">
 <div class="memproto">
@@ -222,6 +262,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Item.html" title="Item Binding">Item</a> added to the cart</p>
+
+</div>
+</div>
+<a class="anchor" id="a359299ea35cc165f025c5e9430e8f262"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Recombee.ApiClient.Bindings.CartAddition.Price</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</p>
 
 </div>
 </div>
