@@ -11,9 +11,11 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Item based recommendation</summary>
+    /// <deprecated>Deprecated since version 2.0.0. Use RecommendItemsToItem request instead.</deprecated>
     /// <remarks>Recommends set of items that are somehow related to one given item, *X*. Typical scenario for using item-based recommendation is when user *A* is viewing *X*. Then you may display items to the user that he might be also interested in. Item-recommendation request gives you Top-N such items, optionally taking the target user *A* into account.
     ///  It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
+    [Obsolete("Deprecated since version 2.0.0. Use RecommendItemsToItem request instead.", false)]
     public class ItemBasedRecommendation : Request
     {
         private readonly string itemId;

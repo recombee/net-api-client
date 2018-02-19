@@ -11,9 +11,11 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>User based recommendation</summary>
+    /// <deprecated>Deprecated since version 2.0.0. Use RecommendItemsToUser request instead.</deprecated>
     /// <remarks>Based on user's past interactions (purchases, ratings, etc.) with the items, recommends top-N items that are most likely to be of high value for a given user.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
+    [Obsolete("Deprecated since version 2.0.0. Use RecommendItemsToUser request instead.", false)]
     public class UserBasedRecommendation : Request
     {
         private readonly string userId;

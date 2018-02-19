@@ -11,8 +11,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Recommend users to user</summary>
-    /// <remarks>This feature is currently in beta.
-    /// Get similar users as some given user, based on the user's past interactions (purchases, ratings, etc.) and values of properties.
+    /// <remarks>Get similar users as some given user, based on the user's past interactions (purchases, ratings, etc.) and values of properties.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
     public class RecommendUsersToUser : Request
@@ -58,7 +57,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "32fc671480eb29d843e47def43503992",
+        ///     "recommId": "9cb9c55d-50ba-4478-84fd-ab456136156e",
         ///     "recomms": 
         ///       [
         ///         {
@@ -88,7 +87,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=country`:
         /// ```
         ///   {
-        ///     "recommId": "27d81ade643621f45cc6ba5d30d7d683",
+        ///     "recommId": "b326d82d-5d57-4b45-b362-c9d6f0895855",
         ///     "recomms":
         ///       [
         ///         {
@@ -158,7 +157,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "32fc671480eb29d843e47def43503992",
+        ///     "recommId": "9cb9c55d-50ba-4478-84fd-ab456136156e",
         ///     "recomms": 
         ///       [
         ///         {
@@ -183,7 +182,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=country`:
         /// ```
         ///   {
-        ///     "recommId": "27d81ade643621f45cc6ba5d30d7d683",
+        ///     "recommId": "b326d82d-5d57-4b45-b362-c9d6f0895855",
         ///     "recomms":
         ///       [
         ///         {
@@ -212,7 +211,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public RecommendUsersToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
+        public RecommendUsersToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 50000)
         {
             this.userId = userId;
             this.count = count;

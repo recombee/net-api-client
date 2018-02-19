@@ -21,7 +21,7 @@ namespace Recombee.ApiClient.Tests
             Request[] requests = new Request[] {
                 new DeleteItemProperty("int_property"),
                 new DeleteItemProperty("int_property"),
-                new DeleteItemProperty("...not_valid..."),
+                new DeleteItemProperty("$$$not_valid$$$"),
                 new DeleteItemProperty("not_existing")
             };
 

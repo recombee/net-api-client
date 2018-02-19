@@ -34,7 +34,7 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid entity id'
-            req = new DeleteUser("...not_valid...");
+            req = new DeleteUser("$$$not_valid$$$");
             try
             {
                 client.Send(req);

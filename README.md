@@ -29,12 +29,13 @@ public class BasicExample
 {
     static int Main(string[] args)
     {
-         RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
-         try
-         {
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
+
+        try
+        {
             const int NUM = 100;
             var userIds = Enumerable.Range(0, NUM).Select(i => String.Format("user-{0}", i));
-            var itemIds = Enumerable.Range(0, NUM).Select(i => String.Format("item-{0}", i));            
+            var itemIds = Enumerable.Range(0, NUM).Select(i => String.Format("item-{0}", i));
             // Generate some random purchases of items by users
             const double PROBABILITY_PURCHASED = 0.1;
             Random r = new Random();
@@ -43,27 +44,27 @@ public class BasicExample
             foreach(var userId in userIds) {
                 purchases.AddRange(
                     itemIds.Where(_ => r.NextDouble() < PROBABILITY_PURCHASED)
-                           .Select(itemId => 
+                           .Select(itemId =>
                                     new AddPurchase(userId, itemId, cascadeCreate: true) // Use cascadeCreate parameter to create
-                           )                                                             // the yet non-existing users and items                                                               
+                           )                                                             // the yet non-existing users and items
                 );
             }
 
             Console.WriteLine("Send purchases");
             client.Send(new Batch(purchases)); //Use Batch for faster processing of larger data
-         
+
             // Get 5 recommendations for user 'user-25'
-            IEnumerable<Recommendation> recommended = client.Send(new UserBasedRecommendation("user-25", 5));
+            RecommendationResponse recommendationResponse = client.Send(new RecommendItemsToUser("user-25", 5));
             Console.WriteLine("Recommended items:");
-            foreach(Recommendation rec in recommended) Console.WriteLine(rec.Id);         
-            
-         }
-         catch(ApiException e)
-         {
-             Console.WriteLine(e.ToString());
-             // Use fallback
-         }
-        
+            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
+
+        }
+        catch(ApiException e)
+        {
+         Console.WriteLine(e.ToString());
+         // Use fallback
+        }
+
         return 0;
     }
 }
@@ -84,7 +85,8 @@ public class PropertiesExample
 {
     static int Main(string[] args)
     {
-         RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
+
          
         /*
         We will use computers as items in this example
@@ -142,22 +144,22 @@ public class PropertiesExample
         
 
             // Get 5 recommendations for user-42, who is currently viewing computer-6
-            var recommended = client.Send(new ItemBasedRecommendation("computer-6", 5, targetUserId:"user-42"));
+            var recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5));
             Console.WriteLine("Recommended items:");
-            foreach(Recommendation rec in recommended) Console.WriteLine(rec.Id);
+            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
 
-            // Get 5 recommendations for user-42, but recommend only computers that have at least 3 cores
-            recommended = client.Send(new ItemBasedRecommendation("computer-6", 5, targetUserId:"user-42",
+            // Recommend only computers that have at least 3 cores
+            recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5,
                                             filter: " 'num-cores'>=3 "));
             Console.WriteLine("Recommended items with at least 3 processor cores:");
-            foreach(Recommendation rec in recommended) Console.WriteLine(rec.Id);
+            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
-            // Get 5 recommendations for user-42, but recommend only items that are more expensive then currently viewed item (up-sell)
-            recommended = client.Send(new ItemBasedRecommendation("computer-6", 5, targetUserId:"user-42",
+            // Recommend only items that are more expensive then currently viewed item (up-sell)
+            recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5,
                                             filter: " 'price' > context_item[\"price\"] "));
             Console.WriteLine("Recommended up-sell items:");
-            foreach(Recommendation rec in recommended) Console.WriteLine(rec.Id);
+            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
          }
          catch(ApiException e)
          {

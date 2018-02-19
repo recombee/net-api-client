@@ -21,7 +21,7 @@ namespace Recombee.ApiClient.Tests
             Request[] requests = new Request[] {
                 new DeleteGroup("entity_id"),
                 new DeleteGroup("entity_id"),
-                new DeleteGroup("...not_valid..."),
+                new DeleteGroup("$$$not_valid$$$"),
                 new DeleteGroup("valid_id")
             };
 

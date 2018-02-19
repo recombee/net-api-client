@@ -21,7 +21,7 @@ namespace Recombee.ApiClient.Tests
             Request[] requests = new Request[] {
                 new DeleteSeries("entity_id"),
                 new DeleteSeries("entity_id"),
-                new DeleteSeries("...not_valid..."),
+                new DeleteSeries("$$$not_valid$$$"),
                 new DeleteSeries("valid_id")
             };
 

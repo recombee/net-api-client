@@ -34,7 +34,7 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid property'
-            req = new DeleteUserProperty("...not_valid...");
+            req = new DeleteUserProperty("$$$not_valid$$$");
             try
             {
                 client.Send(req);

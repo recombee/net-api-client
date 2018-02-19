@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.Tests
             req = new AddGroup("valid_id");
             resp = client.Send(req);
             // it 'fails with invalid entity id'
-            req = new AddGroup("...not_valid...");
+            req = new AddGroup("$$$not_valid$$$");
             try
             {
                 client.Send(req);

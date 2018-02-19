@@ -20,7 +20,7 @@ namespace Recombee.ApiClient.Tests
         {
             Request[] requests = new Request[] {
                 new AddSeries("valid_id"),
-                new AddSeries("...not_valid..."),
+                new AddSeries("$$$not_valid$$$"),
                 new AddSeries("valid_id2"),
                 new AddSeries("valid_id2")
             };

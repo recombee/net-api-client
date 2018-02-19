@@ -20,7 +20,7 @@ namespace Recombee.ApiClient.Tests
         {
             Request[] requests = new Request[] {
                 new AddGroup("valid_id"),
-                new AddGroup("...not_valid..."),
+                new AddGroup("$$$not_valid$$$"),
                 new AddGroup("valid_id2"),
                 new AddGroup("valid_id2")
             };

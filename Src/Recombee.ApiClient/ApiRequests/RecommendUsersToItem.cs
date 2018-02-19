@@ -11,8 +11,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Recommend users to item</summary>
-    /// <remarks>This feature is currently in beta.
-    /// Recommend users that are likely to be interested in a given item.
+    /// <remarks>Recommend users that are likely to be interested in a given item.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
     public class RecommendUsersToItem : Request
@@ -58,7 +57,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "9eeebc318508302529e3241f4570834d",
+        ///     "recommId": "039b71dc-b9cc-4645-a84f-62b841eecfce",
         ///     "recomms":
         ///       [
         ///         {
@@ -88,7 +87,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=country`:
         /// ```
         ///   {
-        ///     "recommId": "d4c826635efc3e01a83470008c5697f1",
+        ///     "recommId": "b2b355dd-972a-4728-9c6b-2dc229db0678",
         ///     "recomms":
         ///       [
         ///         {
@@ -137,7 +136,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "9eeebc318508302529e3241f4570834d",
+        ///     "recommId": "039b71dc-b9cc-4645-a84f-62b841eecfce",
         ///     "recomms":
         ///       [
         ///         {
@@ -162,7 +161,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=country`:
         /// ```
         ///   {
-        ///     "recommId": "d4c826635efc3e01a83470008c5697f1",
+        ///     "recommId": "b2b355dd-972a-4728-9c6b-2dc229db0678",
         ///     "recomms":
         ///       [
         ///         {
@@ -185,7 +184,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public RecommendUsersToItem (string itemId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
+        public RecommendUsersToItem (string itemId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 50000)
         {
             this.itemId = itemId;
             this.count = count;

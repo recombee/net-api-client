@@ -11,8 +11,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Recommend items to user</summary>
-    /// <remarks>This feature is currently in beta.
-    /// Based on user's past interactions (purchases, ratings, etc.) with the items, recommends top-N items that are most likely to be of high value for a given user.
+    /// <remarks>Based on user's past interactions (purchases, ratings, etc.) with the items, recommends top-N items that are most likely to be of high value for a given user.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
     /// </remarks>
     public class RecommendItemsToUser : Request
@@ -58,7 +57,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "1644e7b31759a08480da5f3b0a13045b",
+        ///     "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
         ///     "recomms": 
         ///       [
         ///         {
@@ -92,7 +91,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=description,price`:
         /// ```
         ///   {
-        ///     "recommId": "e3ba43af1a4e59dd08a00adced1729a7",
+        ///     "recommId": "a86ee8d5-cd8e-46d1-886c-8b3771d0520b",
         ///     "recomms":
         ///       [
         ///         {
@@ -164,7 +163,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response:
         /// ```
         ///   {
-        ///     "recommId": "1644e7b31759a08480da5f3b0a13045b",
+        ///     "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
         ///     "recomms": 
         ///       [
         ///         {
@@ -193,7 +192,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// Example response for `includedProperties=description,price`:
         /// ```
         ///   {
-        ///     "recommId": "e3ba43af1a4e59dd08a00adced1729a7",
+        ///     "recommId": "a86ee8d5-cd8e-46d1-886c-8b3771d0520b",
         ///     "recomms":
         ///       [
         ///         {
