@@ -23,7 +23,7 @@ namespace Recombee.ApiClient.ApiRequests
             get {return propertyName;}
         }
         private readonly string type;
-        /// <summary>Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`
+        /// <summary>Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`, `image` or `imageList`.
         /// </summary>
         public string Type
         {
@@ -33,7 +33,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="propertyName">Name of the item property to be created. Currently, the following names are reserved:`id`, `itemid`, case insensitively. Also, the length of the property name must not exceed 63 characters.
         /// </param>
-        /// <param name="type">Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`
+        /// <param name="type">Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`, `image` or `imageList`.
         /// </param>
         public AddItemProperty (string propertyName, string type): base(HttpMethod.Put, 100000)
         {

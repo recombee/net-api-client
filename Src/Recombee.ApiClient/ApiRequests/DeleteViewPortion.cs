@@ -11,8 +11,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Delete view portion</summary>
-    /// <remarks>The view portions feature is currently experimental.
-    /// Deletes an existing view portion specified by (`userId`, `itemId`, `sessionId`) from the database.
+    /// <remarks>Deletes an existing view portion specified by (`userId`, `itemId`, `sessionId`) from the database.
     /// </remarks>
     public class DeleteViewPortion : Request
     {

@@ -11,8 +11,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>List item view portions</summary>
-    /// <remarks>The view portions feature is currently experimental.
-    /// List all the view portions of an item ever submitted by different users.
+    /// <remarks>List all the view portions of an item ever submitted by different users.
     /// </remarks>
     public class ListItemViewPortions : Request
     {

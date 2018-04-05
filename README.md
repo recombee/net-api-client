@@ -87,13 +87,13 @@ public class PropertiesExample
     {
         RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
 
-         
         /*
         We will use computers as items in this example
-        Computers have three properties
+        Computers have four properties
             - price (floating point number)
             - number of processor cores (integer number)
             - description (string)
+            - image (url of computer's photo)
         */
 
          try
@@ -102,6 +102,7 @@ public class PropertiesExample
             client.Send(new AddItemProperty("price", "double"));
             client.Send(new AddItemProperty("num-cores", "int"));
             client.Send(new AddItemProperty("description", "string"));
+            client.Send(new AddItemProperty("image", "image"));
 
             // Prepare requests for setting a catalog of computers
             var requests = new List<Request>();
@@ -116,7 +117,8 @@ public class PropertiesExample
                     new Dictionary<string, object>() {
                         {"price", 600.0 + 400*r.NextDouble()},
                         {"num-cores", 1 + r.Next(7)},
-                        {"description", "Great computer"}
+                        {"description", "Great computer"},
+                        {"image", String.Format("http://examplesite.com/products/{0}.jpg", itemId)}
                     },
                     cascadeCreate: true // Use cascadeCreate for creating item
                                         // with given itemId, if it doesn't exist

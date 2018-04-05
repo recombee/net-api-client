@@ -105,10 +105,10 @@ Properties</h2></td></tr>
 <tr class="memdesc:a8505c99603d7fb6c9698b477c9c2850c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed item <a href="#a8505c99603d7fb6c9698b477c9c2850c">More...</a><br /></td></tr>
 <tr class="separator:a8505c99603d7fb6c9698b477c9c2850c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf10933d1f2b162dfb472829efdd2b33"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#adf10933d1f2b162dfb472829efdd2b33">Portion</a><code> [get]</code></td></tr>
-<tr class="memdesc:adf10933d1f2b162dfb472829efdd2b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). <a href="#adf10933d1f2b162dfb472829efdd2b33">More...</a><br /></td></tr>
+<tr class="memdesc:adf10933d1f2b162dfb472829efdd2b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the <code>portion</code> should still be <code>0.1</code>. <a href="#adf10933d1f2b162dfb472829efdd2b33">More...</a><br /></td></tr>
 <tr class="separator:adf10933d1f2b162dfb472829efdd2b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a326bda6c4d73b8e2440d9039d0c98189"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#a326bda6c4d73b8e2440d9039d0c98189">SessionId</a><code> [get]</code></td></tr>
-<tr class="memdesc:a326bda6c4d73b8e2440d9039d0c98189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of session in which the user viewed the item <a href="#a326bda6c4d73b8e2440d9039d0c98189">More...</a><br /></td></tr>
+<tr class="memdesc:a326bda6c4d73b8e2440d9039d0c98189"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of session in which the user viewed the item. Default is <code>null</code> (<code>None</code>, <code>nil</code>, <code>NULL</code> etc. depending on language). <a href="#a326bda6c4d73b8e2440d9039d0c98189">More...</a><br /></td></tr>
 <tr class="separator:a326bda6c4d73b8e2440d9039d0c98189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a077c7298dd06ad1898064d450c21155d"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#a077c7298dd06ad1898064d450c21155d">Timestamp</a><code> [get]</code></td></tr>
 <tr class="memdesc:a077c7298dd06ad1898064d450c21155d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time. <a href="#a077c7298dd06ad1898064d450c21155d">More...</a><br /></td></tr>
@@ -137,7 +137,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Set view portion</p>
-<p>The view portions feature is currently experimental. Sets viewed portion of an item (for example a video or article) by a user (at a session). If you send new request with the same (<code>userId</code>, <code>itemId</code>, <code>sessionId</code>), the portion gets updated. </p>
+<p>Sets viewed portion of an item (for example a video or article) by a user (at a session). If you send new request with the same (<code>userId</code>, <code>itemId</code>, <code>sessionId</code>), the portion gets updated. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af23bcd2622636da84b5d225b6570c8dd"></a>
 <div class="memitem">
@@ -200,8 +200,8 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">userId</td><td>User who viewed a portion of the item</td></tr>
     <tr><td class="paramname">itemId</td><td>Viewed item</td></tr>
-    <tr><td class="paramname">portion</td><td>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</td></tr>
-    <tr><td class="paramname">sessionId</td><td>Id of session in which the user viewed the item</td></tr>
+    <tr><td class="paramname">portion</td><td>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the <code>portion</code> should still be <code>0.1</code>.</td></tr>
+    <tr><td class="paramname">sessionId</td><td>ID of session in which the user viewed the item. Default is <code>null</code> (<code>None</code>, <code>nil</code>, <code>NULL</code> etc. depending on language).</td></tr>
     <tr><td class="paramname">timestamp</td><td>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the given user/item should be created if not present in the database.</td></tr>
   </table>
@@ -358,7 +358,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</p>
+<p>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the <code>portion</code> should still be <code>0.1</code>.</p>
 
 </div>
 </div>
@@ -380,7 +380,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Id of session in which the user viewed the item</p>
+<p>ID of session in which the user viewed the item. Default is <code>null</code> (<code>None</code>, <code>nil</code>, <code>NULL</code> etc. depending on language).</p>
 
 </div>
 </div>

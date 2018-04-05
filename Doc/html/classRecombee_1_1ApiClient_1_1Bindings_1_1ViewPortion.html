@@ -96,10 +96,10 @@ Properties</h2></td></tr>
 <tr class="memdesc:a92daca0f7dcdb27e390a1c35e6c3be79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed item <a href="#a92daca0f7dcdb27e390a1c35e6c3be79">More...</a><br /></td></tr>
 <tr class="separator:a92daca0f7dcdb27e390a1c35e6c3be79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7b4cf54d9329cc29fbf84704bd3dd9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#a5c7b4cf54d9329cc29fbf84704bd3dd9">Portion</a><code> [get]</code></td></tr>
-<tr class="memdesc:a5c7b4cf54d9329cc29fbf84704bd3dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). <a href="#a5c7b4cf54d9329cc29fbf84704bd3dd9">More...</a><br /></td></tr>
+<tr class="memdesc:a5c7b4cf54d9329cc29fbf84704bd3dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the <code>portion</code> should still be <code>0.1</code>. <a href="#a5c7b4cf54d9329cc29fbf84704bd3dd9">More...</a><br /></td></tr>
 <tr class="separator:a5c7b4cf54d9329cc29fbf84704bd3dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb04dd9bb50633be577dde7d97917c67"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#aeb04dd9bb50633be577dde7d97917c67">SessionId</a><code> [get]</code></td></tr>
-<tr class="memdesc:aeb04dd9bb50633be577dde7d97917c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of session in which the user viewed the item <a href="#aeb04dd9bb50633be577dde7d97917c67">More...</a><br /></td></tr>
+<tr class="memdesc:aeb04dd9bb50633be577dde7d97917c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of session in which the user viewed the item. Default is <code>null</code> (<code>None</code>, <code>nil</code>, <code>NULL</code> etc. depending on language). <a href="#aeb04dd9bb50633be577dde7d97917c67">More...</a><br /></td></tr>
 <tr class="separator:aeb04dd9bb50633be577dde7d97917c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44490517559884321c974665c01c5f03"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#a44490517559884321c974665c01c5f03">Timestamp</a><code> [get]</code></td></tr>
 <tr class="memdesc:a44490517559884321c974665c01c5f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time. <a href="#a44490517559884321c974665c01c5f03">More...</a><br /></td></tr>
@@ -261,7 +261,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ).</p>
+<p>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the <code>portion</code> should still be <code>0.1</code>.</p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Id of session in which the user viewed the item</p>
+<p>ID of session in which the user viewed the item. Default is <code>null</code> (<code>None</code>, <code>nil</code>, <code>NULL</code> etc. depending on language).</p>
 
 </div>
 </div>
