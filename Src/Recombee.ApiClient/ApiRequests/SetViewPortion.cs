@@ -52,6 +52,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return cascadeCreate;}
         }
+        private readonly string recommId;
+        /// <summary>If this view portion is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who viewed a portion of the item</param>
@@ -60,7 +66,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="sessionId">ID of session in which the user viewed the item. Default is `null` (`None`, `nil`, `NULL` etc. depending on language).</param>
         /// <param name="timestamp">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
-        public SetViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, bool? cascadeCreate = null): base(HttpMethod.Post, 1000)
+        /// <param name="recommId">If this view portion is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
+        public SetViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -68,6 +75,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.sessionId = sessionId;
             this.timestamp = timestamp;
             this.cascadeCreate = cascadeCreate;
+            this.recommId = recommId;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -103,6 +111,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["timestamp"] = ConvertToUnixTimestamp(Timestamp.Value);
             if (CascadeCreate.HasValue)
                 parameters["cascadeCreate"] = CascadeCreate.Value;
+            if (RecommId != null)
+                parameters["recommId"] = RecommId;
             return parameters;
         }
     

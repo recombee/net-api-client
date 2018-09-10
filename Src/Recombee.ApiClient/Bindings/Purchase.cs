@@ -50,8 +50,14 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return profit;}
         }
+        private readonly string recommId;
+        /// <summary>If this purchase is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
-        public Purchase (string userId, string itemId, DateTime? timestamp = null, double? amount = null, double? price = null, double? profit = null)
+        public Purchase (string userId, string itemId, DateTime? timestamp = null, double? amount = null, double? price = null, double? profit = null, string recommId = null)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -59,6 +65,7 @@ namespace Recombee.ApiClient.Bindings
             this.amount = amount;
             this.price = price;
             this.profit = profit;
+            this.recommId = recommId;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -79,6 +86,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Amount)
                 .With(m => m.Price)
                 .With(m => m.Profit)
+                .With(m => m.RecommId)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -92,6 +100,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Amount)
                 .With(m => m.Price)
                 .With(m => m.Profit)
+                .With(m => m.RecommId)
                 .HashCode;
         }
     }

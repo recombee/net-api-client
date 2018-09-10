@@ -45,6 +45,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return cascadeCreate;}
         }
+        private readonly string recommId;
+        /// <summary>If this detail view is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who viewed the item</param>
@@ -52,13 +58,15 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="timestamp">UTC timestamp of the view as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="duration">Duration of the view</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
-        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null): base(HttpMethod.Post, 1000)
+        /// <param name="recommId">If this detail view is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
+        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null, string recommId = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
             this.timestamp = timestamp;
             this.duration = duration;
             this.cascadeCreate = cascadeCreate;
+            this.recommId = recommId;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -93,6 +101,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["duration"] = Duration.Value;
             if (CascadeCreate.HasValue)
                 parameters["cascadeCreate"] = CascadeCreate.Value;
+            if (RecommId != null)
+                parameters["recommId"] = RecommId;
             return parameters;
         }
     

@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.CartAddition:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada74c7450d0997368cebbd479e93c403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#ada74c7450d0997368cebbd479e93c403">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null)</td></tr>
-<tr class="separator:ada74c7450d0997368cebbd479e93c403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad98888166a8a5ff235a844c51415e42b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#ad98888166a8a5ff235a844c51415e42b">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, string recommId=null)</td></tr>
+<tr class="separator:ad98888166a8a5ff235a844c51415e42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bff32eeeab0f5516aae8974873b55e"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a86bff32eeeab0f5516aae8974873b55e">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a86bff32eeeab0f5516aae8974873b55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a86bff32eeeab0f5516aae8974873b55e">More...</a><br /></td></tr>
 <tr class="separator:a86bff32eeeab0f5516aae8974873b55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,11 +104,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a359299ea35cc165f025c5e9430e8f262"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a359299ea35cc165f025c5e9430e8f262">Price</a><code> [get]</code></td></tr>
 <tr class="memdesc:a359299ea35cc165f025c5e9430e8f262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given. <a href="#a359299ea35cc165f025c5e9430e8f262">More...</a><br /></td></tr>
 <tr class="separator:a359299ea35cc165f025c5e9430e8f262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6532547a00b956e3562b9667426b8422"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a6532547a00b956e3562b9667426b8422">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:a6532547a00b956e3562b9667426b8422"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this cart addition is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a6532547a00b956e3562b9667426b8422">More...</a><br /></td></tr>
+<tr class="separator:a6532547a00b956e3562b9667426b8422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html" title="CartAddition Binding">CartAddition</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada74c7450d0997368cebbd479e93c403"></a>
+<a class="anchor" id="ad98888166a8a5ff235a844c51415e42b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -143,7 +146,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double?&#160;</td>
-          <td class="paramname"><em>price</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>price</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -284,6 +293,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Price of the added item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6532547a00b956e3562b9667426b8422"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.Bindings.CartAddition.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this cart addition is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

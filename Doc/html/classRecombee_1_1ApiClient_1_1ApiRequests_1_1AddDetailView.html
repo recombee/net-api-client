@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.AddDetailView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8a0cd5ce5dc328875c92a600806c0bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html#ae8a0cd5ce5dc328875c92a600806c0bf">AddDetailView</a> (string userId, string itemId, DateTime?timestamp=null, long?duration=null, bool?cascadeCreate=null)</td></tr>
-<tr class="memdesc:ae8a0cd5ce5dc328875c92a600806c0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#ae8a0cd5ce5dc328875c92a600806c0bf">More...</a><br /></td></tr>
-<tr class="separator:ae8a0cd5ce5dc328875c92a600806c0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedca6d9471458af1bb6a0e295eb01400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html#aedca6d9471458af1bb6a0e295eb01400">AddDetailView</a> (string userId, string itemId, DateTime?timestamp=null, long?duration=null, bool?cascadeCreate=null, string recommId=null)</td></tr>
+<tr class="memdesc:aedca6d9471458af1bb6a0e295eb01400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#aedca6d9471458af1bb6a0e295eb01400">More...</a><br /></td></tr>
+<tr class="separator:aedca6d9471458af1bb6a0e295eb01400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbc45a5b45ab3120b5cdeee79e724dfe"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html#afbc45a5b45ab3120b5cdeee79e724dfe">Path</a> ()</td></tr>
 <tr class="memdesc:afbc45a5b45ab3120b5cdeee79e724dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#afbc45a5b45ab3120b5cdeee79e724dfe">More...</a><br /></td></tr>
@@ -113,6 +113,9 @@ Properties</h2></td></tr>
 <tr class="memitem:ab16b842f5596c8edabd52ef27289c1de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html#ab16b842f5596c8edabd52ef27289c1de">CascadeCreate</a><code> [get]</code></td></tr>
 <tr class="memdesc:ab16b842f5596c8edabd52ef27289c1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the given user/item should be created if not present in the database. <a href="#ab16b842f5596c8edabd52ef27289c1de">More...</a><br /></td></tr>
 <tr class="separator:ab16b842f5596c8edabd52ef27289c1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ab30f394d1e809eec3699afcd9cbb9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html#af8ab30f394d1e809eec3699afcd9cbb9">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:af8ab30f394d1e809eec3699afcd9cbb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this detail view is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#af8ab30f394d1e809eec3699afcd9cbb9">More...</a><br /></td></tr>
+<tr class="separator:af8ab30f394d1e809eec3699afcd9cbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -136,7 +139,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Add detail view</p>
 <p>Adds a detail view of a given item made by a given user. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae8a0cd5ce5dc328875c92a600806c0bf"></a>
+<a class="anchor" id="aedca6d9471458af1bb6a0e295eb01400"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -171,7 +174,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool?&#160;</td>
-          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -194,6 +203,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">timestamp</td><td>UTC timestamp of the view as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</td></tr>
     <tr><td class="paramname">duration</td><td>Duration of the view</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the given user/item should be created if not present in the database.</td></tr>
+    <tr><td class="paramname">recommId</td><td>If this detail view is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</td></tr>
   </table>
   </dd>
 </dl>
@@ -349,6 +359,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Viewed item</p>
+
+</div>
+</div>
+<a class="anchor" id="af8ab30f394d1e809eec3699afcd9cbb9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.ApiRequests.AddDetailView.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this detail view is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

@@ -163,7 +163,17 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">propertyName</td><td>Name of the item property to be created. Currently, the following names are reserved:<code>id</code>, <code>itemid</code>, case insensitively. Also, the length of the property name must not exceed 63 characters. </td></tr>
-    <tr><td class="paramname">type</td><td>Value type of the item property to be created. One of: <code>int</code>, <code>double</code>, <code>string</code>, <code>boolean</code>, <code>timestamp</code>, <code>set</code>, <code>image</code> or <code>imageList</code>. </td></tr>
+    <tr><td class="paramname">type</td><td>Value type of the item property to be created. One of: <code>int</code>, <code>double</code>, <code>string</code>, <code>boolean</code>, <code>timestamp</code>, <code>set</code>, <code>image</code> or <code>imageList</code>.<ul>
+<li><code>int</code>- Signed integer number.</li>
+<li><code>double</code> - Floating point number. It uses 64-bit base-2 format (IEEE 754 standard).</li>
+<li><code>string</code> - UTF-8 string.</li>
+<li><code>boolean</code> - <em>true</em> / <em>false</em></li>
+<li><code>timestamp</code> - Value representing date and time.</li>
+<li><code>set</code> - Set of strings.</li>
+<li><code>image</code> - URL of an image (<code>jpeg</code>, <code>png</code> or <code>gif</code>).</li>
+<li><code>imageList</code> - List of URLs that refer to images. </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
@@ -297,6 +307,16 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Value type of the item property to be created. One of: <code>int</code>, <code>double</code>, <code>string</code>, <code>boolean</code>, <code>timestamp</code>, <code>set</code>, <code>image</code> or <code>imageList</code>. </p>
+<ul>
+<li><code>int</code>- Signed integer number.</li>
+<li><code>double</code> - Floating point number. It uses 64-bit base-2 format (IEEE 754 standard).</li>
+<li><code>string</code> - UTF-8 string.</li>
+<li><code>boolean</code> - <em>true</em> / <em>false</em></li>
+<li><code>timestamp</code> - Value representing date and time.</li>
+<li><code>set</code> - Set of strings.</li>
+<li><code>image</code> - URL of an image (<code>jpeg</code>, <code>png</code> or <code>gif</code>).</li>
+<li><code>imageList</code> - List of URLs that refer to images. </li>
+</ul>
 
 </div>
 </div>

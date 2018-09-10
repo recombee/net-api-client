@@ -51,6 +51,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return price;}
         }
+        private readonly string recommId;
+        /// <summary>If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who added the item to the cart</param>
@@ -59,7 +65,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="amount">Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</param>
         /// <param name="price">Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</param>
-        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null): base(HttpMethod.Post, 1000)
+        /// <param name="recommId">If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
+        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -67,6 +74,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.cascadeCreate = cascadeCreate;
             this.amount = amount;
             this.price = price;
+            this.recommId = recommId;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -103,6 +111,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["amount"] = Amount.Value;
             if (Price.HasValue)
                 parameters["price"] = Price.Value;
+            if (RecommId != null)
+                parameters["recommId"] = RecommId;
             return parameters;
         }
     

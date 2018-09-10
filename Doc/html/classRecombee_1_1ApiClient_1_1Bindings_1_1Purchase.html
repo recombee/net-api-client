@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.Purchase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ac12a69cecfc0574575a716b8c9597d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6ac12a69cecfc0574575a716b8c9597d">Purchase</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, double?profit=null)</td></tr>
-<tr class="separator:a6ac12a69cecfc0574575a716b8c9597d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd903469d08d5aad54f2072b601c0461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#acd903469d08d5aad54f2072b601c0461">Purchase</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, double?profit=null, string recommId=null)</td></tr>
+<tr class="separator:acd903469d08d5aad54f2072b601c0461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6804571f76b8b4ef9c8543c5c4fad0bf">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a6804571f76b8b4ef9c8543c5c4fad0bf">More...</a><br /></td></tr>
 <tr class="separator:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,11 +107,14 @@ Properties</h2></td></tr>
 <tr class="memitem:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#aaae6a9ef7c081cb42f5857b4a7d604d4">Profit</a><code> [get]</code></td></tr>
 <tr class="memdesc:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your profit from the purchased item. The profit is natural in e-commerce domain (for example if <code>user-x</code> purchases <code>item-y</code> for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If <code>amount</code> is greater than 1, sum of profit of all the items should be given. <a href="#aaae6a9ef7c081cb42f5857b4a7d604d4">More...</a><br /></td></tr>
 <tr class="separator:aaae6a9ef7c081cb42f5857b4a7d604d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6162e759d11ff69db72a32573f858932"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6162e759d11ff69db72a32573f858932">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:a6162e759d11ff69db72a32573f858932"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this purchase is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a6162e759d11ff69db72a32573f858932">More...</a><br /></td></tr>
+<tr class="separator:a6162e759d11ff69db72a32573f858932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html" title="Purchase Binding">Purchase</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6ac12a69cecfc0574575a716b8c9597d"></a>
+<a class="anchor" id="acd903469d08d5aad54f2072b601c0461"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -152,7 +155,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double?&#160;</td>
-          <td class="paramname"><em>profit</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>profit</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -315,6 +324,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Your profit from the purchased item. The profit is natural in e-commerce domain (for example if <code>user-x</code> purchases <code>item-y</code> for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If <code>amount</code> is greater than 1, sum of profit of all the items should be given.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6162e759d11ff69db72a32573f858932"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.Bindings.Purchase.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this purchase is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

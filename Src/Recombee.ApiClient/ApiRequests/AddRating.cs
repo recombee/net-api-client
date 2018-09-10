@@ -45,6 +45,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return cascadeCreate;}
         }
+        private readonly string recommId;
+        /// <summary>If this rating is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who submitted the rating</param>
@@ -52,13 +58,15 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="timestamp">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="rating">Rating rescaled to interval [-1.0,1.0], where -1.0 means the worst rating possible, 0.0 means neutral, and 1.0 means absolutely positive rating. For example, in the case of 5-star evaluations, rating = (numStars-3)/2 formula may be used for the conversion.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
-        public AddRating (string userId, string itemId, double rating, DateTime? timestamp = null, bool? cascadeCreate = null): base(HttpMethod.Post, 1000)
+        /// <param name="recommId">If this rating is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
+        public AddRating (string userId, string itemId, double rating, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
             this.timestamp = timestamp;
             this.rating = rating;
             this.cascadeCreate = cascadeCreate;
+            this.recommId = recommId;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -92,6 +100,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["timestamp"] = ConvertToUnixTimestamp(Timestamp.Value);
             if (CascadeCreate.HasValue)
                 parameters["cascadeCreate"] = CascadeCreate.Value;
+            if (RecommId != null)
+                parameters["recommId"] = RecommId;
             return parameters;
         }
     

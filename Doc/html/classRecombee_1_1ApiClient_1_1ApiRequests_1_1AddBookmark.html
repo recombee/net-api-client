@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.AddBookmark:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ca51efe21654ae113a09a355779fc8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html#a5ca51efe21654ae113a09a355779fc8b">AddBookmark</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null)</td></tr>
-<tr class="memdesc:a5ca51efe21654ae113a09a355779fc8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a5ca51efe21654ae113a09a355779fc8b">More...</a><br /></td></tr>
-<tr class="separator:a5ca51efe21654ae113a09a355779fc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688d6a3bb479c6a6d3aafeda17407a3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html#a688d6a3bb479c6a6d3aafeda17407a3d">AddBookmark</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null, string recommId=null)</td></tr>
+<tr class="memdesc:a688d6a3bb479c6a6d3aafeda17407a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a688d6a3bb479c6a6d3aafeda17407a3d">More...</a><br /></td></tr>
+<tr class="separator:a688d6a3bb479c6a6d3aafeda17407a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d6a8945385eff9c7a3d91405cff32ae"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html#a6d6a8945385eff9c7a3d91405cff32ae">Path</a> ()</td></tr>
 <tr class="memdesc:a6d6a8945385eff9c7a3d91405cff32ae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#a6d6a8945385eff9c7a3d91405cff32ae">More...</a><br /></td></tr>
@@ -110,6 +110,9 @@ Properties</h2></td></tr>
 <tr class="memitem:a7e7e7a7cb0c671ec06dcd68503ceb49b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html#a7e7e7a7cb0c671ec06dcd68503ceb49b">CascadeCreate</a><code> [get]</code></td></tr>
 <tr class="memdesc:a7e7e7a7cb0c671ec06dcd68503ceb49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the given user/item should be created if not present in the database. <a href="#a7e7e7a7cb0c671ec06dcd68503ceb49b">More...</a><br /></td></tr>
 <tr class="separator:a7e7e7a7cb0c671ec06dcd68503ceb49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bac00b7e774dcc9e06ae9e87ee0cc07"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html#a2bac00b7e774dcc9e06ae9e87ee0cc07">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:a2bac00b7e774dcc9e06ae9e87ee0cc07"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this bookmark is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a2bac00b7e774dcc9e06ae9e87ee0cc07">More...</a><br /></td></tr>
+<tr class="separator:a2bac00b7e774dcc9e06ae9e87ee0cc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -133,7 +136,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Add bookmark</p>
 <p>Adds a bookmark of a given item made by a given user. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5ca51efe21654ae113a09a355779fc8b"></a>
+<a class="anchor" id="a688d6a3bb479c6a6d3aafeda17407a3d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -162,7 +165,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool?&#160;</td>
-          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>cascadeCreate</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,6 +193,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">itemId</td><td>Bookmarked item</td></tr>
     <tr><td class="paramname">timestamp</td><td>UTC timestamp of the bookmark as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the given user/item should be created if not present in the database.</td></tr>
+    <tr><td class="paramname">recommId</td><td>If this bookmark is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</td></tr>
   </table>
   </dd>
 </dl>
@@ -317,6 +327,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bookmarked item</p>
+
+</div>
+</div>
+<a class="anchor" id="a2bac00b7e774dcc9e06ae9e87ee0cc07"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.ApiRequests.AddBookmark.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this bookmark is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

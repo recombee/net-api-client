@@ -23,7 +23,13 @@ namespace Recombee.ApiClient.ApiRequests
             get {return propertyName;}
         }
         private readonly string type;
-        /// <summary>Value type of the user property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`
+        /// <summary>Value type of the user property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`.
+        /// * `int` - Signed integer number.
+        /// * `double` - Floating point number. It uses 64-bit base-2 format (IEEE 754 standard).
+        /// * `string` - UTF-8 string.
+        /// * `boolean` - *true* / *false*
+        /// * `timestamp` - Value representing date and time.
+        /// * `set` - Set of strings.
         /// </summary>
         public string Type
         {
@@ -33,7 +39,13 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="propertyName">Name of the user property to be created. Currently, the following names are reserved:`id`, `userid`, case insensitively. Also, the length of the property name must not exceed 63 characters.
         /// </param>
-        /// <param name="type">Value type of the user property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`
+        /// <param name="type">Value type of the user property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`.
+        /// * `int` - Signed integer number.
+        /// * `double` - Floating point number. It uses 64-bit base-2 format (IEEE 754 standard).
+        /// * `string` - UTF-8 string.
+        /// * `boolean` - *true* / *false*
+        /// * `timestamp` - Value representing date and time.
+        /// * `set` - Set of strings.
         /// </param>
         public AddUserProperty (string propertyName, string type): base(HttpMethod.Put, 100000)
         {

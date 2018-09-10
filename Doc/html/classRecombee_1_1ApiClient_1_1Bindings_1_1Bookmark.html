@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.Bookmark:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a27b5c1deea03443bcc01ee03bb621acf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html#a27b5c1deea03443bcc01ee03bb621acf">Bookmark</a> (string userId, string itemId, DateTime?timestamp=null)</td></tr>
-<tr class="separator:a27b5c1deea03443bcc01ee03bb621acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0a3a83729473e26460648d6c30b3c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html#a9f0a3a83729473e26460648d6c30b3c9">Bookmark</a> (string userId, string itemId, DateTime?timestamp=null, string recommId=null)</td></tr>
+<tr class="separator:a9f0a3a83729473e26460648d6c30b3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb1a33465f9eff2d04c2561c4e620a1d"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html#aeb1a33465f9eff2d04c2561c4e620a1d">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:aeb1a33465f9eff2d04c2561c4e620a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#aeb1a33465f9eff2d04c2561c4e620a1d">More...</a><br /></td></tr>
 <tr class="separator:aeb1a33465f9eff2d04c2561c4e620a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,11 +98,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a544034bc12141ae35837e7a410c4358d"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html#a544034bc12141ae35837e7a410c4358d">Timestamp</a><code> [get]</code></td></tr>
 <tr class="memdesc:a544034bc12141ae35837e7a410c4358d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC timestamp of the bookmark as ISO8601-1 pattern or UTC epoch time. The default value is the current time. <a href="#a544034bc12141ae35837e7a410c4358d">More...</a><br /></td></tr>
 <tr class="separator:a544034bc12141ae35837e7a410c4358d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add71fcf325cc8bdea093a7f9444981c5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html#add71fcf325cc8bdea093a7f9444981c5">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:add71fcf325cc8bdea093a7f9444981c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this bookmark is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#add71fcf325cc8bdea093a7f9444981c5">More...</a><br /></td></tr>
+<tr class="separator:add71fcf325cc8bdea093a7f9444981c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html" title="Bookmark Binding">Bookmark</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a27b5c1deea03443bcc01ee03bb621acf"></a>
+<a class="anchor" id="a9f0a3a83729473e26460648d6c30b3c9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -125,7 +128,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">DateTime?&#160;</td>
-          <td class="paramname"><em>timestamp</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>timestamp</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -222,6 +231,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bookmarked item</p>
+
+</div>
+</div>
+<a class="anchor" id="add71fcf325cc8bdea093a7f9444981c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.Bindings.Bookmark.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this bookmark is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

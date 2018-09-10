@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.DetailView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7153b59c28b0aade794a04a9a9955b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html#ac7153b59c28b0aade794a04a9a9955b9">DetailView</a> (string userId, string itemId, DateTime?timestamp=null, long?duration=null)</td></tr>
-<tr class="separator:ac7153b59c28b0aade794a04a9a9955b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc3d0cfd6ab4d7307a49e8abc8c7724"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html#a8dc3d0cfd6ab4d7307a49e8abc8c7724">DetailView</a> (string userId, string itemId, DateTime?timestamp=null, long?duration=null, string recommId=null)</td></tr>
+<tr class="separator:a8dc3d0cfd6ab4d7307a49e8abc8c7724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad67ba4ed64a61f1a9bae821a8c7de13b"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html#ad67ba4ed64a61f1a9bae821a8c7de13b">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:ad67ba4ed64a61f1a9bae821a8c7de13b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#ad67ba4ed64a61f1a9bae821a8c7de13b">More...</a><br /></td></tr>
 <tr class="separator:ad67ba4ed64a61f1a9bae821a8c7de13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,11 +101,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a1802debc1084709756f9f9c8b6676ee8"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html#a1802debc1084709756f9f9c8b6676ee8">Duration</a><code> [get]</code></td></tr>
 <tr class="memdesc:a1802debc1084709756f9f9c8b6676ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the view <a href="#a1802debc1084709756f9f9c8b6676ee8">More...</a><br /></td></tr>
 <tr class="separator:a1802debc1084709756f9f9c8b6676ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4437e9657662b035a41ebd62df3eef56"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html#a4437e9657662b035a41ebd62df3eef56">RecommId</a><code> [get]</code></td></tr>
+<tr class="memdesc:a4437e9657662b035a41ebd62df3eef56"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this detail view is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a4437e9657662b035a41ebd62df3eef56">More...</a><br /></td></tr>
+<tr class="separator:a4437e9657662b035a41ebd62df3eef56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html" title="DetailView Binding">DetailView</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac7153b59c28b0aade794a04a9a9955b9"></a>
+<a class="anchor" id="a8dc3d0cfd6ab4d7307a49e8abc8c7724"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -134,7 +137,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">long?&#160;</td>
-          <td class="paramname"><em>duration</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>duration</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -253,6 +262,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Viewed item</p>
+
+</div>
+</div>
+<a class="anchor" id="a4437e9657662b035a41ebd62df3eef56"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Recombee.ApiClient.Bindings.DetailView.RecommId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If this detail view is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</p>
 
 </div>
 </div>

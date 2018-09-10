@@ -38,13 +38,20 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return rating;}
         }
+        private readonly string recommId;
+        /// <summary>If this rating is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        public string RecommId
+        {
+            get {return recommId;}
+        }
     
-        public Rating (string userId, string itemId, double rating, DateTime? timestamp = null)
+        public Rating (string userId, string itemId, double rating, DateTime? timestamp = null, string recommId = null)
         {
             this.userId = userId;
             this.itemId = itemId;
             this.timestamp = timestamp;
             this.rating = rating;
+            this.recommId = recommId;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -63,6 +70,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.ItemId)
                 .With(m => m.Timestamp)
                 .With(m => m.RatingValue)
+                .With(m => m.RecommId)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -74,6 +82,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.ItemId)
                 .With(m => m.Timestamp)
                 .With(m => m.RatingValue)
+                .With(m => m.RecommId)
                 .HashCode;
         }
     }
