@@ -51,6 +51,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return recommId;}
         }
+        private readonly Dictionary<string, object> additionalData;
+        /// <summary>A dictionary of additional data for the interaction.</summary>
+        public Dictionary<string, object> AdditionalData
+        {
+            get {return additionalData;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who submitted the rating</param>
@@ -59,7 +65,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="rating">Rating rescaled to interval [-1.0,1.0], where -1.0 means the worst rating possible, 0.0 means neutral, and 1.0 means absolutely positive rating. For example, in the case of 5-star evaluations, rating = (numStars-3)/2 formula may be used for the conversion.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this rating is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
-        public AddRating (string userId, string itemId, double rating, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null): base(HttpMethod.Post, 1000)
+        /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
+        public AddRating (string userId, string itemId, double rating, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -67,6 +74,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.rating = rating;
             this.cascadeCreate = cascadeCreate;
             this.recommId = recommId;
+            this.additionalData = additionalData;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -102,6 +110,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["cascadeCreate"] = CascadeCreate.Value;
             if (RecommId != null)
                 parameters["recommId"] = RecommId;
+            if (AdditionalData != null)
+                parameters["additionalData"] = AdditionalData;
             return parameters;
         }
     

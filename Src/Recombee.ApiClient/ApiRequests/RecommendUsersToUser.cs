@@ -13,6 +13,7 @@ namespace Recombee.ApiClient.ApiRequests
     /// <summary>Recommend users to user</summary>
     /// <remarks>Get similar users as some given user, based on the user's past interactions (purchases, ratings, etc.) and values of properties.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
+    /// The returned users are sorted by similarity (first user being the most similar).
     /// </remarks>
     public class RecommendUsersToUser : Request
     {
@@ -145,6 +146,13 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return expertSettings;}
         }
+        private readonly bool? returnAbGroup;
+        /// <summary>If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </summary>
+        public bool? ReturnAbGroup
+        {
+            get {return returnAbGroup;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User to which we find similar users</param>
@@ -211,7 +219,9 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public RecommendUsersToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 50000)
+        /// <param name="returnAbGroup">If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </param>
+        public RecommendUsersToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 50000)
         {
             this.userId = userId;
             this.count = count;
@@ -226,6 +236,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.rotationRate = rotationRate;
             this.rotationTime = rotationTime;
             this.expertSettings = expertSettings;
+            this.returnAbGroup = returnAbGroup;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -275,6 +286,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["rotationTime"] = RotationTime.Value;
             if (ExpertSettings != null)
                 parameters["expertSettings"] = ExpertSettings;
+            if (ReturnAbGroup.HasValue)
+                parameters["returnAbGroup"] = ReturnAbGroup.Value;
             return parameters;
         }
     

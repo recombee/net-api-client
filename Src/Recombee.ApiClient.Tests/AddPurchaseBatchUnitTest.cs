@@ -19,7 +19,7 @@ namespace Recombee.ApiClient.Tests
         public void TestAddPurchase()
         {
             Request[] requests = new Request[] {
-                new AddPurchase("u_id","i_id",cascadeCreate: true),
+                new AddPurchase("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
                 new AddPurchase("entity_id","entity_id"),
                 new AddPurchase("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
                 new AddPurchase("entity_id","nonex_id"),

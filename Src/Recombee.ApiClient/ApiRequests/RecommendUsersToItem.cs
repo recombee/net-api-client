@@ -13,6 +13,7 @@ namespace Recombee.ApiClient.ApiRequests
     /// <summary>Recommend users to item</summary>
     /// <remarks>Recommend users that are likely to be interested in a given item.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
+    /// The returned users are sorted by predicted interest in the item (first user being the most interested).
     /// </remarks>
     public class RecommendUsersToItem : Request
     {
@@ -124,6 +125,13 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return expertSettings;}
         }
+        private readonly bool? returnAbGroup;
+        /// <summary>If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </summary>
+        public bool? ReturnAbGroup
+        {
+            get {return returnAbGroup;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item for which the recommendations are to be generated.</param>
@@ -184,7 +192,9 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public RecommendUsersToItem (string itemId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 50000)
+        /// <param name="returnAbGroup">If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </param>
+        public RecommendUsersToItem (string itemId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 50000)
         {
             this.itemId = itemId;
             this.count = count;
@@ -196,6 +206,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.includedProperties = includedProperties;
             this.diversity = diversity;
             this.expertSettings = expertSettings;
+            this.returnAbGroup = returnAbGroup;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -239,6 +250,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["diversity"] = Diversity.Value;
             if (ExpertSettings != null)
                 parameters["expertSettings"] = ExpertSettings;
+            if (ReturnAbGroup.HasValue)
+                parameters["returnAbGroup"] = ReturnAbGroup.Value;
             return parameters;
         }
     

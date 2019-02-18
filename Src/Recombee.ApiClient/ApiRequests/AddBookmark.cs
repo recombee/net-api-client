@@ -45,6 +45,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return recommId;}
         }
+        private readonly Dictionary<string, object> additionalData;
+        /// <summary>A dictionary of additional data for the interaction.</summary>
+        public Dictionary<string, object> AdditionalData
+        {
+            get {return additionalData;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who bookmarked the item</param>
@@ -52,13 +58,15 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="timestamp">UTC timestamp of the bookmark as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this bookmark is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
-        public AddBookmark (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null): base(HttpMethod.Post, 1000)
+        /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
+        public AddBookmark (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
             this.timestamp = timestamp;
             this.cascadeCreate = cascadeCreate;
             this.recommId = recommId;
+            this.additionalData = additionalData;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -93,6 +101,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["cascadeCreate"] = CascadeCreate.Value;
             if (RecommId != null)
                 parameters["recommId"] = RecommId;
+            if (AdditionalData != null)
+                parameters["additionalData"] = AdditionalData;
             return parameters;
         }
     

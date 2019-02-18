@@ -57,6 +57,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return recommId;}
         }
+        private readonly Dictionary<string, object> additionalData;
+        /// <summary>A dictionary of additional data for the interaction.</summary>
+        public Dictionary<string, object> AdditionalData
+        {
+            get {return additionalData;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who added the item to the cart</param>
@@ -66,7 +72,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="amount">Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</param>
         /// <param name="price">Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</param>
         /// <param name="recommId">If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
-        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null): base(HttpMethod.Post, 1000)
+        /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
+        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -75,6 +82,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.amount = amount;
             this.price = price;
             this.recommId = recommId;
+            this.additionalData = additionalData;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -113,6 +121,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["price"] = Price.Value;
             if (RecommId != null)
                 parameters["recommId"] = RecommId;
+            if (AdditionalData != null)
+                parameters["additionalData"] = AdditionalData;
             return parameters;
         }
     

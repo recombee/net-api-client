@@ -22,7 +22,7 @@ namespace Recombee.ApiClient.Tests
             Request req2;
             RecombeeBinding resp;
             // it 'does not fail with cascadeCreate'
-            req = new SetViewPortion("u_id","i_id",1,cascadeCreate: true);
+            req = new SetViewPortion("u_id","i_id",1,cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}});
             resp = client.Send(req);
             // it 'does not fail with existing item and user'
             req = new SetViewPortion("entity_id","entity_id",0);

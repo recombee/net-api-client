@@ -19,7 +19,7 @@ namespace Recombee.ApiClient.Tests
         public void TestAddDetailView()
         {
             Request[] requests = new Request[] {
-                new AddDetailView("u_id","i_id",cascadeCreate: true),
+                new AddDetailView("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
                 new AddDetailView("entity_id","entity_id"),
                 new AddDetailView("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
                 new AddDetailView("entity_id","nonex_id"),

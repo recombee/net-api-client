@@ -56,8 +56,14 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return recommId;}
         }
+        private readonly Dictionary<string, object> additionalData;
+        /// <summary>A dictionary of additional data for the interaction.</summary>
+        public Dictionary<string, object> AdditionalData
+        {
+            get {return additionalData;}
+        }
     
-        public Purchase (string userId, string itemId, DateTime? timestamp = null, double? amount = null, double? price = null, double? profit = null, string recommId = null)
+        public Purchase (string userId, string itemId, DateTime? timestamp = null, double? amount = null, double? price = null, double? profit = null, string recommId = null, Dictionary<string, object> additionalData = null)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -66,6 +72,7 @@ namespace Recombee.ApiClient.Bindings
             this.price = price;
             this.profit = profit;
             this.recommId = recommId;
+            this.additionalData = additionalData;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -87,6 +94,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Price)
                 .With(m => m.Profit)
                 .With(m => m.RecommId)
+                .With(m => m.AdditionalData)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -101,6 +109,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Price)
                 .With(m => m.Profit)
                 .With(m => m.RecommId)
+                .With(m => m.AdditionalData)
                 .HashCode;
         }
     }

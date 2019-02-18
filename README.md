@@ -29,7 +29,7 @@ public class BasicExample
 {
     static int Main(string[] args)
     {
-        RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--");
 
         try
         {
@@ -85,7 +85,7 @@ public class PropertiesExample
 {
     static int Main(string[] args)
     {
-        RecombeeClient client = new RecombeeClient("--my-database-id--", "--my-secret-token--");
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--");
 
         /*
         We will use computers as items in this example

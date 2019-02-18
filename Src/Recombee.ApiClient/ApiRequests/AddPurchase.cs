@@ -63,6 +63,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return recommId;}
         }
+        private readonly Dictionary<string, object> additionalData;
+        /// <summary>A dictionary of additional data for the interaction.</summary>
+        public Dictionary<string, object> AdditionalData
+        {
+            get {return additionalData;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who purchased the item</param>
@@ -73,7 +79,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="price">Price paid by the user for the item. If `amount` is greater than 1, sum of prices of all the items should be given.</param>
         /// <param name="profit">Your profit from the purchased item. The profit is natural in e-commerce domain (for example if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If `amount` is greater than 1, sum of profit of all the items should be given.</param>
         /// <param name="recommId">If this purchase is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
-        public AddPurchase (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, double? profit = null, string recommId = null): base(HttpMethod.Post, 1000)
+        /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
+        public AddPurchase (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, double? profit = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -83,6 +90,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.price = price;
             this.profit = profit;
             this.recommId = recommId;
+            this.additionalData = additionalData;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -123,6 +131,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["profit"] = Profit.Value;
             if (RecommId != null)
                 parameters["recommId"] = RecommId;
+            if (AdditionalData != null)
+                parameters["additionalData"] = AdditionalData;
             return parameters;
         }
     

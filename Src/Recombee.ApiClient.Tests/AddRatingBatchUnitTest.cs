@@ -19,7 +19,7 @@ namespace Recombee.ApiClient.Tests
         public void TestAddRating()
         {
             Request[] requests = new Request[] {
-                new AddRating("u_id","i_id",1,cascadeCreate: true),
+                new AddRating("u_id","i_id",1,cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
                 new AddRating("entity_id","entity_id",0),
                 new AddRating("entity_id","nonex_id",-1),
                 new AddRating("nonex_id","entity_id",0.5),

@@ -13,6 +13,7 @@ namespace Recombee.ApiClient.ApiRequests
     /// <summary>Recommend items to item</summary>
     /// <remarks>Recommends set of items that are somehow related to one given item, *X*. Typical scenario  is when user *A* is viewing *X*. Then you may display items to the user that he might be also interested in. Recommend items to item request gives you Top-N such items, optionally taking the target user *A* into account.
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
+    /// The returned items are sorted by relevancy (first item being the most relevant).
     /// </remarks>
     public class RecommendItemsToItem : Request
     {
@@ -177,6 +178,13 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return expertSettings;}
         }
+        private readonly bool? returnAbGroup;
+        /// <summary>If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </summary>
+        public bool? ReturnAbGroup
+        {
+            get {return returnAbGroup;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item for which the recommendations are to be generated.</param>
@@ -265,7 +273,9 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public RecommendItemsToItem (string itemId, string targetUserId, long count, double? userImpact = null, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
+        /// <param name="returnAbGroup">If there is a custom AB-testing running, return name of group to which the request belongs.
+        /// </param>
+        public RecommendItemsToItem (string itemId, string targetUserId, long count, double? userImpact = null, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.itemId = itemId;
             this.targetUserId = targetUserId;
@@ -282,6 +292,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.rotationRate = rotationRate;
             this.rotationTime = rotationTime;
             this.expertSettings = expertSettings;
+            this.returnAbGroup = returnAbGroup;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -334,6 +345,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["rotationTime"] = RotationTime.Value;
             if (ExpertSettings != null)
                 parameters["expertSettings"] = ExpertSettings;
+            if (ReturnAbGroup.HasValue)
+                parameters["returnAbGroup"] = ReturnAbGroup.Value;
             return parameters;
         }
     

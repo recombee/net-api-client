@@ -12,11 +12,11 @@ namespace Recombee.ApiClient.Bindings
 {
     /// <summary>RecommendationResponse Binding</summary>
     public class RecommendationResponse: RecombeeBinding {
-        private readonly string requestId;
+        private readonly string recommId;
         /// <summary>Id of the recommendation request</summary>
-        public string RequestId
+        public string RecommId
         {
-            get {return requestId;}
+            get {return recommId;}
         }
         private readonly Recommendation[] recomms;
         /// <summary>Obtained recommendations</summary>
@@ -24,11 +24,21 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return recomms;}
         }
-    
-        public RecommendationResponse (string requestId, Recommendation[] recomms)
+        private readonly string abGroup;
+        /// <summary>Name of AB-testing group to which the request belongs if there is a custom AB-testing running</summary>
+        public string AbGroup
         {
-            this.requestId = requestId;
+            get {return abGroup;}
+        }
+
+        // public RecommendationResponse(string recommId, Recommendation[] recomms): this(recommId, recomms, null)
+        // {}
+    
+        public RecommendationResponse (string recommId, Recommendation[] recomms, string abGroup=null)
+        {
+            this.recommId = recommId;
             this.recomms = recomms;
+            this.abGroup = abGroup;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -43,8 +53,9 @@ namespace Recombee.ApiClient.Bindings
         
              RecommendationResponse that = (RecommendationResponse) obj;
              return new EqualsBuilder<RecommendationResponse>(this, that)
-                .With(m => m.RequestId)
+                .With(m => m.recommId)
                 .With(m => m.Recomms)
+                .With(m => m.AbGroup)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -52,8 +63,9 @@ namespace Recombee.ApiClient.Bindings
         public override int GetHashCode()
         {
              return new HashCodeBuilder<RecommendationResponse>(this)
-                .With(m => m.RequestId)
+                .With(m => m.recommId)
                 .With(m => m.Recomms)
+                .With(m => m.AbGroup)
                 .HashCode;
         }
     }

@@ -19,7 +19,7 @@ namespace Recombee.ApiClient.Tests
         public void TestSetViewPortion()
         {
             Request[] requests = new Request[] {
-                new SetViewPortion("u_id","i_id",1,cascadeCreate: true),
+                new SetViewPortion("u_id","i_id",1,cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
                 new SetViewPortion("entity_id","entity_id",0),
                 new SetViewPortion("entity_id","nonex_id",1),
                 new SetViewPortion("nonex_id","entity_id",0.5),
