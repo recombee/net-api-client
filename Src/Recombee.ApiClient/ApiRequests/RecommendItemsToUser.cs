@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -52,6 +53,15 @@ namespace Recombee.ApiClient.ApiRequests
         public string Scenario
         {
             get {return scenario;}
+        }
+        private readonly Logic logic;
+        /// <summary>Logic specifies particular behavior of the recommendation models. You can pick tailored logic for your domain (e-commerce, multimedia, fashion ...) and use case.
+        /// See [this section](https://docs.recombee.com/recommendation_logic.html) for list of available logics and other details.
+        /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
+        /// </summary>
+        public Logic Logic
+        {
+            get {return logic;}
         }
         private readonly bool? returnProperties;
         /// <summary>With `returnProperties=true`, property values of the recommended items are returned along with their IDs in a JSON dictionary. The acquired property values can be used for easy displaying of the recommended items to the user. 
@@ -167,6 +177,10 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="booster">Number-returning [ReQL](https://docs.recombee.com/reql.html) expression which allows you to boost recommendation rate of some items based on the values of their attributes.</param>
         /// <param name="cascadeCreate">If the user does not exist in the database, returns a list of non-personalized recommendations and creates the user in the database. This allows for example rotations in the following recommendations for that user, as the user will be already known to the system.</param>
         /// <param name="scenario">Scenario defines a particular application of recommendations. It can be for example "homepage", "cart" or "emailing". You can see each scenario in the UI separately, so you can check how well each application performs. The AI which optimizes models in order to get the best results may optimize different scenarios separately, or even use different models in each of the scenarios.</param>
+        /// <param name="logic">Logic specifies particular behavior of the recommendation models. You can pick tailored logic for your domain (e-commerce, multimedia, fashion ...) and use case.
+        /// See [this section](https://docs.recombee.com/recommendation_logic.html) for list of available logics and other details.
+        /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
+        /// </param>
         /// <param name="returnProperties">With `returnProperties=true`, property values of the recommended items are returned along with their IDs in a JSON dictionary. The acquired property values can be used for easy displaying of the recommended items to the user. 
         /// Example response:
         /// ```
@@ -233,7 +247,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return name of group to which the request belongs.
         /// </param>
-        public RecommendItemsToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        public RecommendItemsToUser (string userId, long count, string filter = null, string booster = null, bool? cascadeCreate = null, string scenario = null, Logic logic = null, bool? returnProperties = null, string[] includedProperties = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.count = count;
@@ -241,6 +255,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.booster = booster;
             this.cascadeCreate = cascadeCreate;
             this.scenario = scenario;
+            this.logic = logic;
             this.returnProperties = returnProperties;
             this.includedProperties = includedProperties;
             this.diversity = diversity;
@@ -274,32 +289,34 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"count", Count}
+                {"count", this.Count}
             };
-            if (Filter != null)
-                parameters["filter"] = Filter;
-            if (Booster != null)
-                parameters["booster"] = Booster;
-            if (CascadeCreate.HasValue)
-                parameters["cascadeCreate"] = CascadeCreate.Value;
-            if (Scenario != null)
-                parameters["scenario"] = Scenario;
-            if (ReturnProperties.HasValue)
-                parameters["returnProperties"] = ReturnProperties.Value;
-            if (IncludedProperties != null)
-                parameters["includedProperties"] = string.Join(",", IncludedProperties);
-            if (Diversity.HasValue)
-                parameters["diversity"] = Diversity.Value;
-            if (MinRelevance != null)
-                parameters["minRelevance"] = MinRelevance;
-            if (RotationRate.HasValue)
-                parameters["rotationRate"] = RotationRate.Value;
-            if (RotationTime.HasValue)
-                parameters["rotationTime"] = RotationTime.Value;
-            if (ExpertSettings != null)
-                parameters["expertSettings"] = ExpertSettings;
-            if (ReturnAbGroup.HasValue)
-                parameters["returnAbGroup"] = ReturnAbGroup.Value;
+            if (this.Filter != null)
+                parameters["filter"] = this.Filter;
+            if (this.Booster != null)
+                parameters["booster"] = this.Booster;
+            if (this.CascadeCreate.HasValue)
+                parameters["cascadeCreate"] = this.CascadeCreate.Value;
+            if (this.Scenario != null)
+                parameters["scenario"] = this.Scenario;
+            if (this.Logic != null)
+                parameters["logic"] = this.Logic;
+            if (this.ReturnProperties.HasValue)
+                parameters["returnProperties"] = this.ReturnProperties.Value;
+            if (this.IncludedProperties != null)
+                parameters["includedProperties"] = string.Join(",", this.IncludedProperties);
+            if (this.Diversity.HasValue)
+                parameters["diversity"] = this.Diversity.Value;
+            if (this.MinRelevance != null)
+                parameters["minRelevance"] = this.MinRelevance;
+            if (this.RotationRate.HasValue)
+                parameters["rotationRate"] = this.RotationRate.Value;
+            if (this.RotationTime.HasValue)
+                parameters["rotationTime"] = this.RotationTime.Value;
+            if (this.ExpertSettings != null)
+                parameters["expertSettings"] = this.ExpertSettings;
+            if (this.ReturnAbGroup.HasValue)
+                parameters["returnAbGroup"] = this.ReturnAbGroup.Value;
             return parameters;
         }
     

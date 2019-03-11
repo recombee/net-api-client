@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -57,11 +58,11 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"userId", UserId},
-                {"itemId", ItemId}
+                {"userId", this.UserId},
+                {"itemId", this.ItemId}
             };
-            if (SessionId != null)
-                parameters["sessionId"] = SessionId;
+            if (this.SessionId != null)
+                parameters["sessionId"] = this.SessionId;
             return parameters;
         }
     

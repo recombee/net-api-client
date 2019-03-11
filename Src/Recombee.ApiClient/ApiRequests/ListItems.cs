@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -146,16 +147,16 @@ namespace Recombee.ApiClient.ApiRequests
             {
         
             };
-            if (Filter != null)
-                parameters["filter"] = Filter;
-            if (Count.HasValue)
-                parameters["count"] = Count.Value;
-            if (Offset.HasValue)
-                parameters["offset"] = Offset.Value;
-            if (ReturnProperties.HasValue)
-                parameters["returnProperties"] = ReturnProperties.Value;
-            if (IncludedProperties != null)
-                parameters["includedProperties"] = string.Join(",", IncludedProperties);
+            if (this.Filter != null)
+                parameters["filter"] = this.Filter;
+            if (this.Count.HasValue)
+                parameters["count"] = this.Count.Value;
+            if (this.Offset.HasValue)
+                parameters["offset"] = this.Offset.Value;
+            if (this.ReturnProperties.HasValue)
+                parameters["returnProperties"] = this.ReturnProperties.Value;
+            if (this.IncludedProperties != null)
+                parameters["includedProperties"] = string.Join(",", this.IncludedProperties);
             return parameters;
         }
     

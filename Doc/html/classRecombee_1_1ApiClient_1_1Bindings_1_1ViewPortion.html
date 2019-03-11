@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.ViewPortion:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afac60edfb935fb5591c20cfa67584e67"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#afac60edfb935fb5591c20cfa67584e67">ViewPortion</a> (string userId, string itemId, double portion, string sessionId=null, DateTime?timestamp=null, string recommId=null)</td></tr>
-<tr class="separator:afac60edfb935fb5591c20cfa67584e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2891cf8a99a210c9c6df3e844333c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#aca2891cf8a99a210c9c6df3e844333c9">ViewPortion</a> (string userId, string itemId, double portion, string sessionId=null, DateTime?timestamp=null, string recommId=null, Dictionary&lt; string, object &gt; additionalData=null)</td></tr>
+<tr class="separator:aca2891cf8a99a210c9c6df3e844333c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae51461c32ef6ed4b90bd4861e5a17dbe"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#ae51461c32ef6ed4b90bd4861e5a17dbe">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:ae51461c32ef6ed4b90bd4861e5a17dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#ae51461c32ef6ed4b90bd4861e5a17dbe">More...</a><br /></td></tr>
 <tr class="separator:ae51461c32ef6ed4b90bd4861e5a17dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,11 +107,14 @@ Properties</h2></td></tr>
 <tr class="memitem:ab4c902752984e3541144dcf042753912"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#ab4c902752984e3541144dcf042753912">RecommId</a><code> [get]</code></td></tr>
 <tr class="memdesc:ab4c902752984e3541144dcf042753912"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this view portion is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#ab4c902752984e3541144dcf042753912">More...</a><br /></td></tr>
 <tr class="separator:ab4c902752984e3541144dcf042753912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2504f19bb475c6dbc87b5a3e0520cb31"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html#a2504f19bb475c6dbc87b5a3e0520cb31">AdditionalData</a><code> [get]</code></td></tr>
+<tr class="memdesc:a2504f19bb475c6dbc87b5a3e0520cb31"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of additional data for the interaction. <a href="#a2504f19bb475c6dbc87b5a3e0520cb31">More...</a><br /></td></tr>
+<tr class="separator:a2504f19bb475c6dbc87b5a3e0520cb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html" title="ViewPortion Binding">ViewPortion</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afac60edfb935fb5591c20cfa67584e67"></a>
+<a class="anchor" id="aca2891cf8a99a210c9c6df3e844333c9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -152,7 +155,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>additionalData</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -230,6 +239,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a2504f19bb475c6dbc87b5a3e0520cb31"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string, object&gt; Recombee.ApiClient.Bindings.ViewPortion.AdditionalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A dictionary of additional data for the interaction.</p>
+
+</div>
+</div>
 <a class="anchor" id="a92daca0f7dcdb27e390a1c35e6c3be79"></a>
 <div class="memitem">
 <div class="memproto">

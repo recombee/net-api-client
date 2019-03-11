@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -57,11 +58,11 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"userId", UserId},
-                {"itemId", ItemId}
+                {"userId", this.UserId},
+                {"itemId", this.ItemId}
             };
-            if (Timestamp.HasValue)
-                parameters["timestamp"] = ConvertToUnixTimestamp(Timestamp.Value);
+            if (this.Timestamp.HasValue)
+                parameters["timestamp"] = ConvertToUnixTimestamp(this.Timestamp.Value);
             return parameters;
         }
     

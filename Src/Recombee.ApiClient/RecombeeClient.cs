@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
 
@@ -30,7 +31,7 @@ namespace Recombee.ApiClient
         /// <param name="databaseId">ID of the database.</param>
         /// <param name="secretToken">Corresponding secret token.</param>
         /// <param name="useHttpsAsDefault">If true, all requests are sent using HTTPS</param>
-        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = false)
+        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true)
         {
             this.databaseId = databaseId;
             this.secretTokenBytes = Encoding.ASCII.GetBytes(secretToken);
@@ -45,7 +46,7 @@ namespace Recombee.ApiClient
         private HttpClient createHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.3.0");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.4.0");
             return httpClient;
         }
 
@@ -250,8 +251,9 @@ namespace Recombee.ApiClient
             }
             else if (request.RequestHttpMehod == HttpMethod.Post)
             {
-                string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
-                return httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json")).Result;
+                var serializerSettings = new JsonSerializerSettings();
+                serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                string bodyParams = JsonConvert.SerializeObject(request.BodyParameters(), serializerSettings);                return httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json")).Result;
             }
             else if (request.RequestHttpMehod == HttpMethod.Delete)
             {

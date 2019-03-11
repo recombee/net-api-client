@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -92,17 +93,17 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"userId", UserId},
-                {"itemId", ItemId}
+                {"userId", this.UserId},
+                {"itemId", this.ItemId}
             };
-            if (Timestamp.HasValue)
-                parameters["timestamp"] = ConvertToUnixTimestamp(Timestamp.Value);
-            if (CascadeCreate.HasValue)
-                parameters["cascadeCreate"] = CascadeCreate.Value;
-            if (RecommId != null)
-                parameters["recommId"] = RecommId;
-            if (AdditionalData != null)
-                parameters["additionalData"] = AdditionalData;
+            if (this.Timestamp.HasValue)
+                parameters["timestamp"] = ConvertToUnixTimestamp(this.Timestamp.Value);
+            if (this.CascadeCreate.HasValue)
+                parameters["cascadeCreate"] = this.CascadeCreate.Value;
+            if (this.RecommId != null)
+                parameters["recommId"] = this.RecommId;
+            if (this.AdditionalData != null)
+                parameters["additionalData"] = this.AdditionalData;
             return parameters;
         }
     

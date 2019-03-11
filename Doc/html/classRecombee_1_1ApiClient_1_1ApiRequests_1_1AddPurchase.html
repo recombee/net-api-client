@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.AddPurchase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adab0ed1a336a1d99b175aa69b8eafbea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html#adab0ed1a336a1d99b175aa69b8eafbea">AddPurchase</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null, double?amount=null, double?price=null, double?profit=null, string recommId=null)</td></tr>
-<tr class="memdesc:adab0ed1a336a1d99b175aa69b8eafbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#adab0ed1a336a1d99b175aa69b8eafbea">More...</a><br /></td></tr>
-<tr class="separator:adab0ed1a336a1d99b175aa69b8eafbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83b30924df7ba209febb9f962a6a51c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html#ae83b30924df7ba209febb9f962a6a51c">AddPurchase</a> (string userId, string itemId, DateTime?timestamp=null, bool?cascadeCreate=null, double?amount=null, double?price=null, double?profit=null, string recommId=null, Dictionary&lt; string, object &gt; additionalData=null)</td></tr>
+<tr class="memdesc:ae83b30924df7ba209febb9f962a6a51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#ae83b30924df7ba209febb9f962a6a51c">More...</a><br /></td></tr>
+<tr class="separator:ae83b30924df7ba209febb9f962a6a51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab3fd7b3f1f4555e7daacd0b24fe04be"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html#aab3fd7b3f1f4555e7daacd0b24fe04be">Path</a> ()</td></tr>
 <tr class="memdesc:aab3fd7b3f1f4555e7daacd0b24fe04be"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#aab3fd7b3f1f4555e7daacd0b24fe04be">More...</a><br /></td></tr>
@@ -122,6 +122,9 @@ Properties</h2></td></tr>
 <tr class="memitem:ad0b92b98184f9df47998ff3255744762"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html#ad0b92b98184f9df47998ff3255744762">RecommId</a><code> [get]</code></td></tr>
 <tr class="memdesc:ad0b92b98184f9df47998ff3255744762"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this purchase is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#ad0b92b98184f9df47998ff3255744762">More...</a><br /></td></tr>
 <tr class="separator:ad0b92b98184f9df47998ff3255744762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2120d869b36bb6585ce16b71811afd"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html#adb2120d869b36bb6585ce16b71811afd">AdditionalData</a><code> [get]</code></td></tr>
+<tr class="memdesc:adb2120d869b36bb6585ce16b71811afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of additional data for the interaction. <a href="#adb2120d869b36bb6585ce16b71811afd">More...</a><br /></td></tr>
+<tr class="separator:adb2120d869b36bb6585ce16b71811afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -145,7 +148,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Add purchase</p>
 <p>Adds a purchase of a given item made by a given user. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="adab0ed1a336a1d99b175aa69b8eafbea"></a>
+<a class="anchor" id="ae83b30924df7ba209febb9f962a6a51c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -198,7 +201,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>additionalData</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -224,6 +233,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">price</td><td>Price paid by the user for the item. If <code>amount</code> is greater than 1, sum of prices of all the items should be given.</td></tr>
     <tr><td class="paramname">profit</td><td>Your profit from the purchased item. The profit is natural in e-commerce domain (for example if <code>user-x</code> purchases <code>item-y</code> for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If <code>amount</code> is greater than 1, sum of profit of all the items should be given.</td></tr>
     <tr><td class="paramname">recommId</td><td>If this purchase is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</td></tr>
+    <tr><td class="paramname">additionalData</td><td>A dictionary of additional data for the interaction.</td></tr>
   </table>
   </dd>
 </dl>
@@ -316,6 +326,28 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="adb2120d869b36bb6585ce16b71811afd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string, object&gt; Recombee.ApiClient.ApiRequests.AddPurchase.AdditionalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A dictionary of additional data for the interaction.</p>
+
+</div>
+</div>
 <a class="anchor" id="aadfb56860b50a3379be32919ec3f5488"></a>
 <div class="memitem">
 <div class="memproto">

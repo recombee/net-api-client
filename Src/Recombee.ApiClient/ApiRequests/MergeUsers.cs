@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -60,8 +61,8 @@ namespace Recombee.ApiClient.ApiRequests
             {
         
             };
-            if (CascadeCreate.HasValue)
-                parameters["cascadeCreate"] = CascadeCreate.Value;
+            if (this.CascadeCreate.HasValue)
+                parameters["cascadeCreate"] = this.CascadeCreate.Value;
             return parameters;
         }
     

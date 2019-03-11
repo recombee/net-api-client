@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -69,7 +70,7 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"type", Type}
+                {"type", this.Type}
             };
             return parameters;
         }

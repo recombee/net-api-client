@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -84,12 +85,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"itemType", ItemType},
-                {"itemId", ItemId},
-                {"time", Time}
+                {"itemType", this.ItemType},
+                {"itemId", this.ItemId},
+                {"time", this.Time}
             };
-            if (CascadeCreate.HasValue)
-                parameters["cascadeCreate"] = CascadeCreate.Value;
+            if (this.CascadeCreate.HasValue)
+                parameters["cascadeCreate"] = this.CascadeCreate.Value;
             return parameters;
         }
     

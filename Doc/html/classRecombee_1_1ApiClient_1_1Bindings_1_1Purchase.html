@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.Purchase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd903469d08d5aad54f2072b601c0461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#acd903469d08d5aad54f2072b601c0461">Purchase</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, double?profit=null, string recommId=null)</td></tr>
-<tr class="separator:acd903469d08d5aad54f2072b601c0461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56677a1afd631f478164aef4212b514c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a56677a1afd631f478164aef4212b514c">Purchase</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, double?profit=null, string recommId=null, Dictionary&lt; string, object &gt; additionalData=null)</td></tr>
+<tr class="separator:a56677a1afd631f478164aef4212b514c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6804571f76b8b4ef9c8543c5c4fad0bf">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a6804571f76b8b4ef9c8543c5c4fad0bf">More...</a><br /></td></tr>
 <tr class="separator:a6804571f76b8b4ef9c8543c5c4fad0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,11 +110,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a6162e759d11ff69db72a32573f858932"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a6162e759d11ff69db72a32573f858932">RecommId</a><code> [get]</code></td></tr>
 <tr class="memdesc:a6162e759d11ff69db72a32573f858932"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this purchase is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a6162e759d11ff69db72a32573f858932">More...</a><br /></td></tr>
 <tr class="separator:a6162e759d11ff69db72a32573f858932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a083e8222b301defc6b9a66001a4daa65"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html#a083e8222b301defc6b9a66001a4daa65">AdditionalData</a><code> [get]</code></td></tr>
+<tr class="memdesc:a083e8222b301defc6b9a66001a4daa65"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of additional data for the interaction. <a href="#a083e8222b301defc6b9a66001a4daa65">More...</a><br /></td></tr>
+<tr class="separator:a083e8222b301defc6b9a66001a4daa65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html" title="Purchase Binding">Purchase</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="acd903469d08d5aad54f2072b601c0461"></a>
+<a class="anchor" id="a56677a1afd631f478164aef4212b514c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -161,7 +164,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>additionalData</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -239,6 +248,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a083e8222b301defc6b9a66001a4daa65"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string, object&gt; Recombee.ApiClient.Bindings.Purchase.AdditionalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A dictionary of additional data for the interaction.</p>
+
+</div>
+</div>
 <a class="anchor" id="a05002bcde2cecd641e13eafb7a4c84c6"></a>
 <div class="memitem">
 <div class="memproto">

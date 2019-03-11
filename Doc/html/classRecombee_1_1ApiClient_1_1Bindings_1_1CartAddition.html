@@ -78,8 +78,8 @@ Collaboration diagram for Recombee.ApiClient.Bindings.CartAddition:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad98888166a8a5ff235a844c51415e42b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#ad98888166a8a5ff235a844c51415e42b">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, string recommId=null)</td></tr>
-<tr class="separator:ad98888166a8a5ff235a844c51415e42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e28c37aec17ab526a7302b36ba9970"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a90e28c37aec17ab526a7302b36ba9970">CartAddition</a> (string userId, string itemId, DateTime?timestamp=null, double?amount=null, double?price=null, string recommId=null, Dictionary&lt; string, object &gt; additionalData=null)</td></tr>
+<tr class="separator:a90e28c37aec17ab526a7302b36ba9970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bff32eeeab0f5516aae8974873b55e"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a86bff32eeeab0f5516aae8974873b55e">Equals</a> (Object obj)</td></tr>
 <tr class="memdesc:a86bff32eeeab0f5516aae8974873b55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the specified object is equal to the current object <a href="#a86bff32eeeab0f5516aae8974873b55e">More...</a><br /></td></tr>
 <tr class="separator:a86bff32eeeab0f5516aae8974873b55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,11 +107,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a6532547a00b956e3562b9667426b8422"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#a6532547a00b956e3562b9667426b8422">RecommId</a><code> [get]</code></td></tr>
 <tr class="memdesc:a6532547a00b956e3562b9667426b8422"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this cart addition is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a6532547a00b956e3562b9667426b8422">More...</a><br /></td></tr>
 <tr class="separator:a6532547a00b956e3562b9667426b8422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa594ac86f0725f766ba94cf4a896f8b0"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html#aa594ac86f0725f766ba94cf4a896f8b0">AdditionalData</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa594ac86f0725f766ba94cf4a896f8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of additional data for the interaction. <a href="#aa594ac86f0725f766ba94cf4a896f8b0">More...</a><br /></td></tr>
+<tr class="separator:aa594ac86f0725f766ba94cf4a896f8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html" title="CartAddition Binding">CartAddition</a> Binding</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad98888166a8a5ff235a844c51415e42b"></a>
+<a class="anchor" id="a90e28c37aec17ab526a7302b36ba9970"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -152,7 +155,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>additionalData</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -230,6 +239,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="aa594ac86f0725f766ba94cf4a896f8b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string, object&gt; Recombee.ApiClient.Bindings.CartAddition.AdditionalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A dictionary of additional data for the interaction.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa4eb6c350a5e34e8b1ee2061fd2dcc22"></a>
 <div class="memitem">
 <div class="memproto">

@@ -78,9 +78,9 @@ Collaboration diagram for Recombee.ApiClient.ApiRequests.SetViewPortion:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a84db022ab67acfa8616a01bdadf49f2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#a84db022ab67acfa8616a01bdadf49f2c">SetViewPortion</a> (string userId, string itemId, double portion, string sessionId=null, DateTime?timestamp=null, bool?cascadeCreate=null, string recommId=null)</td></tr>
-<tr class="memdesc:a84db022ab67acfa8616a01bdadf49f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#a84db022ab67acfa8616a01bdadf49f2c">More...</a><br /></td></tr>
-<tr class="separator:a84db022ab67acfa8616a01bdadf49f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6f7c76aa932bc3f0c493220a6fa216"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#aad6f7c76aa932bc3f0c493220a6fa216">SetViewPortion</a> (string userId, string itemId, double portion, string sessionId=null, DateTime?timestamp=null, bool?cascadeCreate=null, string recommId=null, Dictionary&lt; string, object &gt; additionalData=null)</td></tr>
+<tr class="memdesc:aad6f7c76aa932bc3f0c493220a6fa216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the request <a href="#aad6f7c76aa932bc3f0c493220a6fa216">More...</a><br /></td></tr>
+<tr class="separator:aad6f7c76aa932bc3f0c493220a6fa216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d17f198fa9da4085d8eafa1f93f333"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#a39d17f198fa9da4085d8eafa1f93f333">Path</a> ()</td></tr>
 <tr class="memdesc:a39d17f198fa9da4085d8eafa1f93f333"><td class="mdescLeft">&#160;</td><td class="mdescRight"><dl class="section return"><dt>Returns</dt><dd>URI to the endpoint including path parameters</dd></dl>
  <a href="#a39d17f198fa9da4085d8eafa1f93f333">More...</a><br /></td></tr>
@@ -119,6 +119,9 @@ Properties</h2></td></tr>
 <tr class="memitem:a184af234a4ebf64e34298f70f039af6e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#a184af234a4ebf64e34298f70f039af6e">RecommId</a><code> [get]</code></td></tr>
 <tr class="memdesc:a184af234a4ebf64e34298f70f039af6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this view portion is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation. <a href="#a184af234a4ebf64e34298f70f039af6e">More...</a><br /></td></tr>
 <tr class="separator:a184af234a4ebf64e34298f70f039af6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa20f2ad14520c6584ca508db9e27ede6"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html#aa20f2ad14520c6584ca508db9e27ede6">AdditionalData</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa20f2ad14520c6584ca508db9e27ede6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of additional data for the interaction. <a href="#aa20f2ad14520c6584ca508db9e27ede6">More...</a><br /></td></tr>
+<tr class="separator:aa20f2ad14520c6584ca508db9e27ede6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td colspan="2" onclick="javascript:toggleInherit('properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html">Recombee.ApiClient.ApiRequests.Request</a></td></tr>
 <tr class="memitem:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html#acd7f1fa887d9b2112c77d01a3d1f4a0e">Timeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd7f1fa887d9b2112c77d01a3d1f4a0e inherit properties_classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for the request in milliseconds <a href="#acd7f1fa887d9b2112c77d01a3d1f4a0e">More...</a><br /></td></tr>
@@ -142,7 +145,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Set view portion</p>
 <p>Sets viewed portion of an item (for example a video or article) by a user (at a session). If you send new request with the same (<code>userId</code>, <code>itemId</code>, <code>sessionId</code>), the portion gets updated. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a84db022ab67acfa8616a01bdadf49f2c"></a>
+<a class="anchor" id="aad6f7c76aa932bc3f0c493220a6fa216"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -189,7 +192,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>recommId</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>recommId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>additionalData</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,6 +223,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">timestamp</td><td>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</td></tr>
     <tr><td class="paramname">cascadeCreate</td><td>Sets whether the given user/item should be created if not present in the database.</td></tr>
     <tr><td class="paramname">recommId</td><td>If this view portion is based on a recommendation request, <code>recommId</code> is the id of the clicked recommendation.</td></tr>
+    <tr><td class="paramname">additionalData</td><td>A dictionary of additional data for the interaction.</td></tr>
   </table>
   </dd>
 </dl>
@@ -306,6 +316,28 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="aa20f2ad14520c6584ca508db9e27ede6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string, object&gt; Recombee.ApiClient.ApiRequests.SetViewPortion.AdditionalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A dictionary of additional data for the interaction.</p>
+
+</div>
+</div>
 <a class="anchor" id="a595f1eea8164a8858f9448afcba38e64"></a>
 <div class="memitem">
 <div class="memproto">

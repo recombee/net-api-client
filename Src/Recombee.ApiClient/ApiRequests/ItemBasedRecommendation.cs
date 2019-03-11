@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Recombee.ApiClient.Bindings;
 using Recombee.ApiClient.Util;
 
 
@@ -271,36 +272,36 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"count", Count}
+                {"count", this.Count}
             };
-            if (TargetUserId != null)
-                parameters["targetUserId"] = TargetUserId;
-            if (UserImpact.HasValue)
-                parameters["userImpact"] = UserImpact.Value;
-            if (Filter != null)
-                parameters["filter"] = Filter;
-            if (Booster != null)
-                parameters["booster"] = Booster;
-            if (AllowNonexistent.HasValue)
-                parameters["allowNonexistent"] = AllowNonexistent.Value;
-            if (CascadeCreate.HasValue)
-                parameters["cascadeCreate"] = CascadeCreate.Value;
-            if (Scenario != null)
-                parameters["scenario"] = Scenario;
-            if (ReturnProperties.HasValue)
-                parameters["returnProperties"] = ReturnProperties.Value;
-            if (IncludedProperties != null)
-                parameters["includedProperties"] = string.Join(",", IncludedProperties);
-            if (Diversity.HasValue)
-                parameters["diversity"] = Diversity.Value;
-            if (MinRelevance != null)
-                parameters["minRelevance"] = MinRelevance;
-            if (RotationRate.HasValue)
-                parameters["rotationRate"] = RotationRate.Value;
-            if (RotationTime.HasValue)
-                parameters["rotationTime"] = RotationTime.Value;
-            if (ExpertSettings != null)
-                parameters["expertSettings"] = ExpertSettings;
+            if (this.TargetUserId != null)
+                parameters["targetUserId"] = this.TargetUserId;
+            if (this.UserImpact.HasValue)
+                parameters["userImpact"] = this.UserImpact.Value;
+            if (this.Filter != null)
+                parameters["filter"] = this.Filter;
+            if (this.Booster != null)
+                parameters["booster"] = this.Booster;
+            if (this.AllowNonexistent.HasValue)
+                parameters["allowNonexistent"] = this.AllowNonexistent.Value;
+            if (this.CascadeCreate.HasValue)
+                parameters["cascadeCreate"] = this.CascadeCreate.Value;
+            if (this.Scenario != null)
+                parameters["scenario"] = this.Scenario;
+            if (this.ReturnProperties.HasValue)
+                parameters["returnProperties"] = this.ReturnProperties.Value;
+            if (this.IncludedProperties != null)
+                parameters["includedProperties"] = string.Join(",", this.IncludedProperties);
+            if (this.Diversity.HasValue)
+                parameters["diversity"] = this.Diversity.Value;
+            if (this.MinRelevance != null)
+                parameters["minRelevance"] = this.MinRelevance;
+            if (this.RotationRate.HasValue)
+                parameters["rotationRate"] = this.RotationRate.Value;
+            if (this.RotationTime.HasValue)
+                parameters["rotationTime"] = this.RotationTime.Value;
+            if (this.ExpertSettings != null)
+                parameters["expertSettings"] = this.ExpertSettings;
             return parameters;
         }
     
