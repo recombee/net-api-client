@@ -5,12 +5,14 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>User Binding</summary>
+    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class User: Entity {
         private readonly string userId;
         /// <summary>Id of the user</summary>

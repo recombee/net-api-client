@@ -5,12 +5,14 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>DetailView Binding</summary>
+    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class DetailView: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who viewed the item</summary>

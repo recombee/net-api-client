@@ -46,7 +46,7 @@ namespace Recombee.ApiClient
         private HttpClient createHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.4.0");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.4.1");
             return httpClient;
         }
 
@@ -251,9 +251,8 @@ namespace Recombee.ApiClient
             }
             else if (request.RequestHttpMehod == HttpMethod.Post)
             {
-                var serializerSettings = new JsonSerializerSettings();
-                serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                string bodyParams = JsonConvert.SerializeObject(request.BodyParameters(), serializerSettings);                return httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json")).Result;
+                string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
+                return httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json")).Result;
             }
             else if (request.RequestHttpMehod == HttpMethod.Delete)
             {
