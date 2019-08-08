@@ -19,8 +19,10 @@ namespace Recombee.ApiClient
         readonly byte[] secretTokenBytes;
 
         readonly bool useHttpsAsDefault;
+        readonly bool isClient;
 
         readonly string hostUri = "rapi.recombee.com";
+        readonly string clientHostUri = "client-rapi.recombee.com";
 
         readonly int BATCH_MAX_SIZE = 10000; //Maximal number of requests within one batch request
 
@@ -31,16 +33,21 @@ namespace Recombee.ApiClient
         /// <param name="databaseId">ID of the database.</param>
         /// <param name="secretToken">Corresponding secret token.</param>
         /// <param name="useHttpsAsDefault">If true, all requests are sent using HTTPS</param>
-        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true)
+        /// <param name="isClient">If true, access the API using client->server communication with the public token as the secretToken instead of using server->server communication with the private token</param>
+        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true, bool isClient = false)
         {
             this.databaseId = databaseId;
             this.secretTokenBytes = Encoding.ASCII.GetBytes(secretToken);
             this.useHttpsAsDefault = useHttpsAsDefault;
+            this.isClient = isClient;
             this.httpClient = createHttpClient();
 
             var envHostUri = Environment.GetEnvironmentVariable("RAPI_URI");
-            if(envHostUri != null)
-                this.hostUri = envHostUri; 
+            if (envHostUri != null)
+            {
+                this.hostUri = envHostUri;
+                this.clientHostUri = envHostUri;
+            }
         }
 
         private HttpClient createHttpClient()
@@ -280,30 +287,33 @@ namespace Recombee.ApiClient
             uriBuilder.Query = QueryParameters(request);
             AppendHmacParameters(uriBuilder);
             uriBuilder.Scheme = (request.EnsureHttps || useHttpsAsDefault) ? "https" : "http";
-            uriBuilder.Host = hostUri;
+            uriBuilder.Host = isClient ? clientHostUri : hostUri;
             return uriBuilder.ToString();
         }
 
         private string QueryParameters(Request request)
-        {            
+        {
             var encodedQueryStringParams = request.QueryParameters().
                 Select (p => string.Format("{0}={1}", p.Key, WebUtility.UrlEncode(String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", p.Value))));
             return string.Join("&", encodedQueryStringParams);
         }
 
-        private Int32 UnixTimestampNow() 
+        private Int32 UnixTimestampNow()
         {
             return (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
         private void AppendHmacParameters(UriBuilder uriBuilder)
         {
-            uriBuilder.Query = StripLeadingQuestionMark(uriBuilder.Query) + (uriBuilder.Query.Length == 0 ? "" : "&") + string.Format("hmac_timestamp={0}",this.UnixTimestampNow());
+            string timestampParam = isClient ? "frontend_timestamp" : "hmac_timestamp";
+            string signParam = isClient ? "frontend_sign" : "hmac_sign";
+
+            uriBuilder.Query = StripLeadingQuestionMark(uriBuilder.Query) + (uriBuilder.Query.Length == 0 ? "" : "&") + string.Format("{0}={1}",timestampParam,this.UnixTimestampNow());
             using(var myhmacsha1 = new HMACSHA1(this.secretTokenBytes))
             {
                 var uriToBeSigned = uriBuilder.Path + uriBuilder.Query;
                 byte[] hmacBytes = myhmacsha1.ComputeHash(Encoding.ASCII.GetBytes(uriToBeSigned));
                 string hmacRes = BitConverter.ToString(hmacBytes).Replace("-","");
-                uriBuilder.Query = StripLeadingQuestionMark(uriBuilder.Query) + string.Format("&hmac_sign={0}",hmacRes);
+                uriBuilder.Query = StripLeadingQuestionMark(uriBuilder.Query) + string.Format("&{0}={1}",signParam,hmacRes);
             }
         }
     }
