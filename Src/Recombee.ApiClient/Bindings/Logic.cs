@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Logic Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class Logic: RecombeeBinding {
         private readonly string name;
         /// <summary>Name of the logic that should be used</summary>
+        [JsonProperty("name")]
         public string Name
         {
             get {return name;}
         }
         private readonly Dictionary<string, object> settings;
         /// <summary>Parameters passed to the logic</summary>
+        [JsonProperty("settings")]
         public Dictionary<string, object> Settings
         {
             get {return settings;}

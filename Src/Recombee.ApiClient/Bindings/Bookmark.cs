@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Bookmark Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class Bookmark: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who bookmarked the item</summary>
+        [JsonProperty("userId")]
         public string UserId
         {
             get {return userId;}
         }
         private readonly string itemId;
         /// <summary>Bookmarked item</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
@@ -30,18 +30,21 @@ namespace Recombee.ApiClient.Bindings
         private readonly DateTime? timestamp;
         /// <summary>UTC timestamp of the bookmark as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
+        [JsonProperty("timestamp")]
         public DateTime? Timestamp
         {
             get {return timestamp;}
         }
         private readonly string recommId;
         /// <summary>If this bookmark is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        [JsonProperty("recommId")]
         public string RecommId
         {
             get {return recommId;}
         }
         private readonly Dictionary<string, object> additionalData;
         /// <summary>A dictionary of additional data for the interaction.</summary>
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData
         {
             get {return additionalData;}

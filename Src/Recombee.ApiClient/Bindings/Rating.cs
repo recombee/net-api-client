@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Rating Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class Rating: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who submitted the rating</summary>
+        [JsonProperty("userId")]
         public string UserId
         {
             get {return userId;}
         }
         private readonly string itemId;
         /// <summary>Rated item</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
@@ -30,24 +30,28 @@ namespace Recombee.ApiClient.Bindings
         private readonly DateTime? timestamp;
         /// <summary>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
+        [JsonProperty("timestamp")]
         public DateTime? Timestamp
         {
             get {return timestamp;}
         }
         private readonly double rating;
         /// <summary>Rating rescaled to interval [-1.0,1.0], where -1.0 means the worst rating possible, 0.0 means neutral, and 1.0 means absolutely positive rating. For example, in the case of 5-star evaluations, rating = (numStars-3)/2 formula may be used for the conversion.</summary>
+        [JsonProperty("ratingValue")]
         public double RatingValue
         {
             get {return rating;}
         }
         private readonly string recommId;
         /// <summary>If this rating is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        [JsonProperty("recommId")]
         public string RecommId
         {
             get {return recommId;}
         }
         private readonly Dictionary<string, object> additionalData;
         /// <summary>A dictionary of additional data for the interaction.</summary>
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData
         {
             get {return additionalData;}

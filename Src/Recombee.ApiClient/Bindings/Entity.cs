@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Recombee.ApiClient.Bindings
 {
@@ -9,6 +10,7 @@ namespace Recombee.ApiClient.Bindings
         private readonly Dictionary<string, object> values;
         
         /// <summary>Values of properties</summary>
+        [JsonProperty("values")]
         public Dictionary<string, object> Values
         {
             get
