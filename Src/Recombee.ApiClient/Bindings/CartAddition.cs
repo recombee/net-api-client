@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>CartAddition Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class CartAddition: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who added the item to the cart</summary>
+        [JsonProperty("userId")]
         public string UserId
         {
             get {return userId;}
         }
         private readonly string itemId;
         /// <summary>Item added to the cart</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
@@ -30,30 +30,35 @@ namespace Recombee.ApiClient.Bindings
         private readonly DateTime? timestamp;
         /// <summary>UTC timestamp of the cart addition as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
+        [JsonProperty("timeStamp")]
         public DateTime? Timestamp
         {
             get {return timestamp;}
         }
         private readonly double? amount;
         /// <summary>Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        [JsonProperty("amount")]
         public double? Amount
         {
             get {return amount;}
         }
         private readonly double? price;
         /// <summary>Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        [JsonProperty("price")]
         public double? Price
         {
             get {return price;}
         }
         private readonly string recommId;
         /// <summary>If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        [JsonProperty("recommId")]
         public string RecommId
         {
             get {return recommId;}
         }
         private readonly Dictionary<string, object> additionalData;
         /// <summary>A dictionary of additional data for the interaction.</summary>
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData
         {
             get {return additionalData;}

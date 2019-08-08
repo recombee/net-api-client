@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Purchase Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class Purchase: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who purchased the item</summary>
+        [JsonProperty("userId")]
         public string UserId
         {
             get {return userId;}
         }
         private readonly string itemId;
         /// <summary>Purchased item</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
@@ -30,36 +30,42 @@ namespace Recombee.ApiClient.Bindings
         private readonly DateTime? timestamp;
         /// <summary>UTC timestamp of the purchase as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
+        [JsonProperty("timestamp")]
         public DateTime? Timestamp
         {
             get {return timestamp;}
         }
         private readonly double? amount;
         /// <summary>Amount (number) of purchased items. The default is 1. For example if `user-x` purchases two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        [JsonProperty("amount")]
         public double? Amount
         {
             get {return amount;}
         }
         private readonly double? price;
         /// <summary>Price paid by the user for the item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        [JsonProperty("price")]
         public double? Price
         {
             get {return price;}
         }
         private readonly double? profit;
         /// <summary>Your profit from the purchased item. The profit is natural in e-commerce domain (for example if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If `amount` is greater than 1, sum of profit of all the items should be given.</summary>
+        [JsonProperty("profit")]
         public double? Profit
         {
             get {return profit;}
         }
         private readonly string recommId;
         /// <summary>If this purchase is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        [JsonProperty("recommId")]
         public string RecommId
         {
             get {return recommId;}
         }
         private readonly Dictionary<string, object> additionalData;
         /// <summary>A dictionary of additional data for the interaction.</summary>
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData
         {
             get {return additionalData;}

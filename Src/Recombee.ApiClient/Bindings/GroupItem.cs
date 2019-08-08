@@ -5,23 +5,23 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>GroupItem Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class GroupItem: RecombeeBinding {
         private readonly string itemType;
         /// <summary>`item` iff the regular item from the catalog is to be inserted, `group` iff group is inserted as the item.</summary>
+        [JsonProperty("itemType")]
         public string ItemType
         {
             get {return itemType;}
         }
         private readonly string itemId;
         /// <summary>ID of the item iff `itemType` is `item`. ID of the group iff `itemType` is `group`.</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}

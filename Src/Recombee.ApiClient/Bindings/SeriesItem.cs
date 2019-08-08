@@ -5,29 +5,30 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>SeriesItem Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class SeriesItem: RecombeeBinding {
         private readonly string itemType;
         /// <summary>`item` iff the regular item from the catalog is to be inserted, `series` iff series is inserted as the item.</summary>
+        [JsonProperty("itemType")]
         public string ItemType
         {
             get {return itemType;}
         }
         private readonly string itemId;
         /// <summary>ID of the item iff `itemType` is `item`. ID of the series iff `itemType` is `series`.</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
         }
         private readonly double time;
         /// <summary>Time index used for sorting items in the series. According to time, items are sorted within series in ascending order. In the example of TV show episodes, the episode number is a natural choice to be passed as time.</summary>
+        [JsonProperty("time")]
         public double Time
         {
             get {return time;}

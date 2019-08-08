@@ -5,35 +5,37 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>ViewPortion Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class ViewPortion: RecombeeBinding {
         private readonly string userId;
         /// <summary>User who viewed a portion of the item</summary>
+        [JsonProperty("userId")]
         public string UserId
         {
             get {return userId;}
         }
         private readonly string itemId;
         /// <summary>Viewed item</summary>
+        [JsonProperty("itemId")]
         public string ItemId
         {
             get {return itemId;}
         }
         private readonly double portion;
         /// <summary>Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the really viewed part of the item, no matter seeking, so for example if the user seeked immediately to half of the item and then viewed 10% of the item, the `portion` should still be `0.1`.</summary>
+        [JsonProperty("portion")]
         public double Portion
         {
             get {return portion;}
         }
         private readonly string sessionId;
         /// <summary>ID of session in which the user viewed the item. Default is `null` (`None`, `nil`, `NULL` etc. depending on language).</summary>
+        [JsonProperty("sessionId")]
         public string SessionId
         {
             get {return sessionId;}
@@ -42,18 +44,21 @@ namespace Recombee.ApiClient.Bindings
         private readonly DateTime? timestamp;
         /// <summary>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
+        [JsonProperty("timestamp")]
         public DateTime? Timestamp
         {
             get {return timestamp;}
         }
         private readonly string recommId;
         /// <summary>If this view portion is based on a recommendation request, `recommId` is the id of the clicked recommendation.</summary>
+        [JsonProperty("recommId")]
         public string RecommId
         {
             get {return recommId;}
         }
         private readonly Dictionary<string, object> additionalData;
         /// <summary>A dictionary of additional data for the interaction.</summary>
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData
         {
             get {return additionalData;}

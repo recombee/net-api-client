@@ -5,17 +5,16 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Group Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class Group: Entity {
         private readonly string groupId;
         /// <summary>Id of the group</summary>
+        [JsonProperty("groupId")]
         public string GroupId
         {
             get {return groupId;}
