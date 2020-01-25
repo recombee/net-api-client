@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
@@ -19,14 +20,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<PropertyInfo>(json);
         }
         
-        /// <summary>Send the GetItemPropertyInfo request</summary>
+        /// <summary>Asynchronously send the GetItemPropertyInfo request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<PropertyInfo> SendAsync(GetItemPropertyInfo request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the GetItemPropertyInfo request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public PropertyInfo Send(GetItemPropertyInfo request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -37,14 +49,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<PropertyInfo[]>(json);
         }
         
-        /// <summary>Send the ListItemProperties request</summary>
+        /// <summary>Asynchronously send the ListItemProperties request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<PropertyInfo>> SendAsync(ListItemProperties request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemProperties request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<PropertyInfo> Send(ListItemProperties request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -56,14 +79,25 @@ namespace Recombee.ApiClient
             return strArray.Select(x => new Series(x));
         }
         
-        /// <summary>Send the ListSeries request</summary>
+        /// <summary>Asynchronously send the ListSeries request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Series>> SendAsync(ListSeries request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListSeries request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Series> Send(ListSeries request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -74,14 +108,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<SeriesItem[]>(json);
         }
         
-        /// <summary>Send the ListSeriesItems request</summary>
+        /// <summary>Asynchronously send the ListSeriesItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<SeriesItem>> SendAsync(ListSeriesItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListSeriesItems request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<SeriesItem> Send(ListSeriesItems request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -93,14 +138,25 @@ namespace Recombee.ApiClient
             return strArray.Select(x => new Group(x));
         }
         
-        /// <summary>Send the ListGroups request</summary>
+        /// <summary>Asynchronously send the ListGroups request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Group>> SendAsync(ListGroups request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListGroups request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Group> Send(ListGroups request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -111,14 +167,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<GroupItem[]>(json);
         }
         
-        /// <summary>Send the ListGroupItems request</summary>
+        /// <summary>Asynchronously send the ListGroupItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<GroupItem>> SendAsync(ListGroupItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListGroupItems request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<GroupItem> Send(ListGroupItems request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -129,14 +196,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<PropertyInfo>(json);
         }
         
-        /// <summary>Send the GetUserPropertyInfo request</summary>
+        /// <summary>Asynchronously send the GetUserPropertyInfo request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<PropertyInfo> SendAsync(GetUserPropertyInfo request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the GetUserPropertyInfo request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public PropertyInfo Send(GetUserPropertyInfo request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -147,14 +225,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<PropertyInfo[]>(json);
         }
         
-        /// <summary>Send the ListUserProperties request</summary>
+        /// <summary>Asynchronously send the ListUserProperties request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<PropertyInfo>> SendAsync(ListUserProperties request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserProperties request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<PropertyInfo> Send(ListUserProperties request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -165,14 +254,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<DetailView[]>(json);
         }
         
-        /// <summary>Send the ListItemDetailViews request</summary>
+        /// <summary>Asynchronously send the ListItemDetailViews request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<DetailView>> SendAsync(ListItemDetailViews request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemDetailViews request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<DetailView> Send(ListItemDetailViews request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -183,14 +283,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<DetailView[]>(json);
         }
         
-        /// <summary>Send the ListUserDetailViews request</summary>
+        /// <summary>Asynchronously send the ListUserDetailViews request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<DetailView>> SendAsync(ListUserDetailViews request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserDetailViews request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<DetailView> Send(ListUserDetailViews request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -201,14 +312,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Purchase[]>(json);
         }
         
-        /// <summary>Send the ListItemPurchases request</summary>
+        /// <summary>Asynchronously send the ListItemPurchases request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Purchase>> SendAsync(ListItemPurchases request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemPurchases request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Purchase> Send(ListItemPurchases request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -219,14 +341,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Purchase[]>(json);
         }
         
-        /// <summary>Send the ListUserPurchases request</summary>
+        /// <summary>Asynchronously send the ListUserPurchases request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Purchase>> SendAsync(ListUserPurchases request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserPurchases request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Purchase> Send(ListUserPurchases request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -237,14 +370,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Rating[]>(json);
         }
         
-        /// <summary>Send the ListItemRatings request</summary>
+        /// <summary>Asynchronously send the ListItemRatings request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Rating>> SendAsync(ListItemRatings request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemRatings request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Rating> Send(ListItemRatings request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -255,14 +399,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Rating[]>(json);
         }
         
-        /// <summary>Send the ListUserRatings request</summary>
+        /// <summary>Asynchronously send the ListUserRatings request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Rating>> SendAsync(ListUserRatings request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserRatings request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Rating> Send(ListUserRatings request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -273,14 +428,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<CartAddition[]>(json);
         }
         
-        /// <summary>Send the ListItemCartAdditions request</summary>
+        /// <summary>Asynchronously send the ListItemCartAdditions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<CartAddition>> SendAsync(ListItemCartAdditions request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemCartAdditions request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<CartAddition> Send(ListItemCartAdditions request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -291,14 +457,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<CartAddition[]>(json);
         }
         
-        /// <summary>Send the ListUserCartAdditions request</summary>
+        /// <summary>Asynchronously send the ListUserCartAdditions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<CartAddition>> SendAsync(ListUserCartAdditions request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserCartAdditions request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<CartAddition> Send(ListUserCartAdditions request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -309,14 +486,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Bookmark[]>(json);
         }
         
-        /// <summary>Send the ListItemBookmarks request</summary>
+        /// <summary>Asynchronously send the ListItemBookmarks request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Bookmark>> SendAsync(ListItemBookmarks request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemBookmarks request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Bookmark> Send(ListItemBookmarks request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -327,14 +515,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<Bookmark[]>(json);
         }
         
-        /// <summary>Send the ListUserBookmarks request</summary>
+        /// <summary>Asynchronously send the ListUserBookmarks request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Bookmark>> SendAsync(ListUserBookmarks request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserBookmarks request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<Bookmark> Send(ListUserBookmarks request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -345,14 +544,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<ViewPortion[]>(json);
         }
         
-        /// <summary>Send the ListItemViewPortions request</summary>
+        /// <summary>Asynchronously send the ListItemViewPortions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<ViewPortion>> SendAsync(ListItemViewPortions request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListItemViewPortions request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<ViewPortion> Send(ListItemViewPortions request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -363,14 +573,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<ViewPortion[]>(json);
         }
         
-        /// <summary>Send the ListUserViewPortions request</summary>
+        /// <summary>Asynchronously send the ListUserViewPortions request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<ViewPortion>> SendAsync(ListUserViewPortions request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListUserViewPortions request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public IEnumerable<ViewPortion> Send(ListUserViewPortions request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -381,14 +602,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
         }
         
-        /// <summary>Send the RecommendItemsToUser request</summary>
+        /// <summary>Asynchronously send the RecommendItemsToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemsToUser request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemsToUser request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemsToUser request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -399,14 +631,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
         }
         
-        /// <summary>Send the RecommendUsersToUser request</summary>
+        /// <summary>Asynchronously send the RecommendUsersToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendUsersToUser request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendUsersToUser request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendUsersToUser request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -417,14 +660,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
         }
         
-        /// <summary>Send the RecommendItemsToItem request</summary>
+        /// <summary>Asynchronously send the RecommendItemsToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemsToItem request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemsToItem request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemsToItem request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         
         /// <summary>Parse JSON response</summary>
         /// <param name="json">JSON string from the API</param>
@@ -435,14 +689,25 @@ namespace Recombee.ApiClient
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
         }
         
-        /// <summary>Send the RecommendUsersToItem request</summary>
+        /// <summary>Asynchronously send the RecommendUsersToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendUsersToItem request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendUsersToItem request</summary>
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendUsersToItem request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
+        
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);

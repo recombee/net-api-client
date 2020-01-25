@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestInsertToSeries()
+        public  void TestInsertToSeries()
         {
             InsertToSeries req;
             Request req2;
@@ -37,6 +37,36 @@ namespace Recombee.ApiClient.Tests
             try
             {
                 client.Send(req);
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(409, (int)ex.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async void TestInsertToSeriesAsync()
+        {
+            InsertToSeries req;
+            Request req2;
+            RecombeeBinding resp;
+            // it 'does not fail when inserting existing item into existing set'
+            req2 = new AddItem("new_item");
+            await client.SendAsync(req2);
+            req = new InsertToSeries("entity_id","item","new_item",3);
+            resp = await client.SendAsync(req);
+            // it 'does not fail when cascadeCreate is used'
+            req = new InsertToSeries("new_set","item","new_item2",1,cascadeCreate: true);
+            resp = await client.SendAsync(req);
+            // it 'really inserts item to the set'
+            req2 = new AddItem("new_item3");
+            await client.SendAsync(req2);
+            req = new InsertToSeries("entity_id","item","new_item3",2);
+            resp = await client.SendAsync(req);
+            try
+            {
+                await client.SendAsync(req);
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

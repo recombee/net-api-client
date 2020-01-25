@@ -16,13 +16,25 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestListItemProperties()
-        {
+        public  void TestListItemProperties()
+                {
             Request[] requests = new Request[] {
                 new ListItemProperties()
             };
-
+        
             BatchResponse batchResponse = client.Send(new Batch(requests));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
+            Assert.Equal(2, ((IEnumerable<PropertyInfo>) batchResponse[0]).Count());
+        }
+
+        [Fact]
+        public async void TestListItemPropertiesAsync()
+                {
+            Request[] requests = new Request[] {
+                new ListItemProperties()
+            };
+        
+            BatchResponse batchResponse = await client.SendAsync(new Batch(requests));
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
             Assert.Equal(2, ((IEnumerable<PropertyInfo>) batchResponse[0]).Count());
         }

@@ -14,9 +14,20 @@ namespace Recombee.ApiClient.Tests
         public RecombeeUnitTest()
         {
                 client = new RecombeeClient("client-test", "jGGQ6ZKa8rQ1zTAyxTc0EMn55YPF7FJLUtaMLhbsGxmvwxgTwXYqmUk5xVZFw98L");
-                
+                client.Send(new ResetDatabase());
+                while (true)
+                {
+                    try {
+                        client.Send(new ListItems());
+                    }
+                    catch(ResponseException) {
+                        //Waiting for DB reset
+                        continue;
+                    }
+                    break;
+                }
+
                 Batch requests = new Batch(new Request[]{
-                new ResetDatabase(),
                 new AddItem("entity_id"),
                 new AddUser("entity_id"),
                 new AddSeries("entity_id"),
@@ -40,7 +51,7 @@ namespace Recombee.ApiClient.Tests
                 });
 
                 client.Send(requests);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
         }
 
         protected DateTime ParseDateTime(string dateStr)

@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestRecommendItemsToItem()
+        public  void TestRecommendItemsToItem()
         {
             RecommendItemsToItem req;
             Request req2;
@@ -30,6 +30,23 @@ namespace Recombee.ApiClient.Tests
             // it 'recommends with expert settings'
             req = new RecommendItemsToItem("nonexisting2","entity_id",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){});
             resp = client.Send(req);
+        }
+
+        [Fact]
+        public async void TestRecommendItemsToItemAsync()
+        {
+            RecommendItemsToItem req;
+            Request req2;
+            RecommendationResponse resp;
+            // it 'recommends'
+            req = new RecommendItemsToItem("entity_id","entity_id",9);
+            resp = await client.SendAsync(req);
+            // it 'recommends to previously nonexisting entity with cascadeCreate'
+            req = new RecommendItemsToItem("nonexisting","entity_id",9,cascadeCreate: true);
+            resp = await client.SendAsync(req);
+            // it 'recommends with expert settings'
+            req = new RecommendItemsToItem("nonexisting2","entity_id",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){});
+            resp = await client.SendAsync(req);
         }
     }
 }

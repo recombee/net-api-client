@@ -16,16 +16,33 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestAddGroup()
-        {
+        public  void TestAddGroup()
+                {
             Request[] requests = new Request[] {
                 new AddGroup("valid_id"),
                 new AddGroup("$$$not_valid$$$"),
                 new AddGroup("valid_id2"),
                 new AddGroup("valid_id2")
             };
-
+        
             BatchResponse batchResponse = client.Send(new Batch(requests));
+            Assert.Equal(201, (int)batchResponse.StatusCodes.ElementAt(0));
+            Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(1));
+            Assert.Equal(201, (int)batchResponse.StatusCodes.ElementAt(2));
+            Assert.Equal(409, (int)batchResponse.StatusCodes.ElementAt(3));
+        }
+
+        [Fact]
+        public async void TestAddGroupAsync()
+                {
+            Request[] requests = new Request[] {
+                new AddGroup("valid_id"),
+                new AddGroup("$$$not_valid$$$"),
+                new AddGroup("valid_id2"),
+                new AddGroup("valid_id2")
+            };
+        
+            BatchResponse batchResponse = await client.SendAsync(new Batch(requests));
             Assert.Equal(201, (int)batchResponse.StatusCodes.ElementAt(0));
             Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(1));
             Assert.Equal(201, (int)batchResponse.StatusCodes.ElementAt(2));

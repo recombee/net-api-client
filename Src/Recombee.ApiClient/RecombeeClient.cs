@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Recombee.ApiClient
 {
@@ -21,6 +23,7 @@ namespace Recombee.ApiClient
         readonly bool useHttpsAsDefault;
 
         readonly string hostUri = "rapi.recombee.com";
+        readonly int? port = null;
 
         readonly int BATCH_MAX_SIZE = 10000; //Maximal number of requests within one batch request
 
@@ -31,7 +34,10 @@ namespace Recombee.ApiClient
         /// <param name="databaseId">ID of the database.</param>
         /// <param name="secretToken">Corresponding secret token.</param>
         /// <param name="useHttpsAsDefault">If true, all requests are sent using HTTPS</param>
-        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true)
+        /// <param name="baseUri">Custom URI of the recommendation API</param>
+        /// <param name="port">Custom port of the recommendation API</param>
+        public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true,
+                              string baseUri = null, int? port = null)
         {
             this.databaseId = databaseId;
             this.secretTokenBytes = Encoding.ASCII.GetBytes(secretToken);
@@ -40,20 +46,43 @@ namespace Recombee.ApiClient
 
             var envHostUri = Environment.GetEnvironmentVariable("RAPI_URI");
             if(envHostUri != null)
-                this.hostUri = envHostUri; 
+                this.hostUri = envHostUri;
+            else if (baseUri != null)
+                this.hostUri = baseUri;
+
+            this.port = port;
         }
 
         private HttpClient createHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.4.1");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.5.0");
             return httpClient;
+        }
+
+        private void RaiseExceptionOnFault(Task task)
+        {
+            try
+            {
+                task.Wait();
+            }
+            catch(AggregateException ae)
+            {
+                throw ae.Flatten().InnerException;
+            }
+        }
+
+        public async Task<StringBinding> SendAsync(Request request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
+            return ParseResponse(json, request);
         }
 
         public StringBinding Send(Request request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
 
         public StringBinding ParseResponse(string json, Request request)
@@ -61,28 +90,56 @@ namespace Recombee.ApiClient
             return new StringBinding(json);
         }
 
+        public async Task<IEnumerable<Item>> SendAsync(ListItems request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
+            return ParseResponse(json, request);
+        }
+
         public IEnumerable<Item> Send(ListItems request)
         {
-            var json = SendRequest(request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
+        }
+
+        public async Task<IEnumerable<User>> SendAsync(ListUsers request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
             return ParseResponse(json, request);
         }
 
         public IEnumerable<User> Send(ListUsers request)
         {
-            var json = SendRequest(request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
+        }
+
+        public async Task<IEnumerable<Recommendation>> SendAsync(UserBasedRecommendation request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
             return ParseResponse(json, request);
         }
 
         public IEnumerable<Recommendation> Send(UserBasedRecommendation request)
         {
-            var json = SendRequest(request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
+        }
+
+        public async Task<IEnumerable<Recommendation>> SendAsync(ItemBasedRecommendation request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
             return ParseResponse(json, request);
         }
 
         public IEnumerable<Recommendation> Send(ItemBasedRecommendation request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
 
         private IEnumerable<Recommendation> ParseResponse(string json, UserBasedRecommendation request)
@@ -140,10 +197,17 @@ namespace Recombee.ApiClient
             }
         }
 
+        public async Task<Item> SendAsync(GetItemValues request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
+            return ParseResponse(json, request);
+        }
+
         public Item Send(GetItemValues request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
 
         private Item ParseResponse(string json, GetItemValues request)
@@ -152,10 +216,17 @@ namespace Recombee.ApiClient
             return new Item(request.ItemId, vals);
         }
 
+        public async Task<User> SendAsync(GetUserValues request)
+        {
+            var json = await SendRequestAsync(request).ConfigureAwait(false);
+            return ParseResponse(json, request);
+        }
+
         public User Send(GetUserValues request)
         {
-            var json = SendRequest(request);
-            return ParseResponse(json, request);
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
 
         private User ParseResponse(string json, GetUserValues request)
@@ -175,12 +246,13 @@ namespace Recombee.ApiClient
                 json = null;
             }
         }
-        public BatchResponse Send(Batch request)
+        
+        public async Task<BatchResponse> SendAsync(Batch request)
         {
             if(request.Requests.Count() > BATCH_MAX_SIZE )
-                return SendMultipartBatchRequest(request);
+                return await SendMultipartBatchRequestAsync(request).ConfigureAwait(false);
 
-            var json = SendRequest(request);
+            var json = await SendRequestAsync(request);
             var partiallyParsed = JsonConvert.DeserializeObject<BatchParseHelper[]>(json);
 
             var resps = request.Requests.Zip(partiallyParsed, (req, res) => (object) ParseOneBatchResponse(res.json.ToString(), res.code, req));
@@ -188,38 +260,48 @@ namespace Recombee.ApiClient
             return new BatchResponse(resps, statusCodes);
         }
 
-        private BatchResponse SendMultipartBatchRequest(Batch request)
+        public BatchResponse Send(Batch request)
+        {
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
+        }
+
+        private async Task<BatchResponse> SendMultipartBatchRequestAsync(Batch request)
         {
             var parts = request.Requests.Part(BATCH_MAX_SIZE);
-            var results = parts.Select(reqs => Send(new Batch(reqs)));
+            var results = new List<BatchResponse>();
+            foreach(var part in parts)
+            {
+                // The parts of a single Batch must be processed after one another in the original order due to possible data dependencies
+                results.Add(await SendAsync(new Batch(part)).ConfigureAwait(false));
+            }
             var responses = results.Select(br => br.Responses).SelectMany(x => x);
             var statusCodes = results.Select(br => br.StatusCodes).SelectMany(x => x);
             return new BatchResponse(responses, statusCodes);
         }
 
-
-        protected string SendRequest(Request request)
+        protected async Task<string> SendRequestAsync(Request request)
         {
             var uri = ProcessRequestUri(request);
             try
             {
-                HttpResponseMessage response = PerformHTTPRequest(uri, request);
-                var jsonStringTask = response.Content.ReadAsStringAsync();
-                jsonStringTask.Wait();
-                var jsonString = jsonStringTask.Result;
+                var response = await PerformHttpRequestAsync(uri, request).ConfigureAwait(false);
+                var jsonString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 CheckStatusCode(response.StatusCode, jsonString, request);
                 return jsonString;
             }
-            catch(AggregateException ae)
+            catch (TaskCanceledException e)
             {
-                ae.Handle((x) =>
-                {
-                    if(x is System.Threading.Tasks.TaskCanceledException)
-                        throw new TimeoutException(request, x);
-                    return false;
-                });
+                throw new TimeoutException(request, e);
             }
-            throw new InvalidOperationException("Invalid state after sending a request."); //Should never happen
+        }
+
+        protected string SendRequest(Request request)
+        {
+            var task = SendRequestAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
         }
 
         private void CheckStatusCode(System.Net.HttpStatusCode statusCode, string response, Request request)
@@ -232,35 +314,38 @@ namespace Recombee.ApiClient
         }
 
 
-        private HttpResponseMessage PerformHTTPRequest(string uri, Request request)
+        private async Task<HttpResponseMessage> PerformHttpRequestAsync(string uri, Request request)
         {
-            if (httpClient.Timeout != request.Timeout)
+            // https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/93e39b8f48169cce4803615519ef87bb2a969c8e/AsyncGuidance.md#always-dispose-cancellationtokensources-used-for-timeouts
+            using (var ctsTimeout = new CancellationTokenSource(request.Timeout))
             {
-                if (httpClient.Timeout != null)
-                    httpClient = createHttpClient();
-                httpClient.Timeout = request.Timeout;
-            }
-            
-            if (request.RequestHttpMehod == HttpMethod.Get)
-            {
-                return httpClient.GetAsync(uri).Result;
-            }
-            else if (request.RequestHttpMehod == HttpMethod.Put)
-            {
-                return httpClient.PutAsync(uri, new StringContent("")).Result;
-            }
-            else if (request.RequestHttpMehod == HttpMethod.Post)
-            {
-                string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
-                return httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json")).Result;
-            }
-            else if (request.RequestHttpMehod == HttpMethod.Delete)
-            {
-                return httpClient.DeleteAsync(uri).Result;
-            }
-            else
-            {
-                throw new InvalidOperationException("Unknown method " + request.RequestHttpMehod.ToString());
+                try{
+                    if (request.RequestHttpMehod == HttpMethod.Get)
+                    {
+                        return await httpClient.GetAsync(uri, ctsTimeout.Token);
+                    }
+                    else if (request.RequestHttpMehod == HttpMethod.Put)
+                    {
+                        return await httpClient.PutAsync(uri, new StringContent(""), ctsTimeout.Token);
+                    }
+                    else if (request.RequestHttpMehod == HttpMethod.Post)
+                    {
+                        string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
+                        return await httpClient.PostAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json"), ctsTimeout.Token);
+                    }
+                    else if (request.RequestHttpMehod == HttpMethod.Delete)
+                    {
+                        return await httpClient.DeleteAsync(uri, ctsTimeout.Token);
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("Unknown method " + request.RequestHttpMehod.ToString());
+                    }
+                }
+                catch (TaskCanceledException ex)
+                {
+                    throw new TimeoutException(request, ex);
+                }
             }
         }
 
@@ -281,6 +366,8 @@ namespace Recombee.ApiClient
             AppendHmacParameters(uriBuilder);
             uriBuilder.Scheme = (request.EnsureHttps || useHttpsAsDefault) ? "https" : "http";
             uriBuilder.Host = hostUri;
+            if (this.port.HasValue)
+                uriBuilder.Port = this.port.Value;
             return uriBuilder.ToString();
         }
 

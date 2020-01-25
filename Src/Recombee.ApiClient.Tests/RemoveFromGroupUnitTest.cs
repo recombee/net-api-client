@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestRemoveFromGroup()
+        public  void TestRemoveFromGroup()
         {
             RemoveFromGroup req;
             Request req2;
@@ -29,6 +29,28 @@ namespace Recombee.ApiClient.Tests
             try
             {
                 client.Send(req);
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(404, (int)ex.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async void TestRemoveFromGroupAsync()
+        {
+            RemoveFromGroup req;
+            Request req2;
+            RecombeeBinding resp;
+            // it 'does not fail when removing item that is contained in the set'
+            req = new RemoveFromGroup("entity_id","item","entity_id");
+            resp = await client.SendAsync(req);
+            // it 'fails when removing item that is not contained in the set'
+            req = new RemoveFromGroup("entity_id","item","not_contained");
+            try
+            {
+                await client.SendAsync(req);
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

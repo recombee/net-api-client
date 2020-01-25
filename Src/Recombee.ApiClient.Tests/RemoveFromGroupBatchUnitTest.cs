@@ -16,14 +16,27 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestRemoveFromGroup()
-        {
+        public  void TestRemoveFromGroup()
+                {
             Request[] requests = new Request[] {
                 new RemoveFromGroup("entity_id","item","entity_id"),
                 new RemoveFromGroup("entity_id","item","not_contained")
             };
-
+        
             BatchResponse batchResponse = client.Send(new Batch(requests));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
+            Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(1));
+        }
+
+        [Fact]
+        public async void TestRemoveFromGroupAsync()
+                {
+            Request[] requests = new Request[] {
+                new RemoveFromGroup("entity_id","item","entity_id"),
+                new RemoveFromGroup("entity_id","item","not_contained")
+            };
+        
+            BatchResponse batchResponse = await client.SendAsync(new Batch(requests));
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(1));
         }

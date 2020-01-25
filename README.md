@@ -75,6 +75,7 @@ public class BasicExample
 
 ```cs
 using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using Recombee.ApiClient;
@@ -83,7 +84,7 @@ using Recombee.ApiClient.Bindings;
 
 public class PropertiesExample
 {
-    static int Main(string[] args)
+    static async Task<int> Main(string[] args)
     {
         RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--");
 
@@ -126,7 +127,7 @@ public class PropertiesExample
                                            
                 requests.Add(req);
             }
-            client.Send(new Batch(requests)); // Send catalog to the recommender system
+            await client.SendAsync(new Batch(requests)); // Send catalog to the recommender system
 
             // Generate some random purchases of items by users
             var userIds = Enumerable.Range(0, NUM).Select(i => String.Format("user-{0}", i));
@@ -146,19 +147,19 @@ public class PropertiesExample
         
 
             // Get 5 recommendations for user-42, who is currently viewing computer-6
-            var recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5));
+            var recommendationResponse = await client.SendAsync(new RecommendItemsToItem("computer-6", "user-42", 5));
             Console.WriteLine("Recommended items:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
 
             // Recommend only computers that have at least 3 cores
-            recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5,
+            recommendationResponse = await client.SendAsync(new RecommendItemsToItem("computer-6", "user-42", 5,
                                             filter: " 'num-cores'>=3 "));
             Console.WriteLine("Recommended items with at least 3 processor cores:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
             // Recommend only items that are more expensive then currently viewed item (up-sell)
-            recommendationResponse = client.Send(new RecommendItemsToItem("computer-6", "user-42", 5,
+            recommendationResponse = await client.SendAsync(new RecommendItemsToItem("computer-6", "user-42", 5,
                                             filter: " 'price' > context_item[\"price\"] "));
             Console.WriteLine("Recommended up-sell items:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);

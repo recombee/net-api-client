@@ -16,14 +16,27 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestDeleteRating()
-        {
+        public  void TestDeleteRating()
+                {
             Request[] requests = new Request[] {
                 new DeleteRating("user","item",timestamp: UnixTimeStampToDateTime(0)),
                 new DeleteRating("user","item")
             };
-
+        
             BatchResponse batchResponse = client.Send(new Batch(requests));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
+            Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(1));
+        }
+
+        [Fact]
+        public async void TestDeleteRatingAsync()
+                {
+            Request[] requests = new Request[] {
+                new DeleteRating("user","item",timestamp: UnixTimeStampToDateTime(0)),
+                new DeleteRating("user","item")
+            };
+        
+            BatchResponse batchResponse = await client.SendAsync(new Batch(requests));
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(1));
         }

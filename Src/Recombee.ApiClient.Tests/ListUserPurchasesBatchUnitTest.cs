@@ -16,13 +16,27 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestListUserPurchases()
-        {
+        public  void TestListUserPurchases()
+                {
             Request[] requests = new Request[] {
                 new ListUserPurchases("user")
             };
-
+        
             BatchResponse batchResponse = client.Send(new Batch(requests));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
+            Assert.Equal(1, ((IEnumerable<Purchase>) batchResponse[0]).Count());
+            Assert.Equal ("item",((IEnumerable<Purchase>) batchResponse[0]).ElementAt(0).ItemId);
+            Assert.Equal ("user",((IEnumerable<Purchase>) batchResponse[0]).ElementAt(0).UserId);
+        }
+
+        [Fact]
+        public async void TestListUserPurchasesAsync()
+                {
+            Request[] requests = new Request[] {
+                new ListUserPurchases("user")
+            };
+        
+            BatchResponse batchResponse = await client.SendAsync(new Batch(requests));
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(0));
             Assert.Equal(1, ((IEnumerable<Purchase>) batchResponse[0]).Count());
             Assert.Equal ("item",((IEnumerable<Purchase>) batchResponse[0]).ElementAt(0).ItemId);

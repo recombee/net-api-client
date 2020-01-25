@@ -18,5 +18,15 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal ((long)42, (long)resp.Values["int_property"]);
             Assert.Equal ("hello",resp.Values["str_property"]);
         }
+
+        [Fact]
+        public async void TestGetItemValuesAsync()
+        {
+            GetItemValues req = new GetItemValues("entity_id");
+            Item resp = await client.SendAsync(req);
+            Assert.Equal ((long)42, (long)resp.Values["int_property"]);
+            Assert.Equal ("hello",resp.Values["str_property"]);
+        }
+
     }
 }

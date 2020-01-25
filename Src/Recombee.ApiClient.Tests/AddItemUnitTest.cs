@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.Tests
     {
 
         [Fact]
-        public void TestAddItem()
+        public  void TestAddItem()
         {
             AddItem req;
             Request req2;
@@ -41,6 +41,40 @@ namespace Recombee.ApiClient.Tests
             try
             {
                 client.Send(req);
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(409, (int)ex.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async void TestAddItemAsync()
+        {
+            AddItem req;
+            Request req2;
+            RecombeeBinding resp;
+            // it 'does not fail with valid entity id'
+            req = new AddItem("valid_id");
+            resp = await client.SendAsync(req);
+            // it 'fails with invalid entity id'
+            req = new AddItem("$$$not_valid$$$");
+            try
+            {
+                await client.SendAsync(req);
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(400, (int)ex.StatusCode);
+            }
+            // it 'really stores entity to the system'
+            req = new AddItem("valid_id2");
+            resp = await client.SendAsync(req);
+            try
+            {
+                await client.SendAsync(req);
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
