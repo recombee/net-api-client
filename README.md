@@ -99,7 +99,7 @@ public class PropertiesExample
 
          try
          {
-            client.Send(new ResetDatabase());
+            client.Send(new ResetDatabase()); // Clear everything from the database
             client.Send(new AddItemProperty("price", "double"));
             client.Send(new AddItemProperty("num-cores", "int"));
             client.Send(new AddItemProperty("description", "string"));
@@ -147,14 +147,10 @@ public class PropertiesExample
         
 
             // Get 5 recommendations for user-42, who is currently viewing computer-6
-            var recommendationResponse = await client.SendAsync(new RecommendItemsToItem("computer-6", "user-42", 5));
-            Console.WriteLine("Recommended items:");
-            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
-
-
             // Recommend only computers that have at least 3 cores
-            recommendationResponse = await client.SendAsync(new RecommendItemsToItem("computer-6", "user-42", 5,
-                                            filter: " 'num-cores'>=3 "));
+            RecommendationResponse recommendationResponse = await client.SendAsync
+                                            (new RecommendItemsToItem("computer-6", "user-42", 5,
+                                                                      filter: " 'num-cores'>=3 "));
             Console.WriteLine("Recommended items with at least 3 processor cores:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
@@ -163,6 +159,20 @@ public class PropertiesExample
                                             filter: " 'price' > context_item[\"price\"] "));
             Console.WriteLine("Recommended up-sell items:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
+
+            // Filters, boosters and other settings can be set also in the Admin UI (admin.recombee.com)
+            // when scenario is specified
+            recommendationResponse = await client.SendAsync(
+                new RecommendItemsToItem("computer-6", "user-42", 5, scenario: "product_detail")
+            );
+
+            // Perform personalized full-text search with a user's search query (e.g. "computers")
+            SearchResponse searchResponse = await client.SendAsync(
+              new SearchItems("user-42", "computers", 5)
+            );
+            Console.WriteLine("Search matches:");
+            foreach(Recommendation rec in searchResponse.Recomms) Console.WriteLine(rec.Id);
+
          }
          catch(ApiException e)
          {

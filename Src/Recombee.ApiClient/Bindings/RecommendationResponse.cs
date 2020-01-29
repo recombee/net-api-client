@@ -1,7 +1,3 @@
-/*
- This file is auto-generated, do not edit
-*/
-
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -31,9 +27,6 @@ namespace Recombee.ApiClient.Bindings
             get {return abGroup;}
         }
 
-        // public RecommendationResponse(string recommId, Recommendation[] recomms): this(recommId, recomms, null)
-        // {}
-    
         public RecommendationResponse (string recommId, Recommendation[] recomms, string abGroup=null)
         {
             this.recommId = recommId;

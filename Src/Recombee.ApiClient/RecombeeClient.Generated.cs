@@ -708,6 +708,35 @@ namespace Recombee.ApiClient
             return task.Result;
         }
         
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected SearchResponse ParseResponse(string json, SearchItems request)
+        {
+            return JsonConvert.DeserializeObject<SearchResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the SearchItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<SearchResponse> SendAsync(SearchItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the SearchItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public SearchResponse Send(SearchItems request)
+        {
+            var task = SendAsync(request);
+            RaiseExceptionOnFault(task);
+            return task.Result;
+        }
+        
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);
@@ -767,6 +796,8 @@ namespace Recombee.ApiClient
             if (request is RecommendItemsToItem) return ParseResponse(json, (RecommendItemsToItem) request); 
             
             if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
+            
+            if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
             
             if (request is UserBasedRecommendation) return ParseResponse(json, (UserBasedRecommendation) request); 
             

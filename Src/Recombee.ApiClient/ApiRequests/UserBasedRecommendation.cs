@@ -20,7 +20,7 @@ namespace Recombee.ApiClient.ApiRequests
     public class UserBasedRecommendation : Request
     {
         private readonly string userId;
-        /// <summary>ID of the user for which the personalized recommendations are to be generated.</summary>
+        /// <summary>ID of the user for whom the personalized recommendations are to be generated.</summary>
         public string UserId
         {
             get {return userId;}
@@ -146,7 +146,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="userId">ID of the user for which the personalized recommendations are to be generated.</param>
+        /// <param name="userId">ID of the user for whom the personalized recommendations are to be generated.</param>
         /// <param name="count">Number of items to be recommended (N for the top-N recommendation).</param>
         /// <param name="filter">Boolean-returning [ReQL](https://docs.recombee.com/reql.html) expression which allows you to filter recommended items based on the values of their attributes.</param>
         /// <param name="booster">Number-returning [ReQL](https://docs.recombee.com/reql.html) expression which allows you to boost recommendation rate of some items based on the values of their attributes.</param>

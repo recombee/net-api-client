@@ -56,7 +56,7 @@ namespace Recombee.ApiClient
         private HttpClient createHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/2.5.0");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/3.0.0");
             return httpClient;
         }
 
