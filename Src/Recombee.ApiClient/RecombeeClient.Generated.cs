@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Nito.AsyncEx.Synchronous;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
 
@@ -34,9 +35,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public PropertyInfo Send(GetItemPropertyInfo request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -63,9 +64,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<PropertyInfo> Send(ListItemProperties request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -93,9 +94,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Series> Send(ListSeries request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -122,9 +123,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<SeriesItem> Send(ListSeriesItems request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -152,9 +153,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Group> Send(ListGroups request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -181,9 +182,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<GroupItem> Send(ListGroupItems request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -210,9 +211,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public PropertyInfo Send(GetUserPropertyInfo request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -239,9 +240,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<PropertyInfo> Send(ListUserProperties request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -268,9 +269,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<DetailView> Send(ListItemDetailViews request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -297,9 +298,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<DetailView> Send(ListUserDetailViews request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -326,9 +327,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Purchase> Send(ListItemPurchases request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -355,9 +356,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Purchase> Send(ListUserPurchases request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -384,9 +385,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Rating> Send(ListItemRatings request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -413,9 +414,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Rating> Send(ListUserRatings request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -442,9 +443,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<CartAddition> Send(ListItemCartAdditions request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -471,9 +472,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<CartAddition> Send(ListUserCartAdditions request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -500,9 +501,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Bookmark> Send(ListItemBookmarks request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -529,9 +530,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<Bookmark> Send(ListUserBookmarks request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -558,9 +559,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<ViewPortion> Send(ListItemViewPortions request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -587,9 +588,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public IEnumerable<ViewPortion> Send(ListUserViewPortions request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -616,9 +617,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemsToUser request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -645,9 +646,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendUsersToUser request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -674,9 +675,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemsToItem request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -703,9 +704,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendUsersToItem request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         
@@ -732,9 +733,9 @@ namespace Recombee.ApiClient
         /// <returns>Response from the API</returns>
         public SearchResponse Send(SearchItems request)
         {
-            var task = SendAsync(request);
-            RaiseExceptionOnFault(task);
-            return task.Result;
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
         }
         
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
