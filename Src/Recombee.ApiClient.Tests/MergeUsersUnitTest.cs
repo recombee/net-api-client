@@ -19,18 +19,15 @@ namespace Recombee.ApiClient.Tests
         public  void TestMergeUsers()
         {
             MergeUsers req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing users'
-            req2 = new AddUser("target");
-            client.Send(req2);
-            req = new MergeUsers("target","entity_id");
-            resp = client.Send(req);
+            resp2 = client.Send(new AddUser("target"));
+            resp = client.Send(new MergeUsers("target", "entity_id"));
             // it 'fails with nonexisting user'
-            req = new MergeUsers("nonex_id","entity_id");
             try
             {
-                client.Send(req);
+                client.Send(new MergeUsers("nonex_id", "entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -43,18 +40,15 @@ namespace Recombee.ApiClient.Tests
         public async void TestMergeUsersAsync()
         {
             MergeUsers req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing users'
-            req2 = new AddUser("target");
-            await client.SendAsync(req2);
-            req = new MergeUsers("target","entity_id");
-            resp = await client.SendAsync(req);
+            resp2 = await client.SendAsync(new AddUser("target"));
+            resp = await client.SendAsync(new MergeUsers("target", "entity_id"));
             // it 'fails with nonexisting user'
-            req = new MergeUsers("nonex_id","entity_id");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new MergeUsers("nonex_id", "entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

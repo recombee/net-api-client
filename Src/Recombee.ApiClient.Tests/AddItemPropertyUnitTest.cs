@@ -19,18 +19,15 @@ namespace Recombee.ApiClient.Tests
         public  void TestAddItemProperty()
         {
             AddItemProperty req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with valid name and type'
-            req = new AddItemProperty("number","int");
-            resp = client.Send(req);
-            req = new AddItemProperty("str","string");
-            resp = client.Send(req);
+            resp = client.Send(new AddItemProperty("number", "int"));
+            resp = client.Send(new AddItemProperty("str", "string"));
             // it 'fails with invalid type'
-            req = new AddItemProperty("prop","integer");
             try
             {
-                client.Send(req);
+                client.Send(new AddItemProperty("prop", "integer"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -38,11 +35,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores property to the system'
-            req = new AddItemProperty("number2","int");
-            resp = client.Send(req);
+            resp = client.Send(new AddItemProperty("number2", "int"));
             try
             {
-                client.Send(req);
+                client.Send(new AddItemProperty("number2", "int"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -55,18 +51,15 @@ namespace Recombee.ApiClient.Tests
         public async void TestAddItemPropertyAsync()
         {
             AddItemProperty req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with valid name and type'
-            req = new AddItemProperty("number","int");
-            resp = await client.SendAsync(req);
-            req = new AddItemProperty("str","string");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddItemProperty("number", "int"));
+            resp = await client.SendAsync(new AddItemProperty("str", "string"));
             // it 'fails with invalid type'
-            req = new AddItemProperty("prop","integer");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddItemProperty("prop", "integer"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -74,11 +67,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores property to the system'
-            req = new AddItemProperty("number2","int");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddItemProperty("number2", "int"));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddItemProperty("number2", "int"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

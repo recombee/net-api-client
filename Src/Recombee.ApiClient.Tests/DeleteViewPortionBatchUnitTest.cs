@@ -18,9 +18,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestDeleteViewPortion()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteViewPortion("user","item"),
-                new DeleteViewPortion("user","item")
+                new DeleteViewPortion("user", "item"),
+                new DeleteViewPortion("user", "item")
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -31,9 +32,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestDeleteViewPortionAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteViewPortion("user","item"),
-                new DeleteViewPortion("user","item")
+                new DeleteViewPortion("user", "item"),
+                new DeleteViewPortion("user", "item")
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

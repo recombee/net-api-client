@@ -18,6 +18,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestGetUserPropertyInfo()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new GetUserPropertyInfo("int_property"),
                 new GetUserPropertyInfo("str_property")
@@ -33,6 +34,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestGetUserPropertyInfoAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new GetUserPropertyInfo("int_property"),
                 new GetUserPropertyInfo("str_property")

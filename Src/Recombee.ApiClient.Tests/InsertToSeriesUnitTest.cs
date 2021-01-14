@@ -19,24 +19,19 @@ namespace Recombee.ApiClient.Tests
         public  void TestInsertToSeries()
         {
             InsertToSeries req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail when inserting existing item into existing set'
-            req2 = new AddItem("new_item");
-            client.Send(req2);
-            req = new InsertToSeries("entity_id","item","new_item",3);
-            resp = client.Send(req);
+            resp2 = client.Send(new AddItem("new_item"));
+            resp = client.Send(new InsertToSeries("entity_id", "item", "new_item", 3));
             // it 'does not fail when cascadeCreate is used'
-            req = new InsertToSeries("new_set","item","new_item2",1,cascadeCreate: true);
-            resp = client.Send(req);
+            resp = client.Send(new InsertToSeries("new_set", "item", "new_item2", 1, cascadeCreate: true));
             // it 'really inserts item to the set'
-            req2 = new AddItem("new_item3");
-            client.Send(req2);
-            req = new InsertToSeries("entity_id","item","new_item3",2);
-            resp = client.Send(req);
+            resp2 = client.Send(new AddItem("new_item3"));
+            resp = client.Send(new InsertToSeries("entity_id", "item", "new_item3", 2));
             try
             {
-                client.Send(req);
+                client.Send(new InsertToSeries("entity_id", "item", "new_item3", 2));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -49,24 +44,19 @@ namespace Recombee.ApiClient.Tests
         public async void TestInsertToSeriesAsync()
         {
             InsertToSeries req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail when inserting existing item into existing set'
-            req2 = new AddItem("new_item");
-            await client.SendAsync(req2);
-            req = new InsertToSeries("entity_id","item","new_item",3);
-            resp = await client.SendAsync(req);
+            resp2 = await client.SendAsync(new AddItem("new_item"));
+            resp = await client.SendAsync(new InsertToSeries("entity_id", "item", "new_item", 3));
             // it 'does not fail when cascadeCreate is used'
-            req = new InsertToSeries("new_set","item","new_item2",1,cascadeCreate: true);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new InsertToSeries("new_set", "item", "new_item2", 1, cascadeCreate: true));
             // it 'really inserts item to the set'
-            req2 = new AddItem("new_item3");
-            await client.SendAsync(req2);
-            req = new InsertToSeries("entity_id","item","new_item3",2);
-            resp = await client.SendAsync(req);
+            resp2 = await client.SendAsync(new AddItem("new_item3"));
+            resp = await client.SendAsync(new InsertToSeries("entity_id", "item", "new_item3", 2));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new InsertToSeries("entity_id", "item", "new_item3", 2));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

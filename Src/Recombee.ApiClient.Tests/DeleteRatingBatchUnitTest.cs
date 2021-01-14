@@ -18,9 +18,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestDeleteRating()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteRating("user","item",timestamp: UnixTimeStampToDateTime(0)),
-                new DeleteRating("user","item")
+                new DeleteRating("user", "item", timestamp: UnixTimeStampToDateTime(0)),
+                new DeleteRating("user", "item")
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -31,9 +32,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestDeleteRatingAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteRating("user","item",timestamp: UnixTimeStampToDateTime(0)),
-                new DeleteRating("user","item")
+                new DeleteRating("user", "item", timestamp: UnixTimeStampToDateTime(0)),
+                new DeleteRating("user", "item")
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

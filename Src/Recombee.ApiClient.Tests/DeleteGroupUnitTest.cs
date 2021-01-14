@@ -19,14 +19,13 @@ namespace Recombee.ApiClient.Tests
         public  void TestDeleteGroup()
         {
             DeleteGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteGroup("entity_id");
-            resp = client.Send(req);
+            resp = client.Send(new DeleteGroup("entity_id"));
             try
             {
-                client.Send(req);
+                client.Send(new DeleteGroup("entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -34,10 +33,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid entity id'
-            req = new DeleteGroup("$$$not_valid$$$");
             try
             {
-                client.Send(req);
+                client.Send(new DeleteGroup("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -45,10 +43,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with non-existing entity'
-            req = new DeleteGroup("valid_id");
             try
             {
-                client.Send(req);
+                client.Send(new DeleteGroup("valid_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -61,14 +58,13 @@ namespace Recombee.ApiClient.Tests
         public async void TestDeleteGroupAsync()
         {
             DeleteGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteGroup("entity_id");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new DeleteGroup("entity_id"));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteGroup("entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -76,10 +72,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid entity id'
-            req = new DeleteGroup("$$$not_valid$$$");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteGroup("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -87,10 +82,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with non-existing entity'
-            req = new DeleteGroup("valid_id");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteGroup("valid_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

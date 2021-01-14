@@ -18,6 +18,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestListItemBookmarks()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListItemBookmarks("item")
             };
@@ -32,6 +33,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestListItemBookmarksAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListItemBookmarks("item")
             };

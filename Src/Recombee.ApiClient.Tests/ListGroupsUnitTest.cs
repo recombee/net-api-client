@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListGroups()
         {
             ListGroups req;
-            Request req2;
             IEnumerable<Group> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListGroups();
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListGroups());
             Assert.Equal (new Group[]{new Group("entity_id")},resp);
         }
 
@@ -32,12 +31,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListGroupsAsync()
         {
             ListGroups req;
-            Request req2;
             IEnumerable<Group> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListGroups();
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListGroups());
             Assert.Equal (new Group[]{new Group("entity_id")},resp);
         }
     }

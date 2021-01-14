@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListSeries()
         {
             ListSeries req;
-            Request req2;
             IEnumerable<Series> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListSeries();
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListSeries());
             Assert.Equal (new Series[]{new Series("entity_id")},resp);
         }
 
@@ -32,12 +31,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListSeriesAsync()
         {
             ListSeries req;
-            Request req2;
             IEnumerable<Series> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListSeries();
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListSeries());
             Assert.Equal (new Series[]{new Series("entity_id")},resp);
         }
     }

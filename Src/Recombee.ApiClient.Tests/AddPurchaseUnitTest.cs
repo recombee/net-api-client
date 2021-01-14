@@ -19,22 +19,18 @@ namespace Recombee.ApiClient.Tests
         public  void TestAddPurchase()
         {
             AddPurchase req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with cascadeCreate'
-            req = new AddPurchase("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}});
-            resp = client.Send(req);
+            resp = client.Send(new AddPurchase("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}));
             // it 'does not fail with existing item and user'
-            req = new AddPurchase("entity_id","entity_id");
-            resp = client.Send(req);
+            resp = client.Send(new AddPurchase("entity_id", "entity_id"));
             // it 'does not fail with valid timestamp'
-            req = new AddPurchase("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z"));
-            resp = client.Send(req);
+            resp = client.Send(new AddPurchase("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")));
             // it 'fails with nonexisting item id'
-            req = new AddPurchase("entity_id","nonex_id");
             try
             {
-                client.Send(req);
+                client.Send(new AddPurchase("entity_id", "nonex_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -42,10 +38,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with nonexisting user id'
-            req = new AddPurchase("nonex_id","entity_id");
             try
             {
-                client.Send(req);
+                client.Send(new AddPurchase("nonex_id", "entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -53,10 +48,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid time'
-            req = new AddPurchase("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15));
             try
             {
-                client.Send(req);
+                client.Send(new AddPurchase("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -64,11 +58,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores interaction to the system'
-            req = new AddPurchase("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5));
-            resp = client.Send(req);
+            resp = client.Send(new AddPurchase("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));
             try
             {
-                client.Send(req);
+                client.Send(new AddPurchase("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -81,22 +74,18 @@ namespace Recombee.ApiClient.Tests
         public async void TestAddPurchaseAsync()
         {
             AddPurchase req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with cascadeCreate'
-            req = new AddPurchase("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddPurchase("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}));
             // it 'does not fail with existing item and user'
-            req = new AddPurchase("entity_id","entity_id");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddPurchase("entity_id", "entity_id"));
             // it 'does not fail with valid timestamp'
-            req = new AddPurchase("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z"));
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddPurchase("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")));
             // it 'fails with nonexisting item id'
-            req = new AddPurchase("entity_id","nonex_id");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddPurchase("entity_id", "nonex_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -104,10 +93,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with nonexisting user id'
-            req = new AddPurchase("nonex_id","entity_id");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddPurchase("nonex_id", "entity_id"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -115,10 +103,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid time'
-            req = new AddPurchase("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddPurchase("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -126,11 +113,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores interaction to the system'
-            req = new AddPurchase("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5));
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddPurchase("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddPurchase("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

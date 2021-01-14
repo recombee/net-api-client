@@ -19,14 +19,13 @@ namespace Recombee.ApiClient.Tests
         public  void TestDeleteItemProperty()
         {
             DeleteItemProperty req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing property'
-            req = new DeleteItemProperty("int_property");
-            resp = client.Send(req);
+            resp = client.Send(new DeleteItemProperty("int_property"));
             try
             {
-                client.Send(req);
+                client.Send(new DeleteItemProperty("int_property"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -34,10 +33,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid property'
-            req = new DeleteItemProperty("$$$not_valid$$$");
             try
             {
-                client.Send(req);
+                client.Send(new DeleteItemProperty("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -45,10 +43,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with non-existing property'
-            req = new DeleteItemProperty("not_existing");
             try
             {
-                client.Send(req);
+                client.Send(new DeleteItemProperty("not_existing"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -61,14 +58,13 @@ namespace Recombee.ApiClient.Tests
         public async void TestDeleteItemPropertyAsync()
         {
             DeleteItemProperty req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing property'
-            req = new DeleteItemProperty("int_property");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new DeleteItemProperty("int_property"));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteItemProperty("int_property"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -76,10 +72,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid property'
-            req = new DeleteItemProperty("$$$not_valid$$$");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteItemProperty("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -87,10 +82,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with non-existing property'
-            req = new DeleteItemProperty("not_existing");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteItemProperty("not_existing"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiException.html" title="Base class for exceptions that occur because of errors in requests reported by API or because of a ti..." alt="" coords="133,46,356,73"/>
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ResponseException.html" title="Exception thrown when a request did not succeed (did not return 200 or 201)" alt="" coords="404,5,609,47"/>
-<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1TimeoutException.html" title="Exception thrown when a request is not processed within the timeout" alt="" coords="410,71,603,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,92,73"/>
+<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiException.html" title="Base class for exceptions that occur because of errors in requests reported by API or because of a ti..." alt="" coords="140,46,383,73"/>
+<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ResponseException.html" title="Exception thrown when a request did not succeed (did not return 200 or 201)" alt="" coords="431,5,652,47"/>
+<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1TimeoutException.html" title="Exception thrown when a request is not processed within the timeout" alt="" coords="435,71,647,112"/>
 </map>

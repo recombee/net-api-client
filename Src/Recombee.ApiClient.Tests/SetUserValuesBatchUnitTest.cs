@@ -18,13 +18,14 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestSetUserValues()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5}}),
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}),
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}}),
-                new SetUserValues("new_entity",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"},{"!cascadeCreate",true}}),
-                new SetUserValues("new_entity2",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}},cascadeCreate: true),
-                new SetUserValues("nonexisting",new Dictionary<string, object>(){{"int_property",5}})
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}),
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}),
+                new SetUserValues("new_entity", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}, {"!cascadeCreate",true}}),
+                new SetUserValues("new_entity2", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}, cascadeCreate: true),
+                new SetUserValues("nonexisting", new Dictionary<string, object>(){{"int_property",5}})
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -39,13 +40,14 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestSetUserValuesAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5}}),
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}),
-                new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}}),
-                new SetUserValues("new_entity",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"},{"!cascadeCreate",true}}),
-                new SetUserValues("new_entity2",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}},cascadeCreate: true),
-                new SetUserValues("nonexisting",new Dictionary<string, object>(){{"int_property",5}})
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}),
+                new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}),
+                new SetUserValues("new_entity", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}, {"!cascadeCreate",true}}),
+                new SetUserValues("new_entity2", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}, cascadeCreate: true),
+                new SetUserValues("nonexisting", new Dictionary<string, object>(){{"int_property",5}})
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

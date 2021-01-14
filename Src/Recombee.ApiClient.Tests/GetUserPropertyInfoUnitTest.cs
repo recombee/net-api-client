@@ -19,14 +19,12 @@ namespace Recombee.ApiClient.Tests
         public  void TestGetUserPropertyInfo()
         {
             GetUserPropertyInfo req;
-            Request req2;
             PropertyInfo resp;
+            Object resp2;
             // it 'does not fail with existing properties'
-            req = new GetUserPropertyInfo("int_property");
-            resp = client.Send(req);
+            resp = client.Send(new GetUserPropertyInfo("int_property"));
             Assert.Equal ("int",resp.Type);
-            req = new GetUserPropertyInfo("str_property");
-            resp = client.Send(req);
+            resp = client.Send(new GetUserPropertyInfo("str_property"));
             Assert.Equal ("string",resp.Type);
         }
 
@@ -34,14 +32,12 @@ namespace Recombee.ApiClient.Tests
         public async void TestGetUserPropertyInfoAsync()
         {
             GetUserPropertyInfo req;
-            Request req2;
             PropertyInfo resp;
+            Object resp2;
             // it 'does not fail with existing properties'
-            req = new GetUserPropertyInfo("int_property");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new GetUserPropertyInfo("int_property"));
             Assert.Equal ("int",resp.Type);
-            req = new GetUserPropertyInfo("str_property");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new GetUserPropertyInfo("str_property"));
             Assert.Equal ("string",resp.Type);
         }
     }

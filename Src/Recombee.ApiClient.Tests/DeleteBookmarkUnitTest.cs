@@ -19,15 +19,13 @@ namespace Recombee.ApiClient.Tests
         public  void TestDeleteBookmark()
         {
             DeleteBookmark req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteBookmark("user","item",timestamp: UnixTimeStampToDateTime(0));
-            resp = client.Send(req);
-            req = new DeleteBookmark("user","item");
+            resp = client.Send(new DeleteBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0)));
             try
             {
-                client.Send(req);
+                client.Send(new DeleteBookmark("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -40,15 +38,13 @@ namespace Recombee.ApiClient.Tests
         public async void TestDeleteBookmarkAsync()
         {
             DeleteBookmark req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteBookmark("user","item",timestamp: UnixTimeStampToDateTime(0));
-            resp = await client.SendAsync(req);
-            req = new DeleteBookmark("user","item");
+            resp = await client.SendAsync(new DeleteBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0)));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteBookmark("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

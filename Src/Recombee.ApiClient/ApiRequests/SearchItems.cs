@@ -15,8 +15,11 @@ namespace Recombee.ApiClient.ApiRequests
     /// <remarks>Full-text personalized search. The results are based on the provided `searchQuery` and also on the user's past interactions (purchases, ratings, etc.) with the items (items more suitable for the user are preferred in the results).
     /// All the string and set item properties are indexed by the search engine.
     /// This endpoint should be used in a search box at your website/app. It can be called multiple times as the user is typing the query in order to get the most viable suggestions based on current state of the query, or once after submitting the whole query. 
+    /// The returned items are sorted by relevance (first item being the most relevant).
+    /// Besides the recommended items, also a unique `recommId` is returned in the response. It can be used to:
+    /// - Let Recombee know that this search was successful (e.g. user clicked one of the recommended items). See [Reported metrics](https://docs.recombee.com/admin_ui.html#reported-metrics).
+    /// - Get subsequent search results when the user scrolls down or goes to the next page. See [Recommend Next Items](https://docs.recombee.com/api.html#recommend-next-items).
     /// It is also possible to use POST HTTP method (for example in case of very long ReQL filter) - query parameters then become body parameters.
-    /// The returned items are sorted by relevancy (first item being the most relevant).
     /// </remarks>
     public class SearchItems : Request
     {
@@ -79,7 +82,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "url": "myshop.com/mixer-42"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </summary>
@@ -109,7 +113,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "price": 39
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </summary>
@@ -192,7 +197,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "url": "myshop.com/mixer-42"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </param>
@@ -217,7 +223,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "price": 39
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </param>

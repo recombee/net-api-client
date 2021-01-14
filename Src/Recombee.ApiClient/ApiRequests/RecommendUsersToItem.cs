@@ -67,7 +67,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "sex": "M"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </summary>
@@ -95,7 +96,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "country": "CAN"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </summary>
@@ -180,7 +182,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "sex": "M"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </param>
@@ -203,7 +206,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "country": "CAN"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </param>

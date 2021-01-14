@@ -627,35 +627,6 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
-        protected RecommendationResponse ParseResponse(string json, RecommendUsersToUser request)
-        {
-            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
-        }
-        
-        /// <summary>Asynchronously send the RecommendUsersToUser request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Task representing the asynchronous operation</returns>
-        public async Task<RecommendationResponse> SendAsync(RecommendUsersToUser request)
-        {
-            var json = await SendRequestAsync(request);
-            return ParseResponse(json, request);
-        }
-        
-        /// <summary>Synchronously send the RecommendUsersToUser request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Response from the API</returns>
-        public RecommendationResponse Send(RecommendUsersToUser request)
-        {
-            var task = Task.Run(async () => await SendAsync(request));
-            var result = task.WaitAndUnwrapException();
-            return result;
-        }
-        
-        
-        /// <summary>Parse JSON response</summary>
-        /// <param name="json">JSON string from the API</param>
-        /// <param name="request">Request sent to the API</param>
-        /// <returns>Parsed response</returns>
         protected RecommendationResponse ParseResponse(string json, RecommendItemsToItem request)
         {
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
@@ -674,6 +645,64 @@ namespace Recombee.ApiClient
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemsToItem request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendNextItems request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendNextItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendNextItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendNextItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendNextItems request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendUsersToUser request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendUsersToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendUsersToUser request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendUsersToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendUsersToUser request)
         {
             var task = Task.Run(async () => await SendAsync(request));
             var result = task.WaitAndUnwrapException();
@@ -792,9 +821,11 @@ namespace Recombee.ApiClient
             
             if (request is RecommendItemsToUser) return ParseResponse(json, (RecommendItemsToUser) request); 
             
-            if (request is RecommendUsersToUser) return ParseResponse(json, (RecommendUsersToUser) request); 
-            
             if (request is RecommendItemsToItem) return ParseResponse(json, (RecommendItemsToItem) request); 
+            
+            if (request is RecommendNextItems) return ParseResponse(json, (RecommendNextItems) request); 
+            
+            if (request is RecommendUsersToUser) return ParseResponse(json, (RecommendUsersToUser) request); 
             
             if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
             

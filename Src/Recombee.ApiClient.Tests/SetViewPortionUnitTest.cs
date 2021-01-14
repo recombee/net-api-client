@@ -19,19 +19,16 @@ namespace Recombee.ApiClient.Tests
         public  void TestSetViewPortion()
         {
             SetViewPortion req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with cascadeCreate'
-            req = new SetViewPortion("u_id","i_id",1,cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}});
-            resp = client.Send(req);
+            resp = client.Send(new SetViewPortion("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}));
             // it 'does not fail with existing item and user'
-            req = new SetViewPortion("entity_id","entity_id",0);
-            resp = client.Send(req);
+            resp = client.Send(new SetViewPortion("entity_id", "entity_id", 0));
             // it 'fails with nonexisting item id'
-            req = new SetViewPortion("entity_id","nonex_id",1);
             try
             {
-                client.Send(req);
+                client.Send(new SetViewPortion("entity_id", "nonex_id", 1));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -39,10 +36,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with nonexisting user id'
-            req = new SetViewPortion("nonex_id","entity_id",0.5);
             try
             {
-                client.Send(req);
+                client.Send(new SetViewPortion("nonex_id", "entity_id", 0.5));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -50,10 +46,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid time'
-            req = new SetViewPortion("entity_id","entity_id",0,timestamp: UnixTimeStampToDateTime(-15));
             try
             {
-                client.Send(req);
+                client.Send(new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -61,10 +56,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with invalid portion'
-            req = new SetViewPortion("entity_id","entity_id",-2);
             try
             {
-                client.Send(req);
+                client.Send(new SetViewPortion("entity_id", "entity_id", -2));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -72,10 +66,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with invalid sessionId'
-            req = new SetViewPortion("entity_id","entity_id",0.7,sessionId: "a****");
             try
             {
-                client.Send(req);
+                client.Send(new SetViewPortion("entity_id", "entity_id", 0.7, sessionId: "a****"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -88,19 +81,16 @@ namespace Recombee.ApiClient.Tests
         public async void TestSetViewPortionAsync()
         {
             SetViewPortion req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with cascadeCreate'
-            req = new SetViewPortion("u_id","i_id",1,cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetViewPortion("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}));
             // it 'does not fail with existing item and user'
-            req = new SetViewPortion("entity_id","entity_id",0);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetViewPortion("entity_id", "entity_id", 0));
             // it 'fails with nonexisting item id'
-            req = new SetViewPortion("entity_id","nonex_id",1);
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetViewPortion("entity_id", "nonex_id", 1));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -108,10 +98,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with nonexisting user id'
-            req = new SetViewPortion("nonex_id","entity_id",0.5);
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetViewPortion("nonex_id", "entity_id", 0.5));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -119,10 +108,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'fails with invalid time'
-            req = new SetViewPortion("entity_id","entity_id",0,timestamp: UnixTimeStampToDateTime(-15));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -130,10 +118,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with invalid portion'
-            req = new SetViewPortion("entity_id","entity_id",-2);
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetViewPortion("entity_id", "entity_id", -2));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -141,10 +128,9 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with invalid sessionId'
-            req = new SetViewPortion("entity_id","entity_id",0.7,sessionId: "a****");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetViewPortion("entity_id", "entity_id", 0.7, sessionId: "a****"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

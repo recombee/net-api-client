@@ -18,9 +18,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestDeleteDetailView()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteDetailView("user","item",timestamp: UnixTimeStampToDateTime(0)),
-                new DeleteDetailView("user","item")
+                new DeleteDetailView("user", "item", timestamp: UnixTimeStampToDateTime(0)),
+                new DeleteDetailView("user", "item")
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -31,9 +32,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestDeleteDetailViewAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new DeleteDetailView("user","item",timestamp: UnixTimeStampToDateTime(0)),
-                new DeleteDetailView("user","item")
+                new DeleteDetailView("user", "item", timestamp: UnixTimeStampToDateTime(0)),
+                new DeleteDetailView("user", "item")
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

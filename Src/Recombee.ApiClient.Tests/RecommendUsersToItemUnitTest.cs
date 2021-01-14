@@ -19,34 +19,28 @@ namespace Recombee.ApiClient.Tests
         public  void TestRecommendUsersToItem()
         {
             RecommendUsersToItem req;
-            Request req2;
             RecommendationResponse resp;
+            Object resp2;
             // it 'recommends'
-            req = new RecommendUsersToItem("entity_id",9);
-            resp = client.Send(req);
+            resp = client.Send(new RecommendUsersToItem("entity_id", 9));
             // it 'recommends to previously nonexisting entity with cascadeCreate'
-            req = new RecommendUsersToItem("nonexisting",9,cascadeCreate: true);
-            resp = client.Send(req);
+            resp = client.Send(new RecommendUsersToItem("nonexisting", 9, cascadeCreate: true));
             // it 'recommends with expert settings'
-            req = new RecommendUsersToItem("nonexisting2",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){});
-            resp = client.Send(req);
+            resp = client.Send(new RecommendUsersToItem("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){}));
         }
 
         [Fact]
         public async void TestRecommendUsersToItemAsync()
         {
             RecommendUsersToItem req;
-            Request req2;
             RecommendationResponse resp;
+            Object resp2;
             // it 'recommends'
-            req = new RecommendUsersToItem("entity_id",9);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new RecommendUsersToItem("entity_id", 9));
             // it 'recommends to previously nonexisting entity with cascadeCreate'
-            req = new RecommendUsersToItem("nonexisting",9,cascadeCreate: true);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new RecommendUsersToItem("nonexisting", 9, cascadeCreate: true));
             // it 'recommends with expert settings'
-            req = new RecommendUsersToItem("nonexisting2",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new RecommendUsersToItem("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){}));
         }
     }
 }

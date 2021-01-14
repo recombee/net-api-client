@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListItemProperties()
         {
             ListItemProperties req;
-            Request req2;
             IEnumerable<PropertyInfo> resp;
+            Object resp2;
             // it 'lists properties'
-            req = new ListItemProperties();
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListItemProperties());
             Assert.Equal(2, resp.Count());
         }
 
@@ -32,12 +31,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListItemPropertiesAsync()
         {
             ListItemProperties req;
-            Request req2;
             IEnumerable<PropertyInfo> resp;
+            Object resp2;
             // it 'lists properties'
-            req = new ListItemProperties();
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListItemProperties());
             Assert.Equal(2, resp.Count());
         }
     }

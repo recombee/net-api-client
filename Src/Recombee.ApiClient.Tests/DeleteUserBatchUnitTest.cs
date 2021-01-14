@@ -18,10 +18,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestDeleteUser()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUser("entity_id"),
                 new DeleteUser("entity_id"),
-                new DeleteUser("$$$not_valid$$$"),
+                new DeleteUser("***not_valid$$$"),
                 new DeleteUser("valid_id")
             };
         
@@ -35,10 +36,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestDeleteUserAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUser("entity_id"),
                 new DeleteUser("entity_id"),
-                new DeleteUser("$$$not_valid$$$"),
+                new DeleteUser("***not_valid$$$"),
                 new DeleteUser("valid_id")
             };
         

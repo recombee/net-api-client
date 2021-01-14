@@ -19,15 +19,13 @@ namespace Recombee.ApiClient.Tests
         public  void TestDeleteDetailView()
         {
             DeleteDetailView req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteDetailView("user","item",timestamp: UnixTimeStampToDateTime(0));
-            resp = client.Send(req);
-            req = new DeleteDetailView("user","item");
+            resp = client.Send(new DeleteDetailView("user", "item", timestamp: UnixTimeStampToDateTime(0)));
             try
             {
-                client.Send(req);
+                client.Send(new DeleteDetailView("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -40,15 +38,13 @@ namespace Recombee.ApiClient.Tests
         public async void TestDeleteDetailViewAsync()
         {
             DeleteDetailView req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteDetailView("user","item",timestamp: UnixTimeStampToDateTime(0));
-            resp = await client.SendAsync(req);
-            req = new DeleteDetailView("user","item");
+            resp = await client.SendAsync(new DeleteDetailView("user", "item", timestamp: UnixTimeStampToDateTime(0)));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteDetailView("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

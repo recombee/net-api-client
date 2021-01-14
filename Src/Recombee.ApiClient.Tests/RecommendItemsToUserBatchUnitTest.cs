@@ -18,10 +18,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestRecommendItemsToUser()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new RecommendItemsToUser("entity_id",9),
-                new RecommendItemsToUser("nonexisting",9,cascadeCreate: true),
-                new RecommendItemsToUser("nonexisting2",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){})
+                new RecommendItemsToUser("entity_id", 9),
+                new RecommendItemsToUser("nonexisting", 9, cascadeCreate: true),
+                new RecommendItemsToUser("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){})
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -33,10 +34,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestRecommendItemsToUserAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new RecommendItemsToUser("entity_id",9),
-                new RecommendItemsToUser("nonexisting",9,cascadeCreate: true),
-                new RecommendItemsToUser("nonexisting2",9,cascadeCreate: true,expertSettings: new Dictionary<string, object>(){})
+                new RecommendItemsToUser("entity_id", 9),
+                new RecommendItemsToUser("nonexisting", 9, cascadeCreate: true),
+                new RecommendItemsToUser("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){})
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

@@ -18,10 +18,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestSearchItems()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new SearchItems("entity_id","hell",9),
-                new SearchItems("entity_id","sdhskldf",9),
-                new SearchItems("entity_id","hell",9,returnProperties: true)
+                new SearchItems("entity_id", "hell", 9),
+                new SearchItems("entity_id", "sdhskldf", 9),
+                new SearchItems("entity_id", "hell", 9, returnProperties: true)
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -36,10 +37,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestSearchItemsAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new SearchItems("entity_id","hell",9),
-                new SearchItems("entity_id","sdhskldf",9),
-                new SearchItems("entity_id","hell",9,returnProperties: true)
+                new SearchItems("entity_id", "hell", 9),
+                new SearchItems("entity_id", "sdhskldf", 9),
+                new SearchItems("entity_id", "hell", 9, returnProperties: true)
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

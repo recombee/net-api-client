@@ -18,6 +18,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestListUserViewPortions()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListUserViewPortions("user")
             };
@@ -32,6 +33,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestListUserViewPortionsAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListUserViewPortions("user")
             };

@@ -18,12 +18,13 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestAddItemProperty()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddItemProperty("number","int"),
-                new AddItemProperty("str","string"),
-                new AddItemProperty("prop","integer"),
-                new AddItemProperty("number2","int"),
-                new AddItemProperty("number2","int")
+                new AddItemProperty("number", "int"),
+                new AddItemProperty("str", "string"),
+                new AddItemProperty("prop", "integer"),
+                new AddItemProperty("number2", "int"),
+                new AddItemProperty("number2", "int")
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -37,12 +38,13 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestAddItemPropertyAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddItemProperty("number","int"),
-                new AddItemProperty("str","string"),
-                new AddItemProperty("prop","integer"),
-                new AddItemProperty("number2","int"),
-                new AddItemProperty("number2","int")
+                new AddItemProperty("number", "int"),
+                new AddItemProperty("str", "string"),
+                new AddItemProperty("prop", "integer"),
+                new AddItemProperty("number2", "int"),
+                new AddItemProperty("number2", "int")
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

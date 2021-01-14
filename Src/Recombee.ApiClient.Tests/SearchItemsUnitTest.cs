@@ -19,19 +19,16 @@ namespace Recombee.ApiClient.Tests
         public  void TestSearchItems()
         {
             SearchItems req;
-            Request req2;
             SearchResponse resp;
+            Object resp2;
             // it 'finds "hello"'
-            req = new SearchItems("entity_id","hell",9);
-            resp = client.Send(req);
+            resp = client.Send(new SearchItems("entity_id", "hell", 9));
             Assert.Equal(1, resp.Recomms.Count());
             // it 'does not find random string'
-            req = new SearchItems("entity_id","sdhskldf",9);
-            resp = client.Send(req);
+            resp = client.Send(new SearchItems("entity_id", "sdhskldf", 9));
             Assert.Equal(0, resp.Recomms.Count());
             // it 'returnProperties'
-            req = new SearchItems("entity_id","hell",9,returnProperties: true);
-            resp = client.Send(req);
+            resp = client.Send(new SearchItems("entity_id", "hell", 9, returnProperties: true));
             Assert.Equal(1, resp.Recomms.Count());
         }
 
@@ -39,19 +36,16 @@ namespace Recombee.ApiClient.Tests
         public async void TestSearchItemsAsync()
         {
             SearchItems req;
-            Request req2;
             SearchResponse resp;
+            Object resp2;
             // it 'finds "hello"'
-            req = new SearchItems("entity_id","hell",9);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SearchItems("entity_id", "hell", 9));
             Assert.Equal(1, resp.Recomms.Count());
             // it 'does not find random string'
-            req = new SearchItems("entity_id","sdhskldf",9);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SearchItems("entity_id", "sdhskldf", 9));
             Assert.Equal(0, resp.Recomms.Count());
             // it 'returnProperties'
-            req = new SearchItems("entity_id","hell",9,returnProperties: true);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SearchItems("entity_id", "hell", 9, returnProperties: true));
             Assert.Equal(1, resp.Recomms.Count());
         }
     }

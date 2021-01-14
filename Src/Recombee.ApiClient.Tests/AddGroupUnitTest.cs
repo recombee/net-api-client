@@ -19,16 +19,14 @@ namespace Recombee.ApiClient.Tests
         public  void TestAddGroup()
         {
             AddGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with valid entity id'
-            req = new AddGroup("valid_id");
-            resp = client.Send(req);
+            resp = client.Send(new AddGroup("valid_id"));
             // it 'fails with invalid entity id'
-            req = new AddGroup("$$$not_valid$$$");
             try
             {
-                client.Send(req);
+                client.Send(new AddGroup("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -36,11 +34,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores entity to the system'
-            req = new AddGroup("valid_id2");
-            resp = client.Send(req);
+            resp = client.Send(new AddGroup("valid_id2"));
             try
             {
-                client.Send(req);
+                client.Send(new AddGroup("valid_id2"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -53,16 +50,14 @@ namespace Recombee.ApiClient.Tests
         public async void TestAddGroupAsync()
         {
             AddGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with valid entity id'
-            req = new AddGroup("valid_id");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddGroup("valid_id"));
             // it 'fails with invalid entity id'
-            req = new AddGroup("$$$not_valid$$$");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddGroup("***not_valid$$$"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -70,11 +65,10 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores entity to the system'
-            req = new AddGroup("valid_id2");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new AddGroup("valid_id2"));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new AddGroup("valid_id2"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

@@ -18,15 +18,16 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestAddCartAddition()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddCartAddition("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
-                new AddCartAddition("entity_id","entity_id"),
-                new AddCartAddition("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
-                new AddCartAddition("entity_id","nonex_id"),
-                new AddCartAddition("nonex_id","entity_id"),
-                new AddCartAddition("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15)),
-                new AddCartAddition("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5)),
-                new AddCartAddition("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5))
+                new AddCartAddition("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
+                new AddCartAddition("entity_id", "entity_id"),
+                new AddCartAddition("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
+                new AddCartAddition("entity_id", "nonex_id"),
+                new AddCartAddition("nonex_id", "entity_id"),
+                new AddCartAddition("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
+                new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
+                new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -43,15 +44,16 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestAddCartAdditionAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddCartAddition("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
-                new AddCartAddition("entity_id","entity_id"),
-                new AddCartAddition("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
-                new AddCartAddition("entity_id","nonex_id"),
-                new AddCartAddition("nonex_id","entity_id"),
-                new AddCartAddition("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15)),
-                new AddCartAddition("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5)),
-                new AddCartAddition("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5))
+                new AddCartAddition("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
+                new AddCartAddition("entity_id", "entity_id"),
+                new AddCartAddition("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
+                new AddCartAddition("entity_id", "nonex_id"),
+                new AddCartAddition("nonex_id", "entity_id"),
+                new AddCartAddition("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
+                new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
+                new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

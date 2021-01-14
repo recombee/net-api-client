@@ -1,4 +1,5 @@
 <map id="Recombee.ApiClient.Bindings.Group" name="Recombee.ApiClient.Bindings.Group">
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Entity.html" title="Base class for the entities" alt="" coords="77,80,133,107"/>
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecombeeBinding.html" title="Base class for the bindings" alt="" coords="41,5,169,32"/>
+<area shape="rect" id="node1" title="Group Binding" alt="" coords="5,155,224,196"/>
+<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Entity.html" title="Base class for the entities" alt="" coords="85,80,145,107"/>
+<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecombeeBinding.html" title="Base class for the bindings" alt="" coords="45,5,185,32"/>
 </map>

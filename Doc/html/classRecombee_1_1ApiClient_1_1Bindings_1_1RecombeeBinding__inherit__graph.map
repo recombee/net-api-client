@@ -1,22 +1,23 @@
 <map id="Recombee.ApiClient.Bindings.RecombeeBinding" name="Recombee.ApiClient.Bindings.RecombeeBinding">
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1BatchResponse.html" title="Binding encapsulating responses to a batch request" alt="" coords="253,5,453,47"/>
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html" title="Bookmark Binding" alt="" coords="253,71,453,112"/>
-<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html" title="CartAddition Binding" alt="" coords="253,136,453,177"/>
-<area shape="rect" id="node5" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html" title="DetailView Binding" alt="" coords="253,201,453,243"/>
-<area shape="rect" id="node6" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Entity.html" title="Base class for the entities" alt="" coords="253,267,453,308"/>
-<area shape="rect" id="node11" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1GroupItem.html" title="GroupItem Binding" alt="" coords="253,332,453,373"/>
-<area shape="rect" id="node12" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Logic.html" title="Logic Binding" alt="" coords="253,397,453,439"/>
-<area shape="rect" id="node13" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1PropertyInfo.html" title="PropertyInfo Binding" alt="" coords="253,463,453,504"/>
-<area shape="rect" id="node14" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html" title="Purchase Binding" alt="" coords="253,528,453,569"/>
-<area shape="rect" id="node15" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Rating.html" title="Rating Binding" alt="" coords="253,593,453,635"/>
-<area shape="rect" id="node16" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Recommendation.html" title="Binding of one recommended item" alt="" coords="253,659,453,700"/>
-<area shape="rect" id="node17" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecommendationResponse.html" title="RecommendationResponse Binding" alt="" coords="253,724,453,765"/>
-<area shape="rect" id="node19" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1SeriesItem.html" title="SeriesItem Binding" alt="" coords="253,789,453,831"/>
-<area shape="rect" id="node20" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1StringBinding.html" title="Binding for string response" alt="" coords="253,855,453,896"/>
-<area shape="rect" id="node21" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html" title="ViewPortion Binding" alt="" coords="253,920,453,961"/>
-<area shape="rect" id="node7" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Group.html" title="Group Binding" alt="" coords="515,179,715,220"/>
-<area shape="rect" id="node8" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Item.html" title="Item Binding" alt="" coords="502,245,729,271"/>
-<area shape="rect" id="node9" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Series.html" title="Series Binding" alt="" coords="515,296,715,337"/>
-<area shape="rect" id="node10" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1User.html" title="User Binding" alt="" coords="501,362,729,389"/>
-<area shape="rect" id="node18" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1SearchResponse.html" title="SearchResponse Binding" alt="" coords="515,724,715,765"/>
+<area shape="rect" id="node1" title="Base class for the bindings" alt="" coords="5,463,224,504"/>
+<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1BatchResponse.html" title="Binding encapsulating responses to a batch request" alt="" coords="272,5,491,47"/>
+<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Bookmark.html" title="Bookmark Binding" alt="" coords="272,71,491,112"/>
+<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1CartAddition.html" title="CartAddition Binding" alt="" coords="272,136,491,177"/>
+<area shape="rect" id="node5" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1DetailView.html" title="DetailView Binding" alt="" coords="272,201,491,243"/>
+<area shape="rect" id="node6" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Entity.html" title="Base class for the entities" alt="" coords="272,267,491,308"/>
+<area shape="rect" id="node11" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1GroupItem.html" title="GroupItem Binding" alt="" coords="272,332,491,373"/>
+<area shape="rect" id="node12" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Logic.html" title="Logic Binding" alt="" coords="272,397,491,439"/>
+<area shape="rect" id="node13" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1PropertyInfo.html" title="PropertyInfo Binding" alt="" coords="272,463,491,504"/>
+<area shape="rect" id="node14" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Purchase.html" title="Purchase Binding" alt="" coords="272,528,491,569"/>
+<area shape="rect" id="node15" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Rating.html" title="Rating Binding" alt="" coords="272,593,491,635"/>
+<area shape="rect" id="node16" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Recommendation.html" title="Binding of one recommended item" alt="" coords="272,659,491,700"/>
+<area shape="rect" id="node17" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecommendationResponse.html" title="RecommendationResponse Binding" alt="" coords="272,724,491,765"/>
+<area shape="rect" id="node19" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1SeriesItem.html" title="SeriesItem Binding" alt="" coords="272,789,491,831"/>
+<area shape="rect" id="node20" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1StringBinding.html" title="Binding for string response" alt="" coords="272,855,491,896"/>
+<area shape="rect" id="node21" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1ViewPortion.html" title="ViewPortion Binding" alt="" coords="272,920,491,961"/>
+<area shape="rect" id="node7" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Group.html" title="Group Binding" alt="" coords="553,179,772,220"/>
+<area shape="rect" id="node8" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Item.html" title="Item Binding" alt="" coords="539,245,787,271"/>
+<area shape="rect" id="node9" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Series.html" title="Series Binding" alt="" coords="553,296,772,337"/>
+<area shape="rect" id="node10" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1User.html" title="User Binding" alt="" coords="539,362,787,389"/>
+<area shape="rect" id="node18" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1SearchResponse.html" title="SearchResponse Binding" alt="" coords="553,724,772,765"/>
 </map>

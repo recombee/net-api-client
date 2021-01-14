@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListItemPurchases()
         {
             ListItemPurchases req;
-            Request req2;
             IEnumerable<Purchase> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemPurchases("item");
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListItemPurchases("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);
@@ -34,12 +33,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListItemPurchasesAsync()
         {
             ListItemPurchases req;
-            Request req2;
             IEnumerable<Purchase> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemPurchases("item");
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListItemPurchases("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);

@@ -1,4 +1,6 @@
 <map id="Recombee.ApiClient.ApiException" name="Recombee.ApiClient.ApiException">
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ResponseException.html" title="Exception thrown when a request did not succeed (did not return 200 or 201)" alt="" coords="5,155,211,196"/>
-<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1TimeoutException.html" title="Exception thrown when a request is not processed within the timeout" alt="" coords="235,155,429,196"/>
+<area shape="rect" id="node1" title="Base class for exceptions that occur because of errors in requests reported by API or because of a ti..." alt="" coords="115,80,357,107"/>
+<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ResponseException.html" title="Exception thrown when a request did not succeed (did not return 200 or 201)" alt="" coords="5,155,227,196"/>
+<area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1TimeoutException.html" title="Exception thrown when a request is not processed within the timeout" alt="" coords="251,155,463,196"/>
+<area shape="rect" id="node2" title=" " alt="" coords="193,5,279,32"/>
 </map>

@@ -18,15 +18,16 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestAddBookmark()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddBookmark("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
-                new AddBookmark("entity_id","entity_id"),
-                new AddBookmark("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
-                new AddBookmark("entity_id","nonex_id"),
-                new AddBookmark("nonex_id","entity_id"),
-                new AddBookmark("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15)),
-                new AddBookmark("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5)),
-                new AddBookmark("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5))
+                new AddBookmark("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
+                new AddBookmark("entity_id", "entity_id"),
+                new AddBookmark("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
+                new AddBookmark("entity_id", "nonex_id"),
+                new AddBookmark("nonex_id", "entity_id"),
+                new AddBookmark("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
+                new AddBookmark("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
+                new AddBookmark("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -43,15 +44,16 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestAddBookmarkAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new AddBookmark("u_id","i_id",cascadeCreate: true,additionalData: new Dictionary<string, object>(){{"answer",42}}),
-                new AddBookmark("entity_id","entity_id"),
-                new AddBookmark("entity_id","entity_id",timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
-                new AddBookmark("entity_id","nonex_id"),
-                new AddBookmark("nonex_id","entity_id"),
-                new AddBookmark("entity_id","entity_id",timestamp: UnixTimeStampToDateTime(-15)),
-                new AddBookmark("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5)),
-                new AddBookmark("u_id2","i_id2",cascadeCreate: true,timestamp: UnixTimeStampToDateTime(5))
+                new AddBookmark("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
+                new AddBookmark("entity_id", "entity_id"),
+                new AddBookmark("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
+                new AddBookmark("entity_id", "nonex_id"),
+                new AddBookmark("nonex_id", "entity_id"),
+                new AddBookmark("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
+                new AddBookmark("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
+                new AddBookmark("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

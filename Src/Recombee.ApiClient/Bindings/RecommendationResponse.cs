@@ -20,6 +20,12 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return recomms;}
         }
+        private readonly int numberNextRecommsCalls;
+        /// <summary>Number of performed RecommendNextItems calls for this recommId</summary>
+        public int NumberNextRecommsCalls
+        {
+            get {return numberNextRecommsCalls;}
+        }
         private readonly string abGroup;
         /// <summary>Name of AB-testing group to which the request belongs if there is a custom AB-testing running</summary>
         public string AbGroup
@@ -27,10 +33,12 @@ namespace Recombee.ApiClient.Bindings
             get {return abGroup;}
         }
 
-        public RecommendationResponse (string recommId, Recommendation[] recomms, string abGroup=null)
+        public RecommendationResponse (string recommId, Recommendation[] recomms,
+                                       int numberNextRecommsCalls=0, string abGroup=null)
         {
             this.recommId = recommId;
             this.recomms = recomms;
+            this.numberNextRecommsCalls = numberNextRecommsCalls;
             this.abGroup = abGroup;
         }
     
@@ -48,6 +56,7 @@ namespace Recombee.ApiClient.Bindings
              return new EqualsBuilder<RecommendationResponse>(this, that)
                 .With(m => m.recommId)
                 .With(m => m.Recomms)
+                .With(m => m.NumberNextRecommsCalls)
                 .With(m => m.AbGroup)
                 .Equals();
         }
@@ -58,6 +67,7 @@ namespace Recombee.ApiClient.Bindings
              return new HashCodeBuilder<RecommendationResponse>(this)
                 .With(m => m.recommId)
                 .With(m => m.Recomms)
+                .With(m => m.NumberNextRecommsCalls)
                 .With(m => m.AbGroup)
                 .HashCode;
         }

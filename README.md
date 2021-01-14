@@ -53,9 +53,14 @@ public class BasicExample
             Console.WriteLine("Send purchases");
             client.Send(new Batch(purchases)); //Use Batch for faster processing of larger data
 
-            // Get 5 recommendations for user 'user-25'
+            // Recommend 5 items for user 'user-25'
             RecommendationResponse recommendationResponse = client.Send(new RecommendItemsToUser("user-25", 5));
             Console.WriteLine("Recommended items:");
+            foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
+
+            // User scrolled down - get next 3 recommended items
+            recommendationResponse = client.Send(new RecommendNextItems(recommendationResponse.RecommId, 3));
+            Console.WriteLine("Next recommended items:");
             foreach(Recommendation rec in recommendationResponse.Recomms) Console.WriteLine(rec.Id);
 
         }
@@ -168,7 +173,7 @@ public class PropertiesExample
 
             // Perform personalized full-text search with a user's search query (e.g. "computers")
             SearchResponse searchResponse = await client.SendAsync(
-              new SearchItems("user-42", "computers", 5)
+              new SearchItems("user-42", "computers", 5, scenario: "search_top")
             );
             Console.WriteLine("Search matches:");
             foreach(Recommendation rec in searchResponse.Recomms) Console.WriteLine(rec.Id);

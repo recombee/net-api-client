@@ -19,13 +19,12 @@ namespace Recombee.ApiClient.Tests
         public  void TestRemoveFromSeries()
         {
             RemoveFromSeries req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'fails when removing item which have different time'
-            req = new RemoveFromSeries("entity_id","item","entity_id",0);
             try
             {
-                client.Send(req);
+                client.Send(new RemoveFromSeries("entity_id", "item", "entity_id", 0));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -33,13 +32,11 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'does not fail when removing item that is contained in the set'
-            req = new RemoveFromSeries("entity_id","item","entity_id",1);
-            resp = client.Send(req);
+            resp = client.Send(new RemoveFromSeries("entity_id", "item", "entity_id", 1));
             // it 'fails when removing item that is not contained in the set'
-            req = new RemoveFromSeries("entity_id","item","not_contained",1);
             try
             {
-                client.Send(req);
+                client.Send(new RemoveFromSeries("entity_id", "item", "not_contained", 1));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -52,13 +49,12 @@ namespace Recombee.ApiClient.Tests
         public async void TestRemoveFromSeriesAsync()
         {
             RemoveFromSeries req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'fails when removing item which have different time'
-            req = new RemoveFromSeries("entity_id","item","entity_id",0);
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new RemoveFromSeries("entity_id", "item", "entity_id", 0));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -66,13 +62,11 @@ namespace Recombee.ApiClient.Tests
                 Assert.Equal(404, (int)ex.StatusCode);
             }
             // it 'does not fail when removing item that is contained in the set'
-            req = new RemoveFromSeries("entity_id","item","entity_id",1);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new RemoveFromSeries("entity_id", "item", "entity_id", 1));
             // it 'fails when removing item that is not contained in the set'
-            req = new RemoveFromSeries("entity_id","item","not_contained",1);
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new RemoveFromSeries("entity_id", "item", "not_contained", 1));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

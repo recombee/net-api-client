@@ -67,8 +67,9 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "sex": "M"
         ///           }
         ///         }
-        ///       ]
-        ///     }
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
+        ///   }
         /// ```
         /// </summary>
         public bool? ReturnProperties
@@ -95,7 +96,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "country": "CAN"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </summary>
@@ -201,8 +203,9 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "sex": "M"
         ///           }
         ///         }
-        ///       ]
-        ///     }
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
+        ///   }
         /// ```
         /// </param>
         /// <param name="includedProperties">Allows to specify, which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list. 
@@ -224,7 +227,8 @@ namespace Recombee.ApiClient.ApiRequests
         ///             "country": "CAN"
         ///           }
         ///         }
-        ///       ]
+        ///       ],
+        ///     "numberNextRecommsCalls": 0
         ///   }
         /// ```
         /// </param>

@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListItemCartAdditions()
         {
             ListItemCartAdditions req;
-            Request req2;
             IEnumerable<CartAddition> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemCartAdditions("item");
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListItemCartAdditions("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);
@@ -34,12 +33,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListItemCartAdditionsAsync()
         {
             ListItemCartAdditions req;
-            Request req2;
             IEnumerable<CartAddition> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemCartAdditions("item");
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListItemCartAdditions("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);

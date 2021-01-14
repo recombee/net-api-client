@@ -1,3 +1,5 @@
 <map id="Recombee.ApiClient.ResponseException" name="Recombee.ApiClient.ResponseException">
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiException.html" title="Base class for exceptions that occur because of errors in requests reported by API or because of a ti..." alt="" coords="59,80,157,107"/>
+<area shape="rect" id="node1" title="Exception thrown when a request did not succeed (did not return 200 or 201)" alt="" coords="5,155,227,196"/>
+<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiException.html" title="Base class for exceptions that occur because of errors in requests reported by API or because of a ti..." alt="" coords="63,80,169,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="73,5,159,32"/>
 </map>

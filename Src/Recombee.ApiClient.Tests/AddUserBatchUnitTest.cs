@@ -18,9 +18,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestAddUser()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new AddUser("valid_id"),
-                new AddUser("$$$not_valid$$$"),
+                new AddUser("***not_valid$$$"),
                 new AddUser("valid_id2"),
                 new AddUser("valid_id2")
             };
@@ -35,9 +36,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestAddUserAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new AddUser("valid_id"),
-                new AddUser("$$$not_valid$$$"),
+                new AddUser("***not_valid$$$"),
                 new AddUser("valid_id2"),
                 new AddUser("valid_id2")
             };

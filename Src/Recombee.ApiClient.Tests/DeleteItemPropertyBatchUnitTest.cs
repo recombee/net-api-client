@@ -18,10 +18,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestDeleteItemProperty()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new DeleteItemProperty("int_property"),
                 new DeleteItemProperty("int_property"),
-                new DeleteItemProperty("$$$not_valid$$$"),
+                new DeleteItemProperty("***not_valid$$$"),
                 new DeleteItemProperty("not_existing")
             };
         
@@ -35,10 +36,11 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestDeleteItemPropertyAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new DeleteItemProperty("int_property"),
                 new DeleteItemProperty("int_property"),
-                new DeleteItemProperty("$$$not_valid$$$"),
+                new DeleteItemProperty("***not_valid$$$"),
                 new DeleteItemProperty("not_existing")
             };
         

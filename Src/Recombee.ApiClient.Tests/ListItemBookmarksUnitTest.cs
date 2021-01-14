@@ -19,12 +19,11 @@ namespace Recombee.ApiClient.Tests
         public  void TestListItemBookmarks()
         {
             ListItemBookmarks req;
-            Request req2;
             IEnumerable<Bookmark> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemBookmarks("item");
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListItemBookmarks("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);
@@ -34,12 +33,11 @@ namespace Recombee.ApiClient.Tests
         public async void TestListItemBookmarksAsync()
         {
             ListItemBookmarks req;
-            Request req2;
             IEnumerable<Bookmark> resp;
+            Object resp2;
             // it 'lists interactions'
-            req = new ListItemBookmarks("item");
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListItemBookmarks("item"));
             Assert.Equal(1, resp.Count());
             Assert.Equal ("item",resp.ElementAt(0).ItemId);
             Assert.Equal ("user",resp.ElementAt(0).UserId);

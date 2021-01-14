@@ -18,9 +18,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestRemoveFromGroup()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new RemoveFromGroup("entity_id","item","entity_id"),
-                new RemoveFromGroup("entity_id","item","not_contained")
+                new RemoveFromGroup("entity_id", "item", "entity_id"),
+                new RemoveFromGroup("entity_id", "item", "not_contained")
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -31,9 +32,10 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestRemoveFromGroupAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
-                new RemoveFromGroup("entity_id","item","entity_id"),
-                new RemoveFromGroup("entity_id","item","not_contained")
+                new RemoveFromGroup("entity_id", "item", "entity_id"),
+                new RemoveFromGroup("entity_id", "item", "not_contained")
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

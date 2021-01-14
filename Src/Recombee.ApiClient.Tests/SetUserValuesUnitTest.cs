@@ -19,28 +19,22 @@ namespace Recombee.ApiClient.Tests
         public  void TestSetUserValues()
         {
             SetUserValues req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity and property'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5}});
-            resp = client.Send(req);
+            resp = client.Send(new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}));
             // it 'does not fail with non-ASCII string'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"str_property","šřžذ的‎"}});
-            resp = client.Send(req);
+            resp = client.Send(new SetUserValues("entity_id", new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}));
             // it 'sets multiple properties'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}});
-            resp = client.Send(req);
+            resp = client.Send(new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}));
             // it 'does not fail with !cascadeCreate'
-            req = new SetUserValues("new_entity",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"},{"!cascadeCreate",true}});
-            resp = client.Send(req);
+            resp = client.Send(new SetUserValues("new_entity", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}, {"!cascadeCreate",true}}));
             // it 'does not fail with cascadeCreate optional parameter'
-            req = new SetUserValues("new_entity2",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}},cascadeCreate: true);
-            resp = client.Send(req);
+            resp = client.Send(new SetUserValues("new_entity2", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}, cascadeCreate: true));
             // it 'fails with nonexisting entity'
-            req = new SetUserValues("nonexisting",new Dictionary<string, object>(){{"int_property",5}});
             try
             {
-                client.Send(req);
+                client.Send(new SetUserValues("nonexisting", new Dictionary<string, object>(){{"int_property",5}}));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -53,28 +47,22 @@ namespace Recombee.ApiClient.Tests
         public async void TestSetUserValuesAsync()
         {
             SetUserValues req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity and property'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}));
             // it 'does not fail with non-ASCII string'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"str_property","šřžذ的‎"}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetUserValues("entity_id", new Dictionary<string, object>(){{"str_property","šřžذ的‎"}}));
             // it 'sets multiple properties'
-            req = new SetUserValues("entity_id",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}));
             // it 'does not fail with !cascadeCreate'
-            req = new SetUserValues("new_entity",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"},{"!cascadeCreate",true}});
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetUserValues("new_entity", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}, {"!cascadeCreate",true}}));
             // it 'does not fail with cascadeCreate optional parameter'
-            req = new SetUserValues("new_entity2",new Dictionary<string, object>(){{"int_property",5},{"str_property","test"}},cascadeCreate: true);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new SetUserValues("new_entity2", new Dictionary<string, object>(){{"int_property",5}, {"str_property","test"}}, cascadeCreate: true));
             // it 'fails with nonexisting entity'
-            req = new SetUserValues("nonexisting",new Dictionary<string, object>(){{"int_property",5}});
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new SetUserValues("nonexisting", new Dictionary<string, object>(){{"int_property",5}}));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

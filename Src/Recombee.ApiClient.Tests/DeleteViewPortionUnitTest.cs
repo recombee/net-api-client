@@ -19,15 +19,13 @@ namespace Recombee.ApiClient.Tests
         public  void TestDeleteViewPortion()
         {
             DeleteViewPortion req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteViewPortion("user","item");
-            resp = client.Send(req);
-            req = new DeleteViewPortion("user","item");
+            resp = client.Send(new DeleteViewPortion("user", "item"));
             try
             {
-                client.Send(req);
+                client.Send(new DeleteViewPortion("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -40,15 +38,13 @@ namespace Recombee.ApiClient.Tests
         public async void TestDeleteViewPortionAsync()
         {
             DeleteViewPortion req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail with existing entity id'
-            req = new DeleteViewPortion("user","item");
-            resp = await client.SendAsync(req);
-            req = new DeleteViewPortion("user","item");
+            resp = await client.SendAsync(new DeleteViewPortion("user", "item"));
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new DeleteViewPortion("user", "item"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)

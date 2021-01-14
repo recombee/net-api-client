@@ -18,6 +18,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public  void TestListGroupItems()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListGroupItems("entity_id")
             };
@@ -32,6 +33,7 @@ namespace Recombee.ApiClient.Tests
         [Fact]
         public async void TestListGroupItemsAsync()
                 {
+            Object resp2;
             Request[] requests = new Request[] {
                 new ListGroupItems("entity_id")
             };

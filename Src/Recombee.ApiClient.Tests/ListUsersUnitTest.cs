@@ -19,17 +19,15 @@ namespace Recombee.ApiClient.Tests
         public  void TestListUsers()
         {
             ListUsers req;
-            Request req2;
             IEnumerable<User> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListUsers();
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListUsers());
             Assert.Equal (new User[]{new User("entity_id")},resp);
             // it 'return properties'
-            req = new ListUsers();
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(req);
+            resp = client.Send(new ListUsers());
             Assert.Equal(1, resp.Count());
         }
 
@@ -37,17 +35,15 @@ namespace Recombee.ApiClient.Tests
         public async void TestListUsersAsync()
         {
             ListUsers req;
-            Request req2;
             IEnumerable<User> resp;
+            Object resp2;
             // it 'lists entities'
-            req = new ListUsers();
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListUsers());
             Assert.Equal (new User[]{new User("entity_id")},resp);
             // it 'return properties'
-            req = new ListUsers();
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new ListUsers());
             Assert.Equal(1, resp.Count());
         }
     }

@@ -19,16 +19,14 @@ namespace Recombee.ApiClient.Tests
         public  void TestRemoveFromGroup()
         {
             RemoveFromGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail when removing item that is contained in the set'
-            req = new RemoveFromGroup("entity_id","item","entity_id");
-            resp = client.Send(req);
+            resp = client.Send(new RemoveFromGroup("entity_id", "item", "entity_id"));
             // it 'fails when removing item that is not contained in the set'
-            req = new RemoveFromGroup("entity_id","item","not_contained");
             try
             {
-                client.Send(req);
+                client.Send(new RemoveFromGroup("entity_id", "item", "not_contained"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
@@ -41,16 +39,14 @@ namespace Recombee.ApiClient.Tests
         public async void TestRemoveFromGroupAsync()
         {
             RemoveFromGroup req;
-            Request req2;
             RecombeeBinding resp;
+            Object resp2;
             // it 'does not fail when removing item that is contained in the set'
-            req = new RemoveFromGroup("entity_id","item","entity_id");
-            resp = await client.SendAsync(req);
+            resp = await client.SendAsync(new RemoveFromGroup("entity_id", "item", "entity_id"));
             // it 'fails when removing item that is not contained in the set'
-            req = new RemoveFromGroup("entity_id","item","not_contained");
             try
             {
-                await client.SendAsync(req);
+                await client.SendAsync(new RemoveFromGroup("entity_id", "item", "not_contained"));
                 Assert.True(false,"No exception thrown");
             }
             catch (ResponseException ex)
