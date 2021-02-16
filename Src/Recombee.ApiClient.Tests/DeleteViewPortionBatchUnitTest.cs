@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteViewPortion()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteViewPortion("user", "item"),
@@ -31,7 +31,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteViewPortionAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteViewPortion("user", "item"),

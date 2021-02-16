@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestItemBasedRecommendation()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ItemBasedRecommendation("entity_id", 9),
@@ -36,7 +36,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestItemBasedRecommendationAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ItemBasedRecommendation("entity_id", 9),

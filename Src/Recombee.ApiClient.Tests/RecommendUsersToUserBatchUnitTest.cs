@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestRecommendUsersToUser()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RecommendUsersToUser("entity_id", 9),
@@ -33,7 +33,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestRecommendUsersToUserAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RecommendUsersToUser("entity_id", 9),

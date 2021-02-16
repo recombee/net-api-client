@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestSetViewPortion()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetViewPortion("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
@@ -41,7 +41,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestSetViewPortionAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetViewPortion("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),

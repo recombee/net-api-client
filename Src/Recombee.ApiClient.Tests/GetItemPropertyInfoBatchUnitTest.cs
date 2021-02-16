@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestGetItemPropertyInfo()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new GetItemPropertyInfo("int_property"),
@@ -33,7 +33,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestGetItemPropertyInfoAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new GetItemPropertyInfo("int_property"),

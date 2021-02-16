@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestAddRating()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddRating("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
@@ -43,7 +43,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestAddRatingAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddRating("u_id", "i_id", 1, cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),

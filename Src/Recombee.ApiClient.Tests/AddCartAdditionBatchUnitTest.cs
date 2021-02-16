@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestAddCartAddition()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddCartAddition("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
@@ -43,7 +43,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestAddCartAdditionAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddCartAddition("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),

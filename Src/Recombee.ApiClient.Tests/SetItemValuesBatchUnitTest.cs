@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestSetItemValues()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetItemValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),
@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestSetItemValuesAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetItemValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),

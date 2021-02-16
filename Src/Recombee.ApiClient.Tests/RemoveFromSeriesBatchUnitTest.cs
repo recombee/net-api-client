@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestRemoveFromSeries()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RemoveFromSeries("entity_id", "item", "entity_id", 0),
@@ -33,7 +33,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestRemoveFromSeriesAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RemoveFromSeries("entity_id", "item", "entity_id", 0),

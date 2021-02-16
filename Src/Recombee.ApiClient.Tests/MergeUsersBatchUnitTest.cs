@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestMergeUsers()
-                {
+        {
             Object resp2;
             resp2 = client.Send(new AddUser("target"));
         
@@ -33,7 +33,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestMergeUsersAsync()
-                {
+        {
             Object resp2;
             resp2 = await client.SendAsync(new AddUser("target"));
         

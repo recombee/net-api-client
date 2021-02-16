@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html" title="Base class for all the requests" alt="" coords="5,2064,248,2105"/>
+<area shape="rect" id="node1" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Request.html" title="Base class for all the requests" alt="" coords="5,2195,248,2236"/>
 <area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddBookmark.html" title="Add bookmark" alt="" coords="296,5,539,47"/>
 <area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddCartAddition.html" title="Add cart addition" alt="" coords="296,71,539,112"/>
 <area shape="rect" id="node4" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddDetailView.html" title="Add detail view" alt="" coords="296,136,539,177"/>
@@ -8,62 +8,66 @@
 <area shape="rect" id="node7" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddItemProperty.html" title="Add item property" alt="" coords="296,332,539,373"/>
 <area shape="rect" id="node8" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddPurchase.html" title="Add purchase" alt="" coords="296,397,539,439"/>
 <area shape="rect" id="node9" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddRating.html" title="Add rating" alt="" coords="296,463,539,504"/>
-<area shape="rect" id="node10" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddSeries.html" title="Add series" alt="" coords="296,528,539,569"/>
-<area shape="rect" id="node11" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddUser.html" title="Add user" alt="" coords="296,593,539,635"/>
-<area shape="rect" id="node12" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddUserProperty.html" title="Add user property" alt="" coords="296,659,539,700"/>
-<area shape="rect" id="node13" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Batch.html" title="Batch request for submitting multiple atomic requests." alt="" coords="296,724,539,765"/>
-<area shape="rect" id="node14" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteBookmark.html" title="Delete bookmark" alt="" coords="296,789,539,831"/>
-<area shape="rect" id="node15" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteCartAddition.html" title="Delete cart addition" alt="" coords="296,855,539,896"/>
-<area shape="rect" id="node16" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteDetailView.html" title="Delete detail view" alt="" coords="296,920,539,961"/>
-<area shape="rect" id="node17" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteGroup.html" title="Delete group" alt="" coords="296,985,539,1027"/>
-<area shape="rect" id="node18" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteItem.html" title="Delete item" alt="" coords="296,1051,539,1092"/>
-<area shape="rect" id="node19" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteItemProperty.html" title="Delete item property" alt="" coords="296,1116,539,1157"/>
-<area shape="rect" id="node20" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeletePurchase.html" title="Delete purchase" alt="" coords="296,1181,539,1223"/>
-<area shape="rect" id="node21" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteRating.html" title="Delete rating" alt="" coords="296,1247,539,1288"/>
-<area shape="rect" id="node22" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteSeries.html" title="Delete series" alt="" coords="296,1312,539,1353"/>
-<area shape="rect" id="node23" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteUser.html" title="Delete user" alt="" coords="296,1377,539,1419"/>
-<area shape="rect" id="node24" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteUserProperty.html" title="Delete user property" alt="" coords="296,1443,539,1484"/>
-<area shape="rect" id="node25" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteViewPortion.html" title="Delete view portion" alt="" coords="296,1508,539,1549"/>
-<area shape="rect" id="node26" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetItemPropertyInfo.html" title="Get item property info" alt="" coords="296,1573,539,1615"/>
-<area shape="rect" id="node27" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetItemValues.html" title="Get item values" alt="" coords="296,1639,539,1680"/>
-<area shape="rect" id="node28" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetUserPropertyInfo.html" title="Get user property info" alt="" coords="296,1704,539,1745"/>
-<area shape="rect" id="node29" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetUserValues.html" title="Get user values" alt="" coords="296,1769,539,1811"/>
-<area shape="rect" id="node30" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1InsertToGroup.html" title="Insert to group" alt="" coords="296,1835,539,1876"/>
-<area shape="rect" id="node31" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1InsertToSeries.html" title="Insert to series" alt="" coords="296,1900,539,1941"/>
-<area shape="rect" id="node32" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ItemBasedRecommendation.html" title="Item based recommendation" alt="" coords="296,1965,539,2007"/>
-<area shape="rect" id="node33" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListGroupItems.html" title="List group items" alt="" coords="296,2031,539,2072"/>
-<area shape="rect" id="node34" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListGroups.html" title="List groups" alt="" coords="296,2096,539,2137"/>
-<area shape="rect" id="node35" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemBookmarks.html" title="List item bookmarks" alt="" coords="296,2161,539,2203"/>
-<area shape="rect" id="node36" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemCartAdditions.html" title="List item cart additions" alt="" coords="296,2227,539,2268"/>
-<area shape="rect" id="node37" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemDetailViews.html" title="List item detail views" alt="" coords="296,2292,539,2333"/>
-<area shape="rect" id="node38" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemProperties.html" title="List item properties" alt="" coords="296,2357,539,2399"/>
-<area shape="rect" id="node39" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemPurchases.html" title="List item purchases" alt="" coords="296,2423,539,2464"/>
-<area shape="rect" id="node40" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemRatings.html" title="List item ratings" alt="" coords="296,2488,539,2529"/>
-<area shape="rect" id="node41" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html" title="List items" alt="" coords="296,2553,539,2595"/>
-<area shape="rect" id="node42" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemViewPortions.html" title="List item view portions" alt="" coords="296,2619,539,2660"/>
-<area shape="rect" id="node43" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListSeries.html" title="List series" alt="" coords="296,2684,539,2725"/>
-<area shape="rect" id="node44" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListSeriesItems.html" title="List series items" alt="" coords="296,2749,539,2791"/>
-<area shape="rect" id="node45" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserBookmarks.html" title="List user bookmarks" alt="" coords="296,2815,539,2856"/>
-<area shape="rect" id="node46" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserCartAdditions.html" title="List user cart additions" alt="" coords="296,2880,539,2921"/>
-<area shape="rect" id="node47" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserDetailViews.html" title="List user detail views" alt="" coords="296,2945,539,2987"/>
-<area shape="rect" id="node48" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserProperties.html" title="List user properties" alt="" coords="296,3011,539,3052"/>
-<area shape="rect" id="node49" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserPurchases.html" title="List user purchases" alt="" coords="296,3076,539,3117"/>
-<area shape="rect" id="node50" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserRatings.html" title="List user ratings" alt="" coords="296,3141,539,3183"/>
-<area shape="rect" id="node51" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUsers.html" title="List users" alt="" coords="296,3207,539,3248"/>
-<area shape="rect" id="node52" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserViewPortions.html" title="List user view portions" alt="" coords="296,3272,539,3313"/>
-<area shape="rect" id="node53" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html" title="Merge users" alt="" coords="296,3337,539,3379"/>
-<area shape="rect" id="node54" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToItem.html" title="Recommend items to item" alt="" coords="296,3403,539,3444"/>
-<area shape="rect" id="node55" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToUser.html" title="Recommend items to user" alt="" coords="296,3468,539,3509"/>
-<area shape="rect" id="node56" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendNextItems.html" title="Recommend next items" alt="" coords="296,3533,539,3575"/>
-<area shape="rect" id="node57" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToItem.html" title="Recommend users to item" alt="" coords="296,3599,539,3640"/>
-<area shape="rect" id="node58" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToUser.html" title="Recommend users to user" alt="" coords="296,3664,539,3705"/>
-<area shape="rect" id="node59" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromGroup.html" title="Remove from group" alt="" coords="296,3729,539,3771"/>
-<area shape="rect" id="node60" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromSeries.html" title="Remove from series" alt="" coords="296,3795,539,3836"/>
-<area shape="rect" id="node61" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ResetDatabase.html" title="Reset database" alt="" coords="296,3860,539,3901"/>
-<area shape="rect" id="node62" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SearchItems.html" title="Search items" alt="" coords="296,3925,539,3967"/>
-<area shape="rect" id="node63" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetValues.html" title="Set/update (some) property values of an entity" alt="" coords="296,3991,539,4032"/>
-<area shape="rect" id="node66" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html" title="Set view portion" alt="" coords="296,4056,539,4097"/>
-<area shape="rect" id="node67" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1UserBasedRecommendation.html" title="User based recommendation" alt="" coords="296,4121,539,4163"/>
-<area shape="rect" id="node64" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetItemValues.html" title="Set/update (some) property values of a given item" alt="" coords="587,3959,829,4000"/>
-<area shape="rect" id="node65" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetUserValues.html" title="Set/update (some) property values of a given user" alt="" coords="587,4024,829,4065"/>
+<area shape="rect" id="node10" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddSearchSynonym.html" title="Add search synonym" alt="" coords="296,528,539,569"/>
+<area shape="rect" id="node11" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddSeries.html" title="Add series" alt="" coords="296,593,539,635"/>
+<area shape="rect" id="node12" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddUser.html" title="Add user" alt="" coords="296,659,539,700"/>
+<area shape="rect" id="node13" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1AddUserProperty.html" title="Add user property" alt="" coords="296,724,539,765"/>
+<area shape="rect" id="node14" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1Batch.html" title="Batch request for submitting multiple atomic requests." alt="" coords="296,789,539,831"/>
+<area shape="rect" id="node15" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteAllSearchSynonyms.html" title="Delete all search synonyms" alt="" coords="296,855,539,896"/>
+<area shape="rect" id="node16" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteBookmark.html" title="Delete bookmark" alt="" coords="296,920,539,961"/>
+<area shape="rect" id="node17" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteCartAddition.html" title="Delete cart addition" alt="" coords="296,985,539,1027"/>
+<area shape="rect" id="node18" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteDetailView.html" title="Delete detail view" alt="" coords="296,1051,539,1092"/>
+<area shape="rect" id="node19" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteGroup.html" title="Delete group" alt="" coords="296,1116,539,1157"/>
+<area shape="rect" id="node20" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteItem.html" title="Delete item" alt="" coords="296,1181,539,1223"/>
+<area shape="rect" id="node21" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteItemProperty.html" title="Delete item property" alt="" coords="296,1247,539,1288"/>
+<area shape="rect" id="node22" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeletePurchase.html" title="Delete purchase" alt="" coords="296,1312,539,1353"/>
+<area shape="rect" id="node23" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteRating.html" title="Delete rating" alt="" coords="296,1377,539,1419"/>
+<area shape="rect" id="node24" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteSearchSynonym.html" title="Delete search synonym" alt="" coords="296,1443,539,1484"/>
+<area shape="rect" id="node25" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteSeries.html" title="Delete series" alt="" coords="296,1508,539,1549"/>
+<area shape="rect" id="node26" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteUser.html" title="Delete user" alt="" coords="296,1573,539,1615"/>
+<area shape="rect" id="node27" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteUserProperty.html" title="Delete user property" alt="" coords="296,1639,539,1680"/>
+<area shape="rect" id="node28" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1DeleteViewPortion.html" title="Delete view portion" alt="" coords="296,1704,539,1745"/>
+<area shape="rect" id="node29" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetItemPropertyInfo.html" title="Get item property info" alt="" coords="296,1769,539,1811"/>
+<area shape="rect" id="node30" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetItemValues.html" title="Get item values" alt="" coords="296,1835,539,1876"/>
+<area shape="rect" id="node31" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetUserPropertyInfo.html" title="Get user property info" alt="" coords="296,1900,539,1941"/>
+<area shape="rect" id="node32" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1GetUserValues.html" title="Get user values" alt="" coords="296,1965,539,2007"/>
+<area shape="rect" id="node33" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1InsertToGroup.html" title="Insert to group" alt="" coords="296,2031,539,2072"/>
+<area shape="rect" id="node34" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1InsertToSeries.html" title="Insert to series" alt="" coords="296,2096,539,2137"/>
+<area shape="rect" id="node35" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ItemBasedRecommendation.html" title="Item based recommendation" alt="" coords="296,2161,539,2203"/>
+<area shape="rect" id="node36" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListGroupItems.html" title="List group items" alt="" coords="296,2227,539,2268"/>
+<area shape="rect" id="node37" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListGroups.html" title="List groups" alt="" coords="296,2292,539,2333"/>
+<area shape="rect" id="node38" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemBookmarks.html" title="List item bookmarks" alt="" coords="296,2357,539,2399"/>
+<area shape="rect" id="node39" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemCartAdditions.html" title="List item cart additions" alt="" coords="296,2423,539,2464"/>
+<area shape="rect" id="node40" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemDetailViews.html" title="List item detail views" alt="" coords="296,2488,539,2529"/>
+<area shape="rect" id="node41" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemProperties.html" title="List item properties" alt="" coords="296,2553,539,2595"/>
+<area shape="rect" id="node42" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemPurchases.html" title="List item purchases" alt="" coords="296,2619,539,2660"/>
+<area shape="rect" id="node43" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemRatings.html" title="List item ratings" alt="" coords="296,2684,539,2725"/>
+<area shape="rect" id="node44" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItems.html" title="List items" alt="" coords="296,2749,539,2791"/>
+<area shape="rect" id="node45" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListItemViewPortions.html" title="List item view portions" alt="" coords="296,2815,539,2856"/>
+<area shape="rect" id="node46" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListSearchSynonyms.html" title="List search synonyms" alt="" coords="296,2880,539,2921"/>
+<area shape="rect" id="node47" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListSeries.html" title="List series" alt="" coords="296,2945,539,2987"/>
+<area shape="rect" id="node48" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListSeriesItems.html" title="List series items" alt="" coords="296,3011,539,3052"/>
+<area shape="rect" id="node49" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserBookmarks.html" title="List user bookmarks" alt="" coords="296,3076,539,3117"/>
+<area shape="rect" id="node50" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserCartAdditions.html" title="List user cart additions" alt="" coords="296,3141,539,3183"/>
+<area shape="rect" id="node51" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserDetailViews.html" title="List user detail views" alt="" coords="296,3207,539,3248"/>
+<area shape="rect" id="node52" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserProperties.html" title="List user properties" alt="" coords="296,3272,539,3313"/>
+<area shape="rect" id="node53" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserPurchases.html" title="List user purchases" alt="" coords="296,3337,539,3379"/>
+<area shape="rect" id="node54" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserRatings.html" title="List user ratings" alt="" coords="296,3403,539,3444"/>
+<area shape="rect" id="node55" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUsers.html" title="List users" alt="" coords="296,3468,539,3509"/>
+<area shape="rect" id="node56" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ListUserViewPortions.html" title="List user view portions" alt="" coords="296,3533,539,3575"/>
+<area shape="rect" id="node57" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1MergeUsers.html" title="Merge users" alt="" coords="296,3599,539,3640"/>
+<area shape="rect" id="node58" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToItem.html" title="Recommend items to item" alt="" coords="296,3664,539,3705"/>
+<area shape="rect" id="node59" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendItemsToUser.html" title="Recommend items to user" alt="" coords="296,3729,539,3771"/>
+<area shape="rect" id="node60" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendNextItems.html" title="Recommend next items" alt="" coords="296,3795,539,3836"/>
+<area shape="rect" id="node61" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToItem.html" title="Recommend users to item" alt="" coords="296,3860,539,3901"/>
+<area shape="rect" id="node62" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RecommendUsersToUser.html" title="Recommend users to user" alt="" coords="296,3925,539,3967"/>
+<area shape="rect" id="node63" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromGroup.html" title="Remove from group" alt="" coords="296,3991,539,4032"/>
+<area shape="rect" id="node64" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1RemoveFromSeries.html" title="Remove from series" alt="" coords="296,4056,539,4097"/>
+<area shape="rect" id="node65" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1ResetDatabase.html" title="Reset database" alt="" coords="296,4121,539,4163"/>
+<area shape="rect" id="node66" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SearchItems.html" title="Search items" alt="" coords="296,4187,539,4228"/>
+<area shape="rect" id="node67" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetValues.html" title="Set/update (some) property values of an entity" alt="" coords="296,4252,539,4293"/>
+<area shape="rect" id="node70" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetViewPortion.html" title="Set view portion" alt="" coords="296,4317,539,4359"/>
+<area shape="rect" id="node71" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1UserBasedRecommendation.html" title="User based recommendation" alt="" coords="296,4383,539,4424"/>
+<area shape="rect" id="node68" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetItemValues.html" title="Set/update (some) property values of a given item" alt="" coords="587,4220,829,4261"/>
+<area shape="rect" id="node69" href="$classRecombee_1_1ApiClient_1_1ApiRequests_1_1SetUserValues.html" title="Set/update (some) property values of a given user" alt="" coords="587,4285,829,4327"/>
 </map>

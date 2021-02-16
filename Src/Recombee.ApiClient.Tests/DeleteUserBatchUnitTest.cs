@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteUser()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUser("entity_id"),
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteUserAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUser("entity_id"),

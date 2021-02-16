@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestSetUserValues()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),
@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestSetUserValuesAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SetUserValues("entity_id", new Dictionary<string, object>(){{"int_property",5}}),

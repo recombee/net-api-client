@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteBookmark()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0)),
@@ -31,7 +31,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteBookmarkAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteBookmark("user", "item", timestamp: UnixTimeStampToDateTime(0)),

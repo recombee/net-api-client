@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestListItemViewPortions()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ListItemViewPortions("item")
@@ -32,7 +32,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestListItemViewPortionsAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ListItemViewPortions("item")

@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestAddGroup()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddGroup("valid_id"),
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestAddGroupAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddGroup("valid_id"),

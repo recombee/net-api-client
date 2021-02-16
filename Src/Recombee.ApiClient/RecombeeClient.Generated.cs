@@ -767,6 +767,64 @@ namespace Recombee.ApiClient
             return result;
         }
         
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected SearchSynonym ParseResponse(string json, AddSearchSynonym request)
+        {
+            return JsonConvert.DeserializeObject<SearchSynonym>(json);
+        }
+        
+        /// <summary>Asynchronously send the AddSearchSynonym request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<SearchSynonym> SendAsync(AddSearchSynonym request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the AddSearchSynonym request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public SearchSynonym Send(AddSearchSynonym request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected ListSearchSynonymsResponse ParseResponse(string json, ListSearchSynonyms request)
+        {
+            return JsonConvert.DeserializeObject<ListSearchSynonymsResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the ListSearchSynonyms request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<ListSearchSynonymsResponse> SendAsync(ListSearchSynonyms request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListSearchSynonyms request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public ListSearchSynonymsResponse Send(ListSearchSynonyms request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);
@@ -829,11 +887,15 @@ namespace Recombee.ApiClient
             
             if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
             
-            if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
-            
             if (request is UserBasedRecommendation) return ParseResponse(json, (UserBasedRecommendation) request); 
             
             if (request is ItemBasedRecommendation) return ParseResponse(json, (ItemBasedRecommendation) request); 
+            
+            if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
+            
+            if (request is AddSearchSynonym) return ParseResponse(json, (AddSearchSynonym) request); 
+            
+            if (request is ListSearchSynonyms) return ParseResponse(json, (ListSearchSynonyms) request); 
             return ParseResponse(json, request);
         }
     }

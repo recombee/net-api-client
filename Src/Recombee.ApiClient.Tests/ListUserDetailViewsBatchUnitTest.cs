@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestListUserDetailViews()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ListUserDetailViews("user")
@@ -32,7 +32,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestListUserDetailViewsAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new ListUserDetailViews("user")

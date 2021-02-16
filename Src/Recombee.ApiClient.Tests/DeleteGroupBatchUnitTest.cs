@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteGroup()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteGroup("entity_id"),
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteGroupAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteGroup("entity_id"),

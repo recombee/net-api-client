@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteCartAddition()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteCartAddition("user", "item", timestamp: UnixTimeStampToDateTime(0)),
@@ -31,7 +31,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteCartAdditionAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteCartAddition("user", "item", timestamp: UnixTimeStampToDateTime(0)),

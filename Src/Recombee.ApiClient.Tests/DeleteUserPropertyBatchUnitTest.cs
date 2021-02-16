@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestDeleteUserProperty()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUserProperty("int_property"),
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestDeleteUserPropertyAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new DeleteUserProperty("int_property"),

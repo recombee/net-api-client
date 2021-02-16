@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestAddPurchase()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddPurchase("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),
@@ -43,7 +43,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestAddPurchaseAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddPurchase("u_id", "i_id", cascadeCreate: true, additionalData: new Dictionary<string, object>(){{"answer",42}}),

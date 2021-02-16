@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestAddUserProperty()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddUserProperty("number", "int"),
@@ -37,7 +37,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestAddUserPropertyAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new AddUserProperty("number", "int"),

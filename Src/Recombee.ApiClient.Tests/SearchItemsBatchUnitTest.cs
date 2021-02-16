@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestSearchItems()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SearchItems("entity_id", "hell", 9),
@@ -36,7 +36,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestSearchItemsAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new SearchItems("entity_id", "hell", 9),

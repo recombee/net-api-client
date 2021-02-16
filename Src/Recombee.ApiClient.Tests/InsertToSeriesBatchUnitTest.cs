@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestInsertToSeries()
-                {
+        {
             Object resp2;
             resp2 = client.Send(new AddItem("new_item"));
         
@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestInsertToSeriesAsync()
-                {
+        {
             Object resp2;
             resp2 = await client.SendAsync(new AddItem("new_item"));
         

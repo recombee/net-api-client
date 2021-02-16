@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestRecommendNextItems()
-                {
+        {
             Object resp2;
             resp2 = client.Send(new RecommendItemsToUser("entity_id", 3, returnProperties: true));
         
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestRecommendNextItemsAsync()
-                {
+        {
             Object resp2;
             resp2 = await client.SendAsync(new RecommendItemsToUser("entity_id", 3, returnProperties: true));
         

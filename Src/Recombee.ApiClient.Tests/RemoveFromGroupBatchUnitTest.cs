@@ -17,7 +17,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public  void TestRemoveFromGroup()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RemoveFromGroup("entity_id", "item", "entity_id"),
@@ -31,7 +31,7 @@ namespace Recombee.ApiClient.Tests
 
         [Fact]
         public async void TestRemoveFromGroupAsync()
-                {
+        {
             Object resp2;
             Request[] requests = new Request[] {
                 new RemoveFromGroup("entity_id", "item", "entity_id"),
