@@ -24,12 +24,13 @@ using System.Linq;
 using Recombee.ApiClient;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
+using Recombee.ApiClient.Util;
 
 public class BasicExample
 {
     static int Main(string[] args)
     {
-        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--");
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--", region: Region.UsWest);
 
         try
         {
@@ -86,12 +87,13 @@ using System.Linq;
 using Recombee.ApiClient;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
+using Recombee.ApiClient.Util;
 
 public class PropertiesExample
 {
     static async Task<int> Main(string[] args)
     {
-        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--");
+        RecombeeClient client = new RecombeeClient("--my-database-id--", "--db-private-token--", region: Region.ApSe);
 
         /*
         We will use computers as items in this example

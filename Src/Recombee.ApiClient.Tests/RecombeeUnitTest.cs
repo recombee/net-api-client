@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Recombee.ApiClient.ApiRequests;
+using Recombee.ApiClient.Util;
 using Xunit;
 
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
@@ -13,7 +14,7 @@ namespace Recombee.ApiClient.Tests
         
         public RecombeeUnitTest()
         {
-                client = new RecombeeClient("client-test", "jGGQ6ZKa8rQ1zTAyxTc0EMn55YPF7FJLUtaMLhbsGxmvwxgTwXYqmUk5xVZFw98L");
+                client = new RecombeeClient("client-test", "jGGQ6ZKa8rQ1zTAyxTc0EMn55YPF7FJLUtaMLhbsGxmvwxgTwXYqmUk5xVZFw98L", region: Region.EuWest);
                 client.Send(new ResetDatabase());
                 while (true)
                 {

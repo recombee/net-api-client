@@ -12,6 +12,8 @@ using System.Threading;
 using Nito.AsyncEx.Synchronous;
 using Recombee.ApiClient.ApiRequests;
 using Recombee.ApiClient.Bindings;
+using Recombee.ApiClient.Util;
+
 
 namespace Recombee.ApiClient
 {
@@ -23,7 +25,7 @@ namespace Recombee.ApiClient
 
         readonly bool useHttpsAsDefault;
 
-        readonly string hostUri = "rapi.recombee.com";
+        readonly string hostUri;
         readonly int? port = null;
 
         readonly int BATCH_MAX_SIZE = 10000; //Maximal number of requests within one batch request
@@ -37,27 +39,60 @@ namespace Recombee.ApiClient
         /// <param name="useHttpsAsDefault">If true, all requests are sent using HTTPS</param>
         /// <param name="baseUri">Custom URI of the recommendation API</param>
         /// <param name="port">Custom port of the recommendation API</param>
+        /// <param name="region">region of the Recombee cluster where the database is located</param>
         public RecombeeClient(string databaseId, string secretToken, bool useHttpsAsDefault = true,
-                              string baseUri = null, int? port = null)
+                              string baseUri = null, int? port = null, Region? region = null)
         {
             this.databaseId = databaseId;
             this.secretTokenBytes = Encoding.ASCII.GetBytes(secretToken);
             this.useHttpsAsDefault = useHttpsAsDefault;
             this.httpClient = createHttpClient();
+            this.hostUri = getHostUri(baseUri, region);
+            this.port = port;
+        }
+
+        private string getRegionalBaseUri(Region? region) {
+            switch (region) {
+                case Region.ApSe:
+                    return "rapi-ap-se.recombee.com";
+                case Region.CaEast:
+                    return "rapi-ca-east.recombee.com";
+                case Region.EuWest:
+                    return "rapi-eu-west.recombee.com";
+                case Region.UsWest:
+                    return "rapi-us-west.recombee.com";
+                default:
+                    throw new ArgumentException("Unknown region given");
+            }
+        }
+
+        private string getHostUri(string baseUri, Region? region) {
+            string hostUri = null;
 
             var envHostUri = Environment.GetEnvironmentVariable("RAPI_URI");
-            if(envHostUri != null)
-                this.hostUri = envHostUri;
-            else if (baseUri != null)
-                this.hostUri = baseUri;
+            if (envHostUri != null)
+                hostUri = envHostUri;
+            else
+                hostUri = baseUri;
 
-            this.port = port;
+            if (region != null) {
+                if (hostUri != null) {
+                    throw new ArgumentException("baseUri and region cannot be specified at the same time");
+                }
+                hostUri = getRegionalBaseUri(region);
+            }
+
+            if (hostUri == null) {
+                hostUri = "rapi.recombee.com";
+            }
+
+            return hostUri;
         }
 
         private HttpClient createHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/3.2.0");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "recombee-.net-api-client/4.0.0");
             return httpClient;
         }
 
@@ -115,42 +150,6 @@ namespace Recombee.ApiClient
             var task = Task.Run(async () => await SendAsync(request));
             var result = task.WaitAndUnwrapException();
             return result;
-        }
-
-        public async Task<IEnumerable<Recommendation>> SendAsync(UserBasedRecommendation request)
-        {
-            var json = await SendRequestAsync(request).ConfigureAwait(false);
-            return ParseResponse(json, request);
-        }
-
-        public IEnumerable<Recommendation> Send(UserBasedRecommendation request)
-        {
-            var task = Task.Run(async () => await SendAsync(request));
-            var result = task.WaitAndUnwrapException();
-            return result;
-        }
-
-        public async Task<IEnumerable<Recommendation>> SendAsync(ItemBasedRecommendation request)
-        {
-            var json = await SendRequestAsync(request).ConfigureAwait(false);
-            return ParseResponse(json, request);
-        }
-
-        public IEnumerable<Recommendation> Send(ItemBasedRecommendation request)
-        {
-            var task = Task.Run(async () => await SendAsync(request));
-            var result = task.WaitAndUnwrapException();
-            return result;
-        }
-
-        private IEnumerable<Recommendation> ParseResponse(string json, UserBasedRecommendation request)
-        {
-            return ParseRecommRequestResponse(json, request);
-        }
-
-        private IEnumerable<Recommendation> ParseResponse(string json, ItemBasedRecommendation request)
-        {
-            return ParseRecommRequestResponse(json, request);
         }
 
         private IEnumerable<Recommendation> ParseRecommRequestResponse(string json, Request request)
@@ -327,7 +326,8 @@ namespace Recombee.ApiClient
                     }
                     else if (request.RequestHttpMehod == HttpMethod.Put)
                     {
-                        return await httpClient.PutAsync(uri, new StringContent(""), ctsTimeout.Token);
+                        string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
+                        return await httpClient.PutAsync(uri, new StringContent(bodyParams, Encoding.UTF8,"application/json"), ctsTimeout.Token);
                     }
                     else if (request.RequestHttpMehod == HttpMethod.Post)
                     {
@@ -336,7 +336,14 @@ namespace Recombee.ApiClient
                     }
                     else if (request.RequestHttpMehod == HttpMethod.Delete)
                     {
-                        return await httpClient.DeleteAsync(uri, ctsTimeout.Token);
+                        string bodyParams = JsonConvert.SerializeObject(request.BodyParameters());
+
+                        var requestMessage = new HttpRequestMessage {
+                            Method = HttpMethod.Delete,
+                            RequestUri = new Uri(uri),
+                            Content = new StringContent(bodyParams, Encoding.UTF8,"application/json")
+                        };
+                        return await httpClient.SendAsync(requestMessage, ctsTimeout.Token);
                     }
                     else
                     {

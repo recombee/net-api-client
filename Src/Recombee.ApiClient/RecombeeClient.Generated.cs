@@ -74,6 +74,64 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
+        protected UpdateMoreItemsResponse ParseResponse(string json, UpdateMoreItems request)
+        {
+            return JsonConvert.DeserializeObject<UpdateMoreItemsResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the UpdateMoreItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<UpdateMoreItemsResponse> SendAsync(UpdateMoreItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the UpdateMoreItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public UpdateMoreItemsResponse Send(UpdateMoreItems request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected DeleteMoreItemsResponse ParseResponse(string json, DeleteMoreItems request)
+        {
+            return JsonConvert.DeserializeObject<DeleteMoreItemsResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the DeleteMoreItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<DeleteMoreItemsResponse> SendAsync(DeleteMoreItems request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the DeleteMoreItems request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public DeleteMoreItemsResponse Send(DeleteMoreItems request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
         protected IEnumerable<Series> ParseResponse(string json, ListSeries request)
         {
             var strArray = JsonConvert.DeserializeObject<string[]>(json);
@@ -837,6 +895,10 @@ namespace Recombee.ApiClient
             
             if (request is ListItemProperties) return ParseResponse(json, (ListItemProperties) request); 
             
+            if (request is UpdateMoreItems) return ParseResponse(json, (UpdateMoreItems) request); 
+            
+            if (request is DeleteMoreItems) return ParseResponse(json, (DeleteMoreItems) request); 
+            
             if (request is ListSeries) return ParseResponse(json, (ListSeries) request); 
             
             if (request is ListSeriesItems) return ParseResponse(json, (ListSeriesItems) request); 
@@ -886,10 +948,6 @@ namespace Recombee.ApiClient
             if (request is RecommendUsersToUser) return ParseResponse(json, (RecommendUsersToUser) request); 
             
             if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
-            
-            if (request is UserBasedRecommendation) return ParseResponse(json, (UserBasedRecommendation) request); 
-            
-            if (request is ItemBasedRecommendation) return ParseResponse(json, (ItemBasedRecommendation) request); 
             
             if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
             

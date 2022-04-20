@@ -11,30 +11,29 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete user</summary>
-    /// <remarks>Deletes a user of given *userId* from the database.
-    /// If there are any purchases, ratings, bookmarks, cart additions or detail views made by the user present in the database, they will be deleted in cascade as well.
-    /// </remarks>
-    public class DeleteUser : Request
+    /// <summary>Delete more items</summary>
+    /// <remarks>Delete all the items that pass the filter.
+    /// If an item becomes obsolete/no longer available, it is meaningful to **keep it in the catalog** (along with all the interaction data, which are very useful), and **only exclude the item from recommendations**. In such a case, use [ReQL filter](https://docs.recombee.com/reql.html) instead of deleting the item completely.</remarks>
+    public class DeleteMoreItems : Request
     {
-        private readonly string userId;
-        /// <summary>ID of the user to be deleted.</summary>
-        public string UserId
+        private readonly string filter;
+        /// <summary>A [ReQL](https://docs.recombee.com/reql.html) expression, which return `true` for the items that shall be updated.</summary>
+        public string Filter
         {
-            get {return userId;}
+            get {return filter;}
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="userId">ID of the user to be deleted.</param>
-        public DeleteUser (string userId): base(HttpMethod.Delete, 1000)
+        /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which return `true` for the items that shall be updated.</param>
+        public DeleteMoreItems (string filter): base(HttpMethod.Delete, 1000)
         {
-            this.userId = userId;
+            this.filter = filter;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
         public override string Path()
         {
-            return string.Format("/users/{0}", UserId);
+            return "/more-items/";
         }
     
         /// <summary>Get query parameters</summary>
@@ -54,7 +53,7 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-        
+                {"filter", this.Filter}
             };
             return parameters;
         }
