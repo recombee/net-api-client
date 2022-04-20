@@ -1,5 +1,0 @@
-<map id="Recombee.ApiClient.Bindings.User" name="Recombee.ApiClient.Bindings.User">
-<area shape="rect" id="node1" title="User Binding" alt="" coords="5,155,253,181"/>
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1Entity.html" title="Base class for the entities" alt="" coords="99,80,159,107"/>
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecombeeBinding.html" title="Base class for the bindings" alt="" coords="59,5,199,32"/>
-</map>

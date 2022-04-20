@@ -1,5 +1,0 @@
-<map id="Recombee.ApiClient.Bindings.SearchResponse" name="Recombee.ApiClient.Bindings.SearchResponse">
-<area shape="rect" id="node1" title="SearchResponse Binding" alt="" coords="5,155,224,196"/>
-<area shape="rect" id="node2" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecommendationResponse.html" title="RecommendationResponse Binding" alt="" coords="15,80,215,107"/>
-<area shape="rect" id="node3" href="$classRecombee_1_1ApiClient_1_1Bindings_1_1RecombeeBinding.html" title="Base class for the bindings" alt="" coords="45,5,185,32"/>
-</map>
