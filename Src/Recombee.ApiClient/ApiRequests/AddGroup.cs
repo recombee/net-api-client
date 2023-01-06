@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add group</summary>
-    /// <remarks>Creates new group in the database.</remarks>
+    /// <summary>Add Group</summary>
+    /// <remarks>Creates a new group in the database.</remarks>
     public class AddGroup : Request
     {
         private readonly string groupId;

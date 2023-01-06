@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List item properties</summary>
+    /// <summary>List Item Properties</summary>
     /// <remarks>Gets the list of all the item properties in your database.
     /// </remarks>
     public class ListItemProperties : Request

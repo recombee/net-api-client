@@ -11,12 +11,12 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List item cart additions</summary>
-    /// <remarks>List all the ever-made cart addition of a given item.</remarks>
+    /// <summary>List Item Cart Additions</summary>
+    /// <remarks>Lists all the ever-made cart additions of the given item.</remarks>
     public class ListItemCartAdditions : Request
     {
         private readonly string itemId;
-        /// <summary>ID of the item of which the cart addition are to be listed.
+        /// <summary>ID of the item whose cart additions are to be listed.
         /// </summary>
         public string ItemId
         {
@@ -24,7 +24,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item of which the cart addition are to be listed.
+        /// <param name="itemId">ID of the item whose cart additions are to be listed.
         /// </param>
         public ListItemCartAdditions (string itemId): base(HttpMethod.Get, 100000)
         {

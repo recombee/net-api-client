@@ -11,12 +11,12 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List item bookmarks</summary>
-    /// <remarks>List all the ever-made bookmarks of a given item.</remarks>
+    /// <summary>List Item Bookmarks</summary>
+    /// <remarks>Lists all the ever-made bookmarks of the given item.</remarks>
     public class ListItemBookmarks : Request
     {
         private readonly string itemId;
-        /// <summary>ID of the item of which the bookmarks are to be listed.
+        /// <summary>ID of the item whose bookmarks are to be listed.
         /// </summary>
         public string ItemId
         {
@@ -24,7 +24,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item of which the bookmarks are to be listed.
+        /// <param name="itemId">ID of the item whose bookmarks are to be listed.
         /// </param>
         public ListItemBookmarks (string itemId): base(HttpMethod.Get, 100000)
         {

@@ -11,9 +11,9 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete group</summary>
-    /// <remarks>Deletes the group of given `groupId` from the database.
-    /// Deleting a group will only delete assignment of items to it, not the items themselves!
+    /// <summary>Delete Group</summary>
+    /// <remarks>Deletes the group of the given `groupId` from the database.
+    /// Deleting a group will only delete the assignment of items to it, not the items themselves!
     /// </remarks>
     public class DeleteGroup : Request
     {

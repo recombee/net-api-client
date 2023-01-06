@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete series</summary>
-    /// <remarks>Deletes the series of given `seriesId` from the database.
+    /// <summary>Delete Series</summary>
+    /// <remarks>Deletes the series of the given `seriesId` from the database.
     /// Deleting a series will only delete assignment of items to it, not the items themselves!
     /// </remarks>
     public class DeleteSeries : Request

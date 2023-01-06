@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Insert to group</summary>
-    /// <remarks>Inserts an existing item/group into group of given `groupId`.
+    /// <summary>Insert to Group</summary>
+    /// <remarks>Inserts an existing item/group into a group of the given `groupId`.
     /// </remarks>
     public class InsertToGroup : Request
     {
@@ -35,7 +35,7 @@ namespace Recombee.ApiClient.ApiRequests
             get {return itemId;}
         }
         private readonly bool? cascadeCreate;
-        /// <summary>Indicates that any non-existing entity specified within the request should be created (as is corresponding PUT requests were invoked). This concerns both the `groupId` and the `groupId`. If `cascadeCreate` is set true, the behavior also depends on the `itemType`. Either items or group may be created if not present in the database.</summary>
+        /// <summary>Indicates that any non-existing entity specified within the request should be created (as if corresponding PUT requests were invoked). This concerns both the `groupId` and the `groupId`. If `cascadeCreate` is set to true, the behavior also depends on the `itemType`. Either items or group may be created if not present in the database.</summary>
         public bool? CascadeCreate
         {
             get {return cascadeCreate;}
@@ -45,7 +45,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="groupId">ID of the group to be inserted into.</param>
         /// <param name="itemType">`item` iff the regular item from the catalog is to be inserted, `group` iff group is inserted as the item.</param>
         /// <param name="itemId">ID of the item iff `itemType` is `item`. ID of the group iff `itemType` is `group`.</param>
-        /// <param name="cascadeCreate">Indicates that any non-existing entity specified within the request should be created (as is corresponding PUT requests were invoked). This concerns both the `groupId` and the `groupId`. If `cascadeCreate` is set true, the behavior also depends on the `itemType`. Either items or group may be created if not present in the database.</param>
+        /// <param name="cascadeCreate">Indicates that any non-existing entity specified within the request should be created (as if corresponding PUT requests were invoked). This concerns both the `groupId` and the `groupId`. If `cascadeCreate` is set to true, the behavior also depends on the `itemType`. Either items or group may be created if not present in the database.</param>
         public InsertToGroup (string groupId, string itemType, string itemId, bool? cascadeCreate = null): base(HttpMethod.Post, 1000)
         {
             this.groupId = groupId;

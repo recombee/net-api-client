@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add rating</summary>
-    /// <remarks>Adds a rating of given item made by a given user.
+    /// <summary>Add Rating</summary>
+    /// <remarks>Adds a rating of the given item made by the given user.
     /// </remarks>
     public class AddRating : Request
     {

@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add cart addition</summary>
-    /// <remarks>Adds a cart addition of a given item made by a given user.
+    /// <summary>Add Cart Addition</summary>
+    /// <remarks>Adds a cart addition of the given item made by the given user.
     /// </remarks>
     public class AddCartAddition : Request
     {
@@ -41,13 +41,13 @@ namespace Recombee.ApiClient.ApiRequests
             get {return cascadeCreate;}
         }
         private readonly double? amount;
-        /// <summary>Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        /// <summary>Amount (number) added to cart. The default is 1. For example, if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal 2.</summary>
         public double? Amount
         {
             get {return amount;}
         }
         private readonly double? price;
-        /// <summary>Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        /// <summary>Price of the added item. If `amount` is greater than 1, the sum of prices of all the items should be given.</summary>
         public double? Price
         {
             get {return price;}
@@ -70,8 +70,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="itemId">Item added to the cart</param>
         /// <param name="timestamp">UTC timestamp of the cart addition as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
-        /// <param name="amount">Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</param>
-        /// <param name="price">Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</param>
+        /// <param name="amount">Amount (number) added to cart. The default is 1. For example, if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal 2.</param>
+        /// <param name="price">Price of the added item. If `amount` is greater than 1, the sum of prices of all the items should be given.</param>
         /// <param name="recommId">If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
         public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)

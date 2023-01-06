@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Update more items</summary>
-    /// <remarks>Update (some) property values of all the items that pass the filter.
+    /// <summary>Update More Items</summary>
+    /// <remarks>Updates (some) property values of all the items that pass the filter.
     /// Example: *Setting all the items that are older than a week as unavailable*
     ///   ```
     ///     {
@@ -24,21 +24,21 @@ namespace Recombee.ApiClient.ApiRequests
     public class UpdateMoreItems : Request
     {
         private readonly string filter;
-        /// <summary>A [ReQL](https://docs.recombee.com/reql.html) expression, which return `true` for the items that shall be updated.</summary>
+        /// <summary>A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</summary>
         public string Filter
         {
             get {return filter;}
         }
         private readonly Dictionary<string, object> changes;
-        /// <summary>A dictionary where the keys are properties which shall be updated.</summary>
+        /// <summary>A dictionary where the keys are properties that shall be updated.</summary>
         public Dictionary<string, object> Changes
         {
             get {return changes;}
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which return `true` for the items that shall be updated.</param>
-        /// <param name="changes">A dictionary where the keys are properties which shall be updated.</param>
+        /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</param>
+        /// <param name="changes">A dictionary where the keys are properties that shall be updated.</param>
         public UpdateMoreItems (string filter, Dictionary<string, object> changes): base(HttpMethod.Post, 1000)
         {
             this.filter = filter;

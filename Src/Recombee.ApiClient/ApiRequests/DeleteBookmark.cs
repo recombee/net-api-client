@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete bookmark</summary>
-    /// <remarks>Deletes a bookmark uniquely specified by `userId`, `itemId`, and `timestamp` or all the bookmarks with given `userId` and `itemId` if `timestamp` is omitted.
+    /// <summary>Delete Bookmark</summary>
+    /// <remarks>Deletes a bookmark uniquely specified by `userId`, `itemId`, and `timestamp` or all the bookmarks with the given `userId` and `itemId` if `timestamp` is omitted.
     /// </remarks>
     public class DeleteBookmark : Request
     {
@@ -23,13 +23,13 @@ namespace Recombee.ApiClient.ApiRequests
             get {return userId;}
         }
         private readonly string itemId;
-        /// <summary>ID of the item of which was bookmarked.</summary>
+        /// <summary>ID of the item which was bookmarked.</summary>
         public string ItemId
         {
             get {return itemId;}
         }
         private readonly DateTime? timestamp;
-        /// <summary>Unix timestamp of the bookmark. If the `timestamp` is omitted, then all the bookmarks with given `userId` and `itemId` are deleted.</summary>
+        /// <summary>Unix timestamp of the bookmark. If the `timestamp` is omitted, then all the bookmarks with the given `userId` and `itemId` are deleted.</summary>
         public DateTime? Timestamp
         {
             get {return timestamp;}
@@ -37,8 +37,8 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user who made the bookmark.</param>
-        /// <param name="itemId">ID of the item of which was bookmarked.</param>
-        /// <param name="timestamp">Unix timestamp of the bookmark. If the `timestamp` is omitted, then all the bookmarks with given `userId` and `itemId` are deleted.</param>
+        /// <param name="itemId">ID of the item which was bookmarked.</param>
+        /// <param name="timestamp">Unix timestamp of the bookmark. If the `timestamp` is omitted, then all the bookmarks with the given `userId` and `itemId` are deleted.</param>
         public DeleteBookmark (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
         {
             this.userId = userId;

@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete rating</summary>
-    /// <remarks>Deletes an existing rating specified by (`userId`, `itemId`, `timestamp`) from the database or all the ratings with given `userId` and `itemId` if `timestamp` is omitted.
+    /// <summary>Delete Rating</summary>
+    /// <remarks>Deletes an existing rating specified by (`userId`, `itemId`, `timestamp`) from the database or all the ratings with the given `userId` and `itemId` if `timestamp` is omitted.
     /// </remarks>
     public class DeleteRating : Request
     {
@@ -29,7 +29,7 @@ namespace Recombee.ApiClient.ApiRequests
             get {return itemId;}
         }
         private readonly DateTime? timestamp;
-        /// <summary>Unix timestamp of the rating. If the `timestamp` is omitted, then all the ratings with given `userId` and `itemId` are deleted.</summary>
+        /// <summary>Unix timestamp of the rating. If the `timestamp` is omitted, then all the ratings with the given `userId` and `itemId` are deleted.</summary>
         public DateTime? Timestamp
         {
             get {return timestamp;}
@@ -38,7 +38,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user who rated the item.</param>
         /// <param name="itemId">ID of the item which was rated.</param>
-        /// <param name="timestamp">Unix timestamp of the rating. If the `timestamp` is omitted, then all the ratings with given `userId` and `itemId` are deleted.</param>
+        /// <param name="timestamp">Unix timestamp of the rating. If the `timestamp` is omitted, then all the ratings with the given `userId` and `itemId` are deleted.</param>
         public DeleteRating (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
         {
             this.userId = userId;

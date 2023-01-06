@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add purchase</summary>
-    /// <remarks>Adds a purchase of a given item made by a given user.
+    /// <summary>Add Purchase</summary>
+    /// <remarks>Adds a purchase of the given item made by the given user.
     /// </remarks>
     public class AddPurchase : Request
     {
@@ -41,19 +41,19 @@ namespace Recombee.ApiClient.ApiRequests
             get {return cascadeCreate;}
         }
         private readonly double? amount;
-        /// <summary>Amount (number) of purchased items. The default is 1. For example if `user-x` purchases two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        /// <summary>Amount (number) of purchased items. The default is 1. For example, if `user-x` purchases two `item-y` during a single order (session...), the `amount` should equal 2.</summary>
         public double? Amount
         {
             get {return amount;}
         }
         private readonly double? price;
-        /// <summary>Price paid by the user for the item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        /// <summary>Price paid by the user for the item. If `amount` is greater than 1, the sum of prices of all the items should be given.</summary>
         public double? Price
         {
             get {return price;}
         }
         private readonly double? profit;
-        /// <summary>Your profit from the purchased item. The profit is natural in e-commerce domain (for example if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If `amount` is greater than 1, sum of profit of all the items should be given.</summary>
+        /// <summary>Your profit from the purchased item. The profit is natural in the e-commerce domain (for example, if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30) but is also applicable in other domains (for example, at a news company it may be income from a displayed advertisement on article page). If `amount` is greater than 1, the sum of profit of all the items should be given.</summary>
         public double? Profit
         {
             get {return profit;}
@@ -76,9 +76,9 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="itemId">Purchased item</param>
         /// <param name="timestamp">UTC timestamp of the purchase as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
-        /// <param name="amount">Amount (number) of purchased items. The default is 1. For example if `user-x` purchases two `item-y` during a single order (session...), the `amount` should equal to 2.</param>
-        /// <param name="price">Price paid by the user for the item. If `amount` is greater than 1, sum of prices of all the items should be given.</param>
-        /// <param name="profit">Your profit from the purchased item. The profit is natural in e-commerce domain (for example if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30), but is applicable also in other domains (for example at a news company it may be income from displayed advertisement on article page). If `amount` is greater than 1, sum of profit of all the items should be given.</param>
+        /// <param name="amount">Amount (number) of purchased items. The default is 1. For example, if `user-x` purchases two `item-y` during a single order (session...), the `amount` should equal 2.</param>
+        /// <param name="price">Price paid by the user for the item. If `amount` is greater than 1, the sum of prices of all the items should be given.</param>
+        /// <param name="profit">Your profit from the purchased item. The profit is natural in the e-commerce domain (for example, if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30) but is also applicable in other domains (for example, at a news company it may be income from a displayed advertisement on article page). If `amount` is greater than 1, the sum of profit of all the items should be given.</param>
         /// <param name="recommId">If this purchase is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
         public AddPurchase (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, double? profit = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)

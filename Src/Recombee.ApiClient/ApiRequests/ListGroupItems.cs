@@ -11,19 +11,19 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List group items</summary>
+    /// <summary>List Group Items</summary>
     /// <remarks>List all the items present in the given group.</remarks>
     public class ListGroupItems : Request
     {
         private readonly string groupId;
-        /// <summary>ID of the group items of which are to be listed.</summary>
+        /// <summary>ID of the group whose items are to be listed.</summary>
         public string GroupId
         {
             get {return groupId;}
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="groupId">ID of the group items of which are to be listed.</param>
+        /// <param name="groupId">ID of the group whose items are to be listed.</param>
         public ListGroupItems (string groupId): base(HttpMethod.Get, 100000)
         {
             this.groupId = groupId;

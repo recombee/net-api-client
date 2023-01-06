@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete user</summary>
-    /// <remarks>Deletes a user of given *userId* from the database.
+    /// <summary>Delete User</summary>
+    /// <remarks>Deletes a user of the given *userId* from the database.
     /// If there are any purchases, ratings, bookmarks, cart additions or detail views made by the user present in the database, they will be deleted in cascade as well.
     /// </remarks>
     public class DeleteUser : Request

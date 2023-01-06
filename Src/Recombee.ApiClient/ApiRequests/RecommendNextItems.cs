@@ -11,9 +11,9 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Recommend next items</summary>
-    /// <remarks>Returns items that shall be shown to a user as next recommendations when the user e.g. scrolls the page down (*infinite scroll*) or goes to a next page.
-    /// It accepts `recommId` of a base recommendation request (e.g. request from the first page) and number of items that shall be returned (`count`).
+    /// <summary>Recommend Next Items</summary>
+    /// <remarks>Returns items that shall be shown to a user as next recommendations when the user e.g. scrolls the page down (*infinite scroll*) or goes to the next page.
+    /// It accepts `recommId` of a base recommendation request (e.g., request from the first page) and the number of items that shall be returned (`count`).
     /// The base request can be one of:
     ///   - [Recommend items to item](https://docs.recombee.com/api.html#recommend-items-to-item)
     ///   - [Recommend items to user](https://docs.recombee.com/api.html#recommend-items-to-user)

@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add user</summary>
+    /// <summary>Add User</summary>
     /// <remarks>Adds a new user to the database.
     /// </remarks>
     public class AddUser : Request

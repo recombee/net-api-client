@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete search synonym</summary>
-    /// <remarks>Deletes synonym of given `id` and this synonym is no longer taken into account in the [Search items](https://docs.recombee.com/api.html#search-items).
+    /// <summary>Delete Search Synonym</summary>
+    /// <remarks>Deletes synonym of the given `id`. This synonym is no longer taken into account in the [Search items](https://docs.recombee.com/api.html#search-items).
     /// </remarks>
     public class DeleteSearchSynonym : Request
     {

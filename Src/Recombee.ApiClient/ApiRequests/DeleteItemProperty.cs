@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete item property</summary>
+    /// <summary>Delete Item Property</summary>
     /// <remarks>Deleting an item property is roughly equivalent to removing a column from the table of items.
     /// </remarks>
     public class DeleteItemProperty : Request

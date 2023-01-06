@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List user detail views</summary>
-    /// <remarks>Lists all the detail views of different items ever made by a given user.</remarks>
+    /// <summary>List User Detail Views</summary>
+    /// <remarks>Lists all the detail views of different items ever made by the given user.</remarks>
     public class ListUserDetailViews : Request
     {
         private readonly string userId;

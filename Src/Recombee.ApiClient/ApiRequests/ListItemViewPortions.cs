@@ -11,13 +11,13 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List item view portions</summary>
-    /// <remarks>List all the view portions of an item ever submitted by different users.
+    /// <summary>List Item View Portions</summary>
+    /// <remarks>Lists all the view portions of an item ever submitted by different users.
     /// </remarks>
     public class ListItemViewPortions : Request
     {
         private readonly string itemId;
-        /// <summary>ID of the item of which the view portions are to be listed.
+        /// <summary>ID of the item whose view portions are to be listed.
         /// </summary>
         public string ItemId
         {
@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item of which the view portions are to be listed.
+        /// <param name="itemId">ID of the item whose view portions are to be listed.
         /// </param>
         public ListItemViewPortions (string itemId): base(HttpMethod.Get, 100000)
         {

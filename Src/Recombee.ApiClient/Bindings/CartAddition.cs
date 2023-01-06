@@ -35,13 +35,13 @@ namespace Recombee.ApiClient.Bindings
             get {return timestamp;}
         }
         private readonly double? amount;
-        /// <summary>Amount (number) added to cart. The default is 1. For example if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal to 2.</summary>
+        /// <summary>Amount (number) added to cart. The default is 1. For example, if `user-x` adds two `item-y` during a single order (session...), the `amount` should equal 2.</summary>
         public double? Amount
         {
             get {return amount;}
         }
         private readonly double? price;
-        /// <summary>Price of the added item. If `amount` is greater than 1, sum of prices of all the items should be given.</summary>
+        /// <summary>Price of the added item. If `amount` is greater than 1, the sum of prices of all the items should be given.</summary>
         public double? Price
         {
             get {return price;}

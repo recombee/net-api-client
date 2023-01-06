@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List user purchases</summary>
-    /// <remarks>List all the purchases ever made by a given user.</remarks>
+    /// <summary>List User Purchases</summary>
+    /// <remarks>Lists all the purchases ever made by the given user.</remarks>
     public class ListUserPurchases : Request
     {
         private readonly string userId;

@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete all search synonyms</summary>
+    /// <summary>Delete All Search Synonyms</summary>
     /// <remarks>Deletes all synonyms defined in the database.
     /// </remarks>
     public class DeleteAllSearchSynonyms : Request

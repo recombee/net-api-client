@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Remove from group</summary>
+    /// <summary>Remove from Group</summary>
     /// <remarks>Removes an existing group item from the group.</remarks>
     public class RemoveFromGroup : Request
     {

@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List search synonyms</summary>
+    /// <summary>List Search Synonyms</summary>
     /// <remarks>Gives the list of synonyms defined in the database.</remarks>
     public class ListSearchSynonyms : Request
     {

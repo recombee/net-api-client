@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List groups</summary>
+    /// <summary>List Groups</summary>
     /// <remarks>Gets the list of all the groups currently present in the database.</remarks>
     public class ListGroups : Request
     {

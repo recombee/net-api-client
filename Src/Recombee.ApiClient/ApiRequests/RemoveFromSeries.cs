@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Remove from series</summary>
+    /// <summary>Remove from Series</summary>
     /// <remarks>Removes an existing series item from the series.</remarks>
     public class RemoveFromSeries : Request
     {

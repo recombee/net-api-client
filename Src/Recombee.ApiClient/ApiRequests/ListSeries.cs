@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List series</summary>
+    /// <summary>List Series</summary>
     /// <remarks>Gets the list of all the series currently present in the database.</remarks>
     public class ListSeries : Request
     {

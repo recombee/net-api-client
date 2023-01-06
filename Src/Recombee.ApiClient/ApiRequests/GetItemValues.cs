@@ -11,13 +11,13 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Get item values</summary>
-    /// <remarks>Get all the current property values of a given item.
+    /// <summary>Get Item Values</summary>
+    /// <remarks>Gets all the current property values of the given item.
     /// </remarks>
     public class GetItemValues : Request
     {
         private readonly string itemId;
-        /// <summary>ID of the item properties of which are to be obtained.
+        /// <summary>ID of the item whose properties are to be obtained.
         /// </summary>
         public string ItemId
         {
@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item properties of which are to be obtained.
+        /// <param name="itemId">ID of the item whose properties are to be obtained.
         /// </param>
         public GetItemValues (string itemId): base(HttpMethod.Get, 1000)
         {

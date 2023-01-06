@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add detail view</summary>
-    /// <remarks>Adds a detail view of a given item made by a given user.
+    /// <summary>Add Detail View</summary>
+    /// <remarks>Adds a detail view of the given item made by the given user.
     /// </remarks>
     public class AddDetailView : Request
     {

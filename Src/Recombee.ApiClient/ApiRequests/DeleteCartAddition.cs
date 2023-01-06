@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete cart addition</summary>
-    /// <remarks>Deletes an existing cart addition uniquely specified by `userId`, `itemId`, and `timestamp` or all the cart additions with given `userId` and `itemId` if `timestamp` is omitted.
+    /// <summary>Delete Cart Addition</summary>
+    /// <remarks>Deletes an existing cart addition uniquely specified by `userId`, `itemId`, and `timestamp` or all the cart additions with the given `userId` and `itemId` if `timestamp` is omitted.
     /// </remarks>
     public class DeleteCartAddition : Request
     {
@@ -23,13 +23,13 @@ namespace Recombee.ApiClient.ApiRequests
             get {return userId;}
         }
         private readonly string itemId;
-        /// <summary>ID of the item of which was added to cart.</summary>
+        /// <summary>ID of the item which was added to the cart.</summary>
         public string ItemId
         {
             get {return itemId;}
         }
         private readonly DateTime? timestamp;
-        /// <summary>Unix timestamp of the cart addition. If the `timestamp` is omitted, then all the cart additions with given `userId` and `itemId` are deleted.</summary>
+        /// <summary>Unix timestamp of the cart addition. If the `timestamp` is omitted, then all the cart additions with the given `userId` and `itemId` are deleted.</summary>
         public DateTime? Timestamp
         {
             get {return timestamp;}
@@ -37,8 +37,8 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user who made the cart addition.</param>
-        /// <param name="itemId">ID of the item of which was added to cart.</param>
-        /// <param name="timestamp">Unix timestamp of the cart addition. If the `timestamp` is omitted, then all the cart additions with given `userId` and `itemId` are deleted.</param>
+        /// <param name="itemId">ID of the item which was added to the cart.</param>
+        /// <param name="timestamp">Unix timestamp of the cart addition. If the `timestamp` is omitted, then all the cart additions with the given `userId` and `itemId` are deleted.</param>
         public DeleteCartAddition (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
         {
             this.userId = userId;

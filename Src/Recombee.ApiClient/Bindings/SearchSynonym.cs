@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.Bindings
             get {return term;}
         }
         private readonly string synonym;
-        /// <summary>A word that should considered equal to `term` by the full-text search engine.</summary>
+        /// <summary>A word that should be considered equal to `term` by the full-text search engine.</summary>
         public string Synonym
         {
             get {return synonym;}

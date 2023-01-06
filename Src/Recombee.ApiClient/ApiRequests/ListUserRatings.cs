@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List user ratings</summary>
-    /// <remarks>List all the ratings ever submitted by a given user.</remarks>
+    /// <summary>List User Ratings</summary>
+    /// <remarks>Lists all the ratings ever submitted by the given user.</remarks>
     public class ListUserRatings : Request
     {
         private readonly string userId;

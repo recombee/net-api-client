@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add bookmark</summary>
-    /// <remarks>Adds a bookmark of a given item made by a given user.
+    /// <summary>Add Bookmark</summary>
+    /// <remarks>Adds a bookmark of the given item made by the given user.
     /// </remarks>
     public class AddBookmark : Request
     {

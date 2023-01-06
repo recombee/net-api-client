@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete user property</summary>
-    /// <remarks>Deleting an user property is roughly equivalent to removing a column from the table of users.
+    /// <summary>Delete User Property</summary>
+    /// <remarks>Deleting a user property is roughly equivalent to removing a column from the table of users.
     /// </remarks>
     public class DeleteUserProperty : Request
     {

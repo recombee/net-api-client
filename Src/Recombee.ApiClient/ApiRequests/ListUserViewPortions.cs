@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List user view portions</summary>
-    /// <remarks>List all the view portions ever submitted by a given user.
+    /// <summary>List User View Portions</summary>
+    /// <remarks>Lists all the view portions ever submitted by the given user.
     /// </remarks>
     public class ListUserViewPortions : Request
     {

@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add series</summary>
-    /// <remarks>Creates new series in the database.</remarks>
+    /// <summary>Add Series</summary>
+    /// <remarks>Creates a new series in the database.</remarks>
     public class AddSeries : Request
     {
         private readonly string seriesId;

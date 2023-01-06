@@ -11,9 +11,9 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add item</summary>
-    /// <remarks>Adds new item of given `itemId` to the items catalog.
-    /// All the item properties for the newly created items are set null.
+    /// <summary>Add Item</summary>
+    /// <remarks>Adds new item of the given `itemId` to the items catalog.
+    /// All the item properties for the newly created items are set to null.
     /// </remarks>
     public class AddItem : Request
     {

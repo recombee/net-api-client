@@ -11,8 +11,8 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List user bookmarks</summary>
-    /// <remarks>List all the bookmarks ever made by a given user.</remarks>
+    /// <summary>List User Bookmarks</summary>
+    /// <remarks>Lists all the bookmarks ever made by the given user.</remarks>
     public class ListUserBookmarks : Request
     {
         private readonly string userId;

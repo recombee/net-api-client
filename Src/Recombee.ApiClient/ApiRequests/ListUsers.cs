@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List users</summary>
+    /// <summary>List Users</summary>
     /// <remarks>Gets a list of IDs of users currently present in the catalog.</remarks>
     public class ListUsers : Request
     {
@@ -56,7 +56,7 @@ namespace Recombee.ApiClient.ApiRequests
             get {return returnProperties;}
         }
         private readonly string[] includedProperties;
-        /// <summary>Allows to specify, which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list. 
+        /// <summary>Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
         /// ```
         ///   [
@@ -97,7 +97,7 @@ namespace Recombee.ApiClient.ApiRequests
         ///   ]
         /// ```
         /// </param>
-        /// <param name="includedProperties">Allows to specify, which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list. 
+        /// <param name="includedProperties">Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
         /// ```
         ///   [

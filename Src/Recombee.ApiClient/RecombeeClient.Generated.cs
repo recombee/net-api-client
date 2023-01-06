@@ -801,6 +801,93 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemSegmentsToUser request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendItemSegmentsToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemSegmentsToUser request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemSegmentsToUser request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemSegmentsToUser request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemSegmentsToItem request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendItemSegmentsToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemSegmentsToItem request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemSegmentsToItem request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemSegmentsToItem request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemSegmentsToItemSegment request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendItemSegmentsToItemSegment request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemSegmentsToItemSegment request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemSegmentsToItemSegment request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemSegmentsToItemSegment request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
         protected SearchResponse ParseResponse(string json, SearchItems request)
         {
             return JsonConvert.DeserializeObject<SearchResponse>(json);
@@ -819,6 +906,35 @@ namespace Recombee.ApiClient
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public SearchResponse Send(SearchItems request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected SearchResponse ParseResponse(string json, SearchItemSegments request)
+        {
+            return JsonConvert.DeserializeObject<SearchResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the SearchItemSegments request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<SearchResponse> SendAsync(SearchItemSegments request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the SearchItemSegments request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public SearchResponse Send(SearchItemSegments request)
         {
             var task = Task.Run(async () => await SendAsync(request));
             var result = task.WaitAndUnwrapException();
@@ -877,6 +993,64 @@ namespace Recombee.ApiClient
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public ListSearchSynonymsResponse Send(ListSearchSynonyms request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected ListSegmentationsResponse ParseResponse(string json, ListSegmentations request)
+        {
+            return JsonConvert.DeserializeObject<ListSegmentationsResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the ListSegmentations request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<ListSegmentationsResponse> SendAsync(ListSegmentations request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListSegmentations request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public ListSegmentationsResponse Send(ListSegmentations request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected Segmentation ParseResponse(string json, GetSegmentation request)
+        {
+            return JsonConvert.DeserializeObject<Segmentation>(json);
+        }
+        
+        /// <summary>Asynchronously send the GetSegmentation request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<Segmentation> SendAsync(GetSegmentation request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the GetSegmentation request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public Segmentation Send(GetSegmentation request)
         {
             var task = Task.Run(async () => await SendAsync(request));
             var result = task.WaitAndUnwrapException();
@@ -949,11 +1123,23 @@ namespace Recombee.ApiClient
             
             if (request is RecommendUsersToItem) return ParseResponse(json, (RecommendUsersToItem) request); 
             
+            if (request is RecommendItemSegmentsToUser) return ParseResponse(json, (RecommendItemSegmentsToUser) request); 
+            
+            if (request is RecommendItemSegmentsToItem) return ParseResponse(json, (RecommendItemSegmentsToItem) request); 
+            
+            if (request is RecommendItemSegmentsToItemSegment) return ParseResponse(json, (RecommendItemSegmentsToItemSegment) request); 
+            
             if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
+            
+            if (request is SearchItemSegments) return ParseResponse(json, (SearchItemSegments) request); 
             
             if (request is AddSearchSynonym) return ParseResponse(json, (AddSearchSynonym) request); 
             
             if (request is ListSearchSynonyms) return ParseResponse(json, (ListSearchSynonyms) request); 
+            
+            if (request is ListSegmentations) return ParseResponse(json, (ListSegmentations) request); 
+            
+            if (request is GetSegmentation) return ParseResponse(json, (GetSegmentation) request); 
             return ParseResponse(json, request);
         }
     }

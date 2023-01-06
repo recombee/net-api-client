@@ -11,12 +11,12 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List item ratings</summary>
-    /// <remarks>List all the ratings of an item ever submitted by different users.</remarks>
+    /// <summary>List Item Ratings</summary>
+    /// <remarks>Lists all the ratings of an item ever submitted by different users.</remarks>
     public class ListItemRatings : Request
     {
         private readonly string itemId;
-        /// <summary>ID of the item of which the ratings are to be listed.
+        /// <summary>ID of the item whose ratings are to be listed.
         /// </summary>
         public string ItemId
         {
@@ -24,7 +24,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item of which the ratings are to be listed.
+        /// <param name="itemId">ID of the item whose ratings are to be listed.
         /// </param>
         public ListItemRatings (string itemId): base(HttpMethod.Get, 100000)
         {

@@ -11,13 +11,13 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Add item property</summary>
+    /// <summary>Add Item Property</summary>
     /// <remarks>Adding an item property is somehow equivalent to adding a column to the table of items. The items may be characterized by various properties of different types.
     /// </remarks>
     public class AddItemProperty : Request
     {
         private readonly string propertyName;
-        /// <summary>Name of the item property to be created. Currently, the following names are reserved:`id`, `itemid`, case insensitively. Also, the length of the property name must not exceed 63 characters.
+        /// <summary>Name of the item property to be created. Currently, the following names are reserved: `id`, `itemid`, case-insensitively. Also, the length of the property name must not exceed 63 characters.
         /// </summary>
         public string PropertyName
         {
@@ -40,7 +40,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="propertyName">Name of the item property to be created. Currently, the following names are reserved:`id`, `itemid`, case insensitively. Also, the length of the property name must not exceed 63 characters.
+        /// <param name="propertyName">Name of the item property to be created. Currently, the following names are reserved: `id`, `itemid`, case-insensitively. Also, the length of the property name must not exceed 63 characters.
         /// </param>
         /// <param name="type">Value type of the item property to be created. One of: `int`, `double`, `string`, `boolean`, `timestamp`, `set`, `image` or `imageList`.
         /// * `int`- Signed integer number.

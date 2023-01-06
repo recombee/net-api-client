@@ -11,19 +11,19 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>List series items</summary>
-    /// <remarks>List all the items present in the given series, sorted according to their time index values.</remarks>
+    /// <summary>List Series Items</summary>
+    /// <remarks>Lists all the items present in the given series, sorted according to their time index values.</remarks>
     public class ListSeriesItems : Request
     {
         private readonly string seriesId;
-        /// <summary>ID of the series items of which are to be listed.</summary>
+        /// <summary>ID of the series whose items are to be listed.</summary>
         public string SeriesId
         {
             get {return seriesId;}
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="seriesId">ID of the series items of which are to be listed.</param>
+        /// <param name="seriesId">ID of the series whose items are to be listed.</param>
         public ListSeriesItems (string seriesId): base(HttpMethod.Get, 100000)
         {
             this.seriesId = seriesId;

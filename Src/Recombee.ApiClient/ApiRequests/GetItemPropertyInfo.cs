@@ -11,7 +11,7 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Get item property info</summary>
+    /// <summary>Get Item Property Info</summary>
     /// <remarks>Gets information about specified item property.
     /// </remarks>
     public class GetItemPropertyInfo : Request
