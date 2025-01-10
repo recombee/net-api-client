@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user to be added.</param>
-        public AddUser (string userId): base(HttpMethod.Put, 1000)
+        public AddUser (string userId): base(HttpMethod.Put, 3000)
         {
             this.userId = userId;
         }

@@ -74,7 +74,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="price">Price of the added item. If `amount` is greater than 1, the sum of prices of all the items should be given.</param>
         /// <param name="recommId">If this cart addition is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
-        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
+        public AddCartAddition (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

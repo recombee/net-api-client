@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal (new User[]{new User("entity_id")},resp);
             // it 'return properties'
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(new ListUsers());
+            resp = client.Send(new ListUsers(returnProperties: true));
             Assert.Equal(1, resp.Count());
         }
 
@@ -43,7 +43,7 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal (new User[]{new User("entity_id")},resp);
             // it 'return properties'
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(new ListUsers());
+            resp = await client.SendAsync(new ListUsers(returnProperties: true));
             Assert.Equal(1, resp.Count());
         }
     }

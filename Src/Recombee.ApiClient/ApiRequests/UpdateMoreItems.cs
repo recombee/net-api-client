@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</param>
         /// <param name="changes">A dictionary where the keys are properties that shall be updated.</param>
-        public UpdateMoreItems (string filter, Dictionary<string, object> changes): base(HttpMethod.Post, 1000)
+        public UpdateMoreItems (string filter, Dictionary<string, object> changes): base(HttpMethod.Post, 100000)
         {
             this.filter = filter;
             this.changes = changes;

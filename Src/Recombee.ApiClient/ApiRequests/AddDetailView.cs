@@ -67,7 +67,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this detail view is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
-        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
+        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

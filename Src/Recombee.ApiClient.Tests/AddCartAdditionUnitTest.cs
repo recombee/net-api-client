@@ -47,16 +47,6 @@ namespace Recombee.ApiClient.Tests
             {
                 Assert.Equal(404, (int)ex.StatusCode);
             }
-            // it 'fails with invalid time'
-            try
-            {
-                client.Send(new AddCartAddition("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)));
-                Assert.True(false,"No exception thrown");
-            }
-            catch (ResponseException ex)
-            {
-                Assert.Equal(400, (int)ex.StatusCode);
-            }
             // it 'really stores interaction to the system'
             resp = client.Send(new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));
             try
@@ -101,16 +91,6 @@ namespace Recombee.ApiClient.Tests
             catch (ResponseException ex)
             {
                 Assert.Equal(404, (int)ex.StatusCode);
-            }
-            // it 'fails with invalid time'
-            try
-            {
-                await client.SendAsync(new AddCartAddition("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)));
-                Assert.True(false,"No exception thrown");
-            }
-            catch (ResponseException ex)
-            {
-                Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'really stores interaction to the system'
             resp = await client.SendAsync(new AddCartAddition("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)));

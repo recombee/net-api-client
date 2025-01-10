@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal (new Item[]{new Item("entity_id")},resp);
             // it 'return properties'
             System.Threading.Thread.Sleep(10000);
-            resp = client.Send(new ListItems());
+            resp = client.Send(new ListItems(returnProperties: true));
             Assert.Equal(1, resp.Count());
         }
 
@@ -43,7 +43,7 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal (new Item[]{new Item("entity_id")},resp);
             // it 'return properties'
             System.Threading.Thread.Sleep(10000);
-            resp = await client.SendAsync(new ListItems());
+            resp = await client.SendAsync(new ListItems(returnProperties: true));
             Assert.Equal(1, resp.Count());
         }
     }

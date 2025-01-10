@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user whose properties are to be obtained.
         /// </param>
-        public GetUserValues (string userId): base(HttpMethod.Get, 1000)
+        public GetUserValues (string userId): base(HttpMethod.Get, 3000)
         {
             this.userId = userId;
         }

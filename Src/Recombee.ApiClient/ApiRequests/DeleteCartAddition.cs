@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="userId">ID of the user who made the cart addition.</param>
         /// <param name="itemId">ID of the item which was added to the cart.</param>
         /// <param name="timestamp">Unix timestamp of the cart addition. If the `timestamp` is omitted, then all the cart additions with the given `userId` and `itemId` are deleted.</param>
-        public DeleteCartAddition (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
+        public DeleteCartAddition (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

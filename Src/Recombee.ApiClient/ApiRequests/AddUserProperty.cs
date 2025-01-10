@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Add User Property</summary>
-    /// <remarks>Adding a user property is somehow equivalent to adding a column to the table of users. The users may be characterized by various properties of different types.
+    /// <remarks>Adding a user property is somewhat equivalent to adding a column to the table of users. The users may be characterized by various properties of different types.
     /// </remarks>
     public class AddUserProperty : Request
     {

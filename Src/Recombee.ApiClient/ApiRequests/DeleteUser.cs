@@ -26,7 +26,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">ID of the user to be deleted.</param>
-        public DeleteUser (string userId): base(HttpMethod.Delete, 1000)
+        public DeleteUser (string userId): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
         }

@@ -26,7 +26,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item to be created.</param>
-        public AddItem (string itemId): base(HttpMethod.Put, 1000)
+        public AddItem (string itemId): base(HttpMethod.Put, 3000)
         {
             this.itemId = itemId;
         }

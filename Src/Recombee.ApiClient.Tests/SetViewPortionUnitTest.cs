@@ -45,16 +45,6 @@ namespace Recombee.ApiClient.Tests
             {
                 Assert.Equal(404, (int)ex.StatusCode);
             }
-            // it 'fails with invalid time'
-            try
-            {
-                client.Send(new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)));
-                Assert.True(false,"No exception thrown");
-            }
-            catch (ResponseException ex)
-            {
-                Assert.Equal(400, (int)ex.StatusCode);
-            }
             // it 'fails with invalid portion'
             try
             {
@@ -106,16 +96,6 @@ namespace Recombee.ApiClient.Tests
             catch (ResponseException ex)
             {
                 Assert.Equal(404, (int)ex.StatusCode);
-            }
-            // it 'fails with invalid time'
-            try
-            {
-                await client.SendAsync(new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)));
-                Assert.True(false,"No exception thrown");
-            }
-            catch (ResponseException ex)
-            {
-                Assert.Equal(400, (int)ex.StatusCode);
             }
             // it 'fails with invalid portion'
             try

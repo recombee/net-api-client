@@ -33,24 +33,16 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return itemId;}
         }
-        private readonly double time;
-        /// <summary>Time index of the item to be removed.</summary>
-        public double Time
-        {
-            get {return time;}
-        }
     
         /// <summary>Construct the request</summary>
         /// <param name="seriesId">ID of the series from which a series item is to be removed.</param>
         /// <param name="itemType">Type of the item to be removed.</param>
         /// <param name="itemId">ID of the item iff `itemType` is `item`. ID of the series iff `itemType` is `series`.</param>
-        /// <param name="time">Time index of the item to be removed.</param>
-        public RemoveFromSeries (string seriesId, string itemType, string itemId, double time): base(HttpMethod.Delete, 1000)
+        public RemoveFromSeries (string seriesId, string itemType, string itemId): base(HttpMethod.Delete, 3000)
         {
             this.seriesId = seriesId;
             this.itemType = itemType;
             this.itemId = itemId;
-            this.time = time;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -65,9 +57,7 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-                {"itemType", this.ItemType},
-                {"itemId", this.ItemId},
-                {"time", this.Time}
+        
             };
             return parameters;
         }
@@ -78,7 +68,8 @@ namespace Recombee.ApiClient.ApiRequests
         {
            var parameters =  new Dictionary<string, object>()
             {
-        
+                {"itemType", this.ItemType},
+                {"itemId", this.ItemId}
             };
             return parameters;
         }

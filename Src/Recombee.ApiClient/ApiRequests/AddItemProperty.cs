@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Add Item Property</summary>
-    /// <remarks>Adding an item property is somehow equivalent to adding a column to the table of items. The items may be characterized by various properties of different types.
+    /// <remarks>Adding an item property is somewhat equivalent to adding a column to the table of items. The items may be characterized by various properties of different types.
     /// </remarks>
     public class AddItemProperty : Request
     {

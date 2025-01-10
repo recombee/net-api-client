@@ -21,7 +21,7 @@ namespace Recombee.ApiClient.Tests
             Object resp2;
             Request[] requests = new Request[] {
                 new ListUsers(),
-                new ListUsers()
+                new ListUsers(returnProperties: true)
             };
         
             BatchResponse batchResponse = client.Send(new Batch(requests));
@@ -37,7 +37,7 @@ namespace Recombee.ApiClient.Tests
             Object resp2;
             Request[] requests = new Request[] {
                 new ListUsers(),
-                new ListUsers()
+                new ListUsers(returnProperties: true)
             };
         
             BatchResponse batchResponse = await client.SendAsync(new Batch(requests));

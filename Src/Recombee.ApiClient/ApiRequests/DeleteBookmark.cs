@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="userId">ID of the user who made the bookmark.</param>
         /// <param name="itemId">ID of the item which was bookmarked.</param>
         /// <param name="timestamp">Unix timestamp of the bookmark. If the `timestamp` is omitted, then all the bookmarks with the given `userId` and `itemId` are deleted.</param>
-        public DeleteBookmark (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
+        public DeleteBookmark (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

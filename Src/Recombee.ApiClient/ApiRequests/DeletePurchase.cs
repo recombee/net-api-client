@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="userId">ID of the user who made the purchase.</param>
         /// <param name="itemId">ID of the item which was purchased.</param>
         /// <param name="timestamp">Unix timestamp of the purchase. If the `timestamp` is omitted, then all the purchases with the given `userId` and `itemId` are deleted.</param>
-        public DeletePurchase (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
+        public DeletePurchase (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

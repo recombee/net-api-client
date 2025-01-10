@@ -32,8 +32,6 @@ namespace Recombee.ApiClient.Tests
                 new AddItem("entity_id"),
                 new AddUser("entity_id"),
                 new AddSeries("entity_id"),
-                new AddGroup("entity_id"),
-                new InsertToGroup("entity_id", "item", "entity_id"),
                 new InsertToSeries("entity_id", "item", "entity_id", 1),
                 new AddItemProperty("int_property", "int"),
                 new AddItemProperty("str_property", "string"),

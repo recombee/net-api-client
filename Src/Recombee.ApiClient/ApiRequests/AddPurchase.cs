@@ -81,7 +81,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="profit">Your profit from the purchased item. The profit is natural in the e-commerce domain (for example, if `user-x` purchases `item-y` for $100 and the gross margin is 30 %, then the profit is $30) but is also applicable in other domains (for example, at a news company it may be income from a displayed advertisement on article page). If `amount` is greater than 1, the sum of profit of all the items should be given.</param>
         /// <param name="recommId">If this purchase is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
-        public AddPurchase (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, double? profit = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 1000)
+        public AddPurchase (string userId, string itemId, DateTime? timestamp = null, bool? cascadeCreate = null, double? amount = null, double? price = null, double? profit = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

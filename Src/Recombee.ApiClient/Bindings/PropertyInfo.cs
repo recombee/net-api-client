@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.Bindings
             get {return type;}
         }
     
-        public PropertyInfo (string name = null, string type = null)
+        public PropertyInfo (string name, string type)
         {
             this.name = name;
             this.type = type;

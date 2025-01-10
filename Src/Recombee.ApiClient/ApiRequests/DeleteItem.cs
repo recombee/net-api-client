@@ -27,7 +27,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item to be deleted.</param>
-        public DeleteItem (string itemId): base(HttpMethod.Delete, 1000)
+        public DeleteItem (string itemId): base(HttpMethod.Delete, 3000)
         {
             this.itemId = itemId;
         }

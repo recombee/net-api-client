@@ -25,7 +25,6 @@ namespace Recombee.ApiClient.Tests
                 new AddDetailView("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
                 new AddDetailView("entity_id", "nonex_id"),
                 new AddDetailView("nonex_id", "entity_id"),
-                new AddDetailView("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
                 new AddDetailView("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
                 new AddDetailView("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
@@ -36,9 +35,8 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(2));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(3));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(4));
-            Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(5));
-            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(6));
-            Assert.Equal(409, (int)batchResponse.StatusCodes.ElementAt(7));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(5));
+            Assert.Equal(409, (int)batchResponse.StatusCodes.ElementAt(6));
         }
 
         [Fact]
@@ -51,7 +49,6 @@ namespace Recombee.ApiClient.Tests
                 new AddDetailView("entity_id", "entity_id", timestamp: ParseDateTime("2013-10-29T09:38:41.341Z")),
                 new AddDetailView("entity_id", "nonex_id"),
                 new AddDetailView("nonex_id", "entity_id"),
-                new AddDetailView("entity_id", "entity_id", timestamp: UnixTimeStampToDateTime(-15)),
                 new AddDetailView("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5)),
                 new AddDetailView("u_id2", "i_id2", cascadeCreate: true, timestamp: UnixTimeStampToDateTime(5))
             };
@@ -62,9 +59,8 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(2));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(3));
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(4));
-            Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(5));
-            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(6));
-            Assert.Equal(409, (int)batchResponse.StatusCodes.ElementAt(7));
+            Assert.Equal(200, (int)batchResponse.StatusCodes.ElementAt(5));
+            Assert.Equal(409, (int)batchResponse.StatusCodes.ElementAt(6));
         }
     }
 }

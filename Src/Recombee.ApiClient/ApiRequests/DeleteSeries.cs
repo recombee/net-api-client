@@ -23,12 +23,20 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return seriesId;}
         }
+        private readonly bool? cascadeDelete;
+        /// <summary>If set to `true`, item with the same ID as seriesId will be also deleted. Default is `false`.</summary>
+        public bool? CascadeDelete
+        {
+            get {return cascadeDelete;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="seriesId">ID of the series to be deleted.</param>
-        public DeleteSeries (string seriesId): base(HttpMethod.Delete, 1000)
+        /// <param name="cascadeDelete">If set to `true`, item with the same ID as seriesId will be also deleted. Default is `false`.</param>
+        public DeleteSeries (string seriesId, bool? cascadeDelete = null): base(HttpMethod.Delete, 3000)
         {
             this.seriesId = seriesId;
+            this.cascadeDelete = cascadeDelete;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -56,6 +64,8 @@ namespace Recombee.ApiClient.ApiRequests
             {
         
             };
+            if (this.CascadeDelete.HasValue)
+                parameters["cascadeDelete"] = this.CascadeDelete.Value;
             return parameters;
         }
     

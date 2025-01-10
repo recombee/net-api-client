@@ -25,7 +25,7 @@ namespace Recombee.ApiClient.ApiRequests
     
         /// <summary>Construct the request</summary>
         /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</param>
-        public DeleteMoreItems (string filter): base(HttpMethod.Delete, 1000)
+        public DeleteMoreItems (string filter): base(HttpMethod.Delete, 100000)
         {
             this.filter = filter;
         }

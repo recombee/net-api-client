@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="userId">ID of the user who rated the item.</param>
         /// <param name="itemId">ID of the item which was rated.</param>
         /// <param name="sessionId">Identifier of a session.</param>
-        public DeleteViewPortion (string userId, string itemId, string sessionId = null): base(HttpMethod.Delete, 1000)
+        public DeleteViewPortion (string userId, string itemId, string sessionId = null): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

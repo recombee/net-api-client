@@ -39,7 +39,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="userId">ID of the user who rated the item.</param>
         /// <param name="itemId">ID of the item which was rated.</param>
         /// <param name="timestamp">Unix timestamp of the rating. If the `timestamp` is omitted, then all the ratings with the given `userId` and `itemId` are deleted.</param>
-        public DeleteRating (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 1000)
+        public DeleteRating (string userId, string itemId, DateTime? timestamp = null): base(HttpMethod.Delete, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;

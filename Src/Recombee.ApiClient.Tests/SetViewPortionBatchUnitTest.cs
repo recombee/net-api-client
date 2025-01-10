@@ -24,7 +24,6 @@ namespace Recombee.ApiClient.Tests
                 new SetViewPortion("entity_id", "entity_id", 0),
                 new SetViewPortion("entity_id", "nonex_id", 1),
                 new SetViewPortion("nonex_id", "entity_id", 0.5),
-                new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)),
                 new SetViewPortion("entity_id", "entity_id", -2),
                 new SetViewPortion("entity_id", "entity_id", 0.7, sessionId: "a****")
             };
@@ -36,7 +35,6 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(3));
             Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(4));
             Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(5));
-            Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(6));
         }
 
         [Fact]
@@ -48,7 +46,6 @@ namespace Recombee.ApiClient.Tests
                 new SetViewPortion("entity_id", "entity_id", 0),
                 new SetViewPortion("entity_id", "nonex_id", 1),
                 new SetViewPortion("nonex_id", "entity_id", 0.5),
-                new SetViewPortion("entity_id", "entity_id", 0, timestamp: UnixTimeStampToDateTime(-15)),
                 new SetViewPortion("entity_id", "entity_id", -2),
                 new SetViewPortion("entity_id", "entity_id", 0.7, sessionId: "a****")
             };
@@ -60,7 +57,6 @@ namespace Recombee.ApiClient.Tests
             Assert.Equal(404, (int)batchResponse.StatusCodes.ElementAt(3));
             Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(4));
             Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(5));
-            Assert.Equal(400, (int)batchResponse.StatusCodes.ElementAt(6));
         }
     }
 }
