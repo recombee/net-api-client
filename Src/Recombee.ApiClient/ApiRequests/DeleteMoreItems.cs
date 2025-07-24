@@ -13,18 +13,18 @@ namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Delete More Items</summary>
     /// <remarks>Deletes all the items that pass the filter.
-    /// If an item becomes obsolete/no longer available, it is meaningful to **keep it in the catalog** (along with all the interaction data, which are very useful) and **only exclude the item from recommendations**. In such a case, use [ReQL filter](https://docs.recombee.com/reql.html) instead of deleting the item completely.</remarks>
+    /// If an item becomes obsolete/no longer available, it is meaningful to **keep it in the catalog** (along with all the interaction data, which are very useful) and **only exclude the item from recommendations**. In such a case, use [ReQL filter](https://docs.recombee.com/reql) instead of deleting the item completely.</remarks>
     public class DeleteMoreItems : Request
     {
         private readonly string filter;
-        /// <summary>A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</summary>
+        /// <summary>A [ReQL](https://docs.recombee.com/reql) expression, which returns `true` for the items that shall be updated.</summary>
         public string Filter
         {
             get {return filter;}
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="filter">A [ReQL](https://docs.recombee.com/reql.html) expression, which returns `true` for the items that shall be updated.</param>
+        /// <param name="filter">A [ReQL](https://docs.recombee.com/reql) expression, which returns `true` for the items that shall be updated.</param>
         public DeleteMoreItems (string filter): base(HttpMethod.Delete, 100000)
         {
             this.filter = filter;

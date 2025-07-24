@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Create Manual ReQL Segmentation</summary>
-    /// <remarks>Segment the items using multiple [ReQL](https://docs.recombee.com/reql.html) filters.
+    /// <remarks>Segment the items using multiple [ReQL](https://docs.recombee.com/reql) filters.
     /// Use the Add Manual ReQL Items Segment endpoint to create the individual segments.
     /// </remarks>
     public class CreateManualReqlSegmentation : Request

@@ -16,7 +16,7 @@ namespace Recombee.ApiClient.ApiRequests
     public class ListUsers : Request
     {
         private readonly string filter;
-        /// <summary>Boolean-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to filter users to be listed. Only the users for which the expression is *true* will be returned.</summary>
+        /// <summary>Boolean-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to filter users to be listed. Only the users for which the expression is *true* will be returned.</summary>
         public string Filter
         {
             get {return filter;}
@@ -36,7 +36,7 @@ namespace Recombee.ApiClient.ApiRequests
         private readonly bool? returnProperties;
         /// <summary>With `returnProperties=true`, property values of the listed users are returned along with their IDs in a JSON dictionary. 
         /// Example response:
-        /// ```
+        /// ```json
         ///   [
         ///     {
         ///       "userId": "user-81",
@@ -58,7 +58,7 @@ namespace Recombee.ApiClient.ApiRequests
         private readonly string[] includedProperties;
         /// <summary>Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
-        /// ```
+        /// ```json
         ///   [
         ///     {
         ///       "userId": "user-81",
@@ -77,12 +77,12 @@ namespace Recombee.ApiClient.ApiRequests
         }
     
         /// <summary>Construct the request</summary>
-        /// <param name="filter">Boolean-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to filter users to be listed. Only the users for which the expression is *true* will be returned.</param>
+        /// <param name="filter">Boolean-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to filter users to be listed. Only the users for which the expression is *true* will be returned.</param>
         /// <param name="count">The number of users to be listed.</param>
         /// <param name="offset">Specifies the number of users to skip (ordered by `userId`).</param>
         /// <param name="returnProperties">With `returnProperties=true`, property values of the listed users are returned along with their IDs in a JSON dictionary. 
         /// Example response:
-        /// ```
+        /// ```json
         ///   [
         ///     {
         ///       "userId": "user-81",
@@ -99,7 +99,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="includedProperties">Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
-        /// ```
+        /// ```json
         ///   [
         ///     {
         ///       "userId": "user-81",

@@ -40,7 +40,7 @@ namespace Recombee.ApiClient.Bindings
         }
         [JsonConverter(typeof(EpochJsonReader))]
         private readonly DateTime? timestamp;
-        /// <summary>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
+        /// <summary>UTC timestamp of the view portion as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         [JsonConverter(typeof(EpochJsonReader))]
         public DateTime? Timestamp
         {

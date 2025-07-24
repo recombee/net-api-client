@@ -13,7 +13,7 @@ namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Add Manual ReQL Segment</summary>
     /// <remarks>Adds a new Segment into a Manual ReQL Segmentation.
-    /// The new Segment is defined by a [ReQL](https://docs.recombee.com/reql.html) filter that returns `true` for an item in case that this item belongs to the segment.
+    /// The new Segment is defined by a [ReQL](https://docs.recombee.com/reql) filter that returns `true` for an item in case that this item belongs to the segment.
     /// </remarks>
     public class AddManualReqlSegment : Request
     {

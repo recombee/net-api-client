@@ -11,31 +11,21 @@ using Recombee.ApiClient.Util;
 
 namespace Recombee.ApiClient.ApiRequests
 {
-    /// <summary>Delete Item</summary>
-    /// <remarks>Deletes an item of the given `itemId` from the catalog.
-    /// If there are any *purchases*, *ratings*, *bookmarks*, *cart additions*, or *detail views* of the item present in the database, they will be deleted in cascade as well. Also, if the item is present in some *series*, it will be removed from all the *series* where present.
-    /// If an item becomes obsolete/no longer available, it is meaningful to keep it in the catalog (along with all the interaction data, which are very useful), and **only exclude the item from recommendations**. In such a case, use [ReQL filter](https://docs.recombee.com/reql) instead of deleting the item completely.
+    /// <summary>List Scenarios</summary>
+    /// <remarks>Get all [Scenarios](https://docs.recombee.com/scenarios) of the given database.
     /// </remarks>
-    public class DeleteItem : Request
+    public class ListScenarios : Request
     {
-        private readonly string itemId;
-        /// <summary>ID of the item to be deleted.</summary>
-        public string ItemId
-        {
-            get {return itemId;}
-        }
     
         /// <summary>Construct the request</summary>
-        /// <param name="itemId">ID of the item to be deleted.</param>
-        public DeleteItem (string itemId): base(HttpMethod.Delete, 3000)
+        public ListScenarios (): base(HttpMethod.Get, 10000)
         {
-            this.itemId = itemId;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
         public override string Path()
         {
-            return string.Format("/items/{0}", ItemId);
+            return "/scenarios/";
         }
     
         /// <summary>Get query parameters</summary>

@@ -655,6 +655,35 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
+        protected RecommendationResponse ParseResponse(string json, RecommendItemsToItemSegment request)
+        {
+            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the RecommendItemsToItemSegment request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<RecommendationResponse> SendAsync(RecommendItemsToItemSegment request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the RecommendItemsToItemSegment request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public RecommendationResponse Send(RecommendItemsToItemSegment request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
         protected RecommendationResponse ParseResponse(string json, RecommendNextItems request)
         {
             return JsonConvert.DeserializeObject<RecommendationResponse>(json);
@@ -818,35 +847,6 @@ namespace Recombee.ApiClient
         /// <param name="request">Request to be sent</param>
         /// <returns>Response from the API</returns>
         public RecommendationResponse Send(RecommendItemSegmentsToItemSegment request)
-        {
-            var task = Task.Run(async () => await SendAsync(request));
-            var result = task.WaitAndUnwrapException();
-            return result;
-        }
-        
-        
-        /// <summary>Parse JSON response</summary>
-        /// <param name="json">JSON string from the API</param>
-        /// <param name="request">Request sent to the API</param>
-        /// <returns>Parsed response</returns>
-        protected RecommendationResponse ParseResponse(string json, RecommendItemsToItemSegment request)
-        {
-            return JsonConvert.DeserializeObject<RecommendationResponse>(json);
-        }
-        
-        /// <summary>Asynchronously send the RecommendItemsToItemSegment request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Task representing the asynchronous operation</returns>
-        public async Task<RecommendationResponse> SendAsync(RecommendItemsToItemSegment request)
-        {
-            var json = await SendRequestAsync(request);
-            return ParseResponse(json, request);
-        }
-        
-        /// <summary>Synchronously send the RecommendItemsToItemSegment request</summary>
-        /// <param name="request">Request to be sent</param>
-        /// <returns>Response from the API</returns>
-        public RecommendationResponse Send(RecommendItemsToItemSegment request)
         {
             var task = Task.Run(async () => await SendAsync(request));
             var result = task.WaitAndUnwrapException();
@@ -1027,6 +1027,35 @@ namespace Recombee.ApiClient
             return result;
         }
         
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
+        protected IEnumerable<Scenario> ParseResponse(string json, ListScenarios request)
+        {
+            return JsonConvert.DeserializeObject<Scenario[]>(json);
+        }
+        
+        /// <summary>Asynchronously send the ListScenarios request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<IEnumerable<Scenario>> SendAsync(ListScenarios request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the ListScenarios request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public IEnumerable<Scenario> Send(ListScenarios request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
         private object ParseOneBatchResponse(string json, int statusCode, Request request)
         {
             if(statusCode<200 || statusCode > 299) return new ResponseException(request, (HttpStatusCode)statusCode, json);
@@ -1083,6 +1112,8 @@ namespace Recombee.ApiClient
             
             if (request is RecommendItemsToItem) return ParseResponse(json, (RecommendItemsToItem) request); 
             
+            if (request is RecommendItemsToItemSegment) return ParseResponse(json, (RecommendItemsToItemSegment) request); 
+            
             if (request is RecommendNextItems) return ParseResponse(json, (RecommendNextItems) request); 
             
             if (request is RecommendUsersToUser) return ParseResponse(json, (RecommendUsersToUser) request); 
@@ -1095,8 +1126,6 @@ namespace Recombee.ApiClient
             
             if (request is RecommendItemSegmentsToItemSegment) return ParseResponse(json, (RecommendItemSegmentsToItemSegment) request); 
             
-            if (request is RecommendItemsToItemSegment) return ParseResponse(json, (RecommendItemsToItemSegment) request); 
-            
             if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
             
             if (request is SearchItemSegments) return ParseResponse(json, (SearchItemSegments) request); 
@@ -1108,6 +1137,8 @@ namespace Recombee.ApiClient
             if (request is ListSegmentations) return ParseResponse(json, (ListSegmentations) request); 
             
             if (request is GetSegmentation) return ParseResponse(json, (GetSegmentation) request); 
+            
+            if (request is ListScenarios) return ParseResponse(json, (ListScenarios) request); 
             return ParseResponse(json, request);
         }
     }

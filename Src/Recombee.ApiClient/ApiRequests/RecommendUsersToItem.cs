@@ -32,7 +32,7 @@ namespace Recombee.ApiClient.ApiRequests
         }
         private readonly string scenario;
         /// <summary>Scenario defines a particular application of recommendations. It can be, for example, "homepage", "cart", or "emailing".
-        /// You can set various settings to the [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com). You can also see the performance of each scenario in the Admin UI separately, so you can check how well each application performs.
+        /// You can set various settings to the [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com). You can also see the performance of each scenario in the Admin UI separately, so you can check how well each application performs.
         /// The AI that optimizes models to get the best results may optimize different scenarios separately or even use different models in each of the scenarios.
         /// </summary>
         public string Scenario
@@ -48,7 +48,7 @@ namespace Recombee.ApiClient.ApiRequests
         private readonly bool? returnProperties;
         /// <summary>With `returnProperties=true`, property values of the recommended users are returned along with their IDs in a JSON dictionary. The acquired property values can be used to easily display the recommended users. 
         /// Example response:
-        /// ```
+        /// ```json
         ///   {
         ///     "recommId": "039b71dc-b9cc-4645-a84f-62b841eecfce",
         ///     "recomms":
@@ -79,7 +79,7 @@ namespace Recombee.ApiClient.ApiRequests
         private readonly string[] includedProperties;
         /// <summary>Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
-        /// ```
+        /// ```json
         ///   {
         ///     "recommId": "b2b355dd-972a-4728-9c6b-2dc229db0678",
         ///     "recomms":
@@ -106,16 +106,16 @@ namespace Recombee.ApiClient.ApiRequests
             get {return includedProperties;}
         }
         private readonly string filter;
-        /// <summary>Boolean-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to filter recommended items based on the values of their attributes.
-        /// Filters can also be assigned to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// <summary>Boolean-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to filter recommended items based on the values of their attributes.
+        /// Filters can also be assigned to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </summary>
         public string Filter
         {
             get {return filter;}
         }
         private readonly string booster;
-        /// <summary>Number-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to boost the recommendation rate of some items based on the values of their attributes.
-        /// Boosters can also be assigned to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// <summary>Number-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to boost the recommendation rate of some items based on the values of their attributes.
+        /// Boosters can also be assigned to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </summary>
         public string Booster
         {
@@ -123,16 +123,16 @@ namespace Recombee.ApiClient.ApiRequests
         }
         private readonly Logic logic;
         /// <summary>Logic specifies the particular behavior of the recommendation models. You can pick tailored logic for your domain and use case.
-        /// See [this section](https://docs.recombee.com/recommendation_logics.html) for a list of available logics and other details.
+        /// See [this section](https://docs.recombee.com/recommendation_logics) for a list of available logics and other details.
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
-        /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </summary>
         public Logic Logic
         {
             get {return logic;}
         }
         private readonly double? diversity;
-        /// <summary>**Expert option** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
+        /// <summary>**Expert option:** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
         /// </summary>
         public double? Diversity
         {
@@ -157,13 +157,13 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="itemId">ID of the item for which the recommendations are to be generated.</param>
         /// <param name="count">Number of items to be recommended (N for the top-N recommendation).</param>
         /// <param name="scenario">Scenario defines a particular application of recommendations. It can be, for example, "homepage", "cart", or "emailing".
-        /// You can set various settings to the [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com). You can also see the performance of each scenario in the Admin UI separately, so you can check how well each application performs.
+        /// You can set various settings to the [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com). You can also see the performance of each scenario in the Admin UI separately, so you can check how well each application performs.
         /// The AI that optimizes models to get the best results may optimize different scenarios separately or even use different models in each of the scenarios.
         /// </param>
         /// <param name="cascadeCreate">If an item of the given *itemId* doesn't exist in the database, it creates the missing item.</param>
         /// <param name="returnProperties">With `returnProperties=true`, property values of the recommended users are returned along with their IDs in a JSON dictionary. The acquired property values can be used to easily display the recommended users. 
         /// Example response:
-        /// ```
+        /// ```json
         ///   {
         ///     "recommId": "039b71dc-b9cc-4645-a84f-62b841eecfce",
         ///     "recomms":
@@ -189,7 +189,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="includedProperties">Allows specifying which properties should be returned when `returnProperties=true` is set. The properties are given as a comma-separated list.
         /// Example response for `includedProperties=country`:
-        /// ```
+        /// ```json
         ///   {
         ///     "recommId": "b2b355dd-972a-4728-9c6b-2dc229db0678",
         ///     "recomms":
@@ -211,18 +211,18 @@ namespace Recombee.ApiClient.ApiRequests
         ///   }
         /// ```
         /// </param>
-        /// <param name="filter">Boolean-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to filter recommended items based on the values of their attributes.
-        /// Filters can also be assigned to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// <param name="filter">Boolean-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to filter recommended items based on the values of their attributes.
+        /// Filters can also be assigned to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
-        /// <param name="booster">Number-returning [ReQL](https://docs.recombee.com/reql.html) expression, which allows you to boost the recommendation rate of some items based on the values of their attributes.
-        /// Boosters can also be assigned to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// <param name="booster">Number-returning [ReQL](https://docs.recombee.com/reql) expression, which allows you to boost the recommendation rate of some items based on the values of their attributes.
+        /// Boosters can also be assigned to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
         /// <param name="logic">Logic specifies the particular behavior of the recommendation models. You can pick tailored logic for your domain and use case.
-        /// See [this section](https://docs.recombee.com/recommendation_logics.html) for a list of available logics and other details.
+        /// See [this section](https://docs.recombee.com/recommendation_logics) for a list of available logics and other details.
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
-        /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios.html) in the [Admin UI](https://admin.recombee.com).
+        /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
-        /// <param name="diversity">**Expert option** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
+        /// <param name="diversity">**Expert option:** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>

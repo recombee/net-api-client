@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Add Search Synonym</summary>
-    /// <remarks>Adds a new synonym for the [Search items](https://docs.recombee.com/api.html#search-items).
+    /// <remarks>Adds a new synonym for the [Search items](https://docs.recombee.com/api#search-items).
     /// When the `term` is used in the search query, the `synonym` is also used for the full-text search.
     /// Unless `oneWay=true`, it works also in the opposite way (`synonym` -> `term`).
     /// An example of a synonym can be `science fiction` for the term `sci-fi`.

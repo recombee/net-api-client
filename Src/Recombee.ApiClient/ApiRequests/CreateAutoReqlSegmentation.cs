@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Create Auto ReQL Segmentation</summary>
-    /// <remarks>Segment the items using a [ReQL](https://docs.recombee.com/reql.html) expression.
+    /// <remarks>Segment the items using a [ReQL](https://docs.recombee.com/reql) expression.
     /// For each item, the expression should return a set that contains IDs of segments to which the item belongs to.
     /// </remarks>
     public class CreateAutoReqlSegmentation : Request

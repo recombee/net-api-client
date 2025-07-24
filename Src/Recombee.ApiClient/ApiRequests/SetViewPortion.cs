@@ -42,7 +42,7 @@ namespace Recombee.ApiClient.ApiRequests
             get {return sessionId;}
         }
         private readonly DateTime? timestamp;
-        /// <summary>UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
+        /// <summary>UTC timestamp of the view portion as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</summary>
         public DateTime? Timestamp
         {
             get {return timestamp;}
@@ -71,7 +71,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="itemId">Viewed item</param>
         /// <param name="portion">Viewed portion of the item (number between 0.0 (viewed nothing) and 1.0 (viewed full item) ). It should be the actual viewed part of the item, no matter the seeking. For example, if the user seeked immediately to half of the item and then viewed 10% of the item, the `portion` should still be `0.1`.</param>
         /// <param name="sessionId">ID of the session in which the user viewed the item. Default is `null` (`None`, `nil`, `NULL` etc., depending on the language).</param>
-        /// <param name="timestamp">UTC timestamp of the rating as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
+        /// <param name="timestamp">UTC timestamp of the view portion as ISO8601-1 pattern or UTC epoch time. The default value is the current time.</param>
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this view portion is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>

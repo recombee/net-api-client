@@ -6,7 +6,7 @@ using System.Net.Http;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Set/update (some) property values of a given item</summary>
-    /// <remarks>The properties (columns) must be previously created by Add item property(https://docs.recombee.com/api.html#add-item-property).</remarks>
+    /// <remarks>The properties (columns) must be previously created by Add item property(https://docs.recombee.com/api#add-item-property).</remarks>
     public class SetItemValues : SetValues
     {
         private readonly string itemId;
