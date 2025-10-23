@@ -58,8 +58,20 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return additionalData;}
         }
+        private readonly bool? autoPresented;
+        /// <summary>Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</summary>
+        public bool? AutoPresented
+        {
+            get {return autoPresented;}
+        }
+        private readonly double? timeSpent;
+        /// <summary>The duration (in seconds) that the user viewed the item. In update requests, this value may only increase and is required only if it has changed.</summary>
+        public double? TimeSpent
+        {
+            get {return timeSpent;}
+        }
     
-        public ViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, string recommId = null, Dictionary<string, object> additionalData = null)
+        public ViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, string recommId = null, Dictionary<string, object> additionalData = null, bool? autoPresented = null, double? timeSpent = null)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -68,6 +80,8 @@ namespace Recombee.ApiClient.Bindings
             this.timestamp = timestamp;
             this.recommId = recommId;
             this.additionalData = additionalData;
+            this.autoPresented = autoPresented;
+            this.timeSpent = timeSpent;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -89,6 +103,8 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Timestamp)
                 .With(m => m.RecommId)
                 .With(m => m.AdditionalData)
+                .With(m => m.AutoPresented)
+                .With(m => m.TimeSpent)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -103,6 +119,8 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Timestamp)
                 .With(m => m.RecommId)
                 .With(m => m.AdditionalData)
+                .With(m => m.AutoPresented)
+                .With(m => m.TimeSpent)
                 .HashCode;
         }
     }

@@ -12,7 +12,10 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.Bindings
 {
     /// <summary>Logic Binding</summary>
-    [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
+    [JsonObject(
+        NamingStrategyType = typeof(CamelCaseNamingStrategy),
+        ItemNullValueHandling = NullValueHandling.Ignore
+    )]
     public class Logic: RecombeeBinding {
         private readonly string name;
         /// <summary>Name of the logic that should be used</summary>
@@ -27,7 +30,7 @@ namespace Recombee.ApiClient.Bindings
             get {return settings;}
         }
     
-        public Logic (string name, Dictionary<string, object> settings = null)
+        public Logic (string name = null, Dictionary<string, object> settings = null)
         {
             this.name = name;
             this.settings = settings;

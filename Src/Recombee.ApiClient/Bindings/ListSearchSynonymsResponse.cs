@@ -15,8 +15,7 @@ namespace Recombee.ApiClient.Bindings
     [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class ListSearchSynonymsResponse: RecombeeBinding {
         private readonly SearchSynonym[] synonyms;
-        /// <summary>Defined search synonyms.
-        /// </summary>
+        /// <summary>List of synonyms</summary>
         public SearchSynonym[] Synonyms
         {
             get {return synonyms;}

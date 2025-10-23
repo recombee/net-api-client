@@ -858,6 +858,35 @@ namespace Recombee.ApiClient
         /// <param name="json">JSON string from the API</param>
         /// <param name="request">Request sent to the API</param>
         /// <returns>Parsed response</returns>
+        protected CompositeRecommendationResponse ParseResponse(string json, CompositeRecommendation request)
+        {
+            return JsonConvert.DeserializeObject<CompositeRecommendationResponse>(json);
+        }
+        
+        /// <summary>Asynchronously send the CompositeRecommendation request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Task representing the asynchronous operation</returns>
+        public async Task<CompositeRecommendationResponse> SendAsync(CompositeRecommendation request)
+        {
+            var json = await SendRequestAsync(request);
+            return ParseResponse(json, request);
+        }
+        
+        /// <summary>Synchronously send the CompositeRecommendation request</summary>
+        /// <param name="request">Request to be sent</param>
+        /// <returns>Response from the API</returns>
+        public CompositeRecommendationResponse Send(CompositeRecommendation request)
+        {
+            var task = Task.Run(async () => await SendAsync(request));
+            var result = task.WaitAndUnwrapException();
+            return result;
+        }
+        
+        
+        /// <summary>Parse JSON response</summary>
+        /// <param name="json">JSON string from the API</param>
+        /// <param name="request">Request sent to the API</param>
+        /// <returns>Parsed response</returns>
         protected SearchResponse ParseResponse(string json, SearchItems request)
         {
             return JsonConvert.DeserializeObject<SearchResponse>(json);
@@ -1125,6 +1154,8 @@ namespace Recombee.ApiClient
             if (request is RecommendItemSegmentsToItem) return ParseResponse(json, (RecommendItemSegmentsToItem) request); 
             
             if (request is RecommendItemSegmentsToItemSegment) return ParseResponse(json, (RecommendItemSegmentsToItemSegment) request); 
+            
+            if (request is CompositeRecommendation) return ParseResponse(json, (CompositeRecommendation) request); 
             
             if (request is SearchItems) return ParseResponse(json, (SearchItems) request); 
             

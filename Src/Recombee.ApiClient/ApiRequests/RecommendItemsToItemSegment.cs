@@ -161,6 +161,48 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return logic;}
         }
+        private readonly Dictionary<string, string> reqlExpressions;
+        /// <summary>A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </summary>
+        public Dictionary<string, string> ReqlExpressions
+        {
+            get {return reqlExpressions;}
+        }
         private readonly string minRelevance;
         /// <summary>**Expert option:** If the *targetUserId* is provided:  Specifies the threshold of how relevant must the recommended items be to the user. Possible values one of: "low", "medium", "high". The default value is "low", meaning that the system attempts to recommend a number of items equal to *count* at any cost. If there is not enough data (such as interactions or item properties), this may even lead to bestseller-based recommendations being appended to reach the full *count*. This behavior may be suppressed by using "medium" or "high" values. In such case, the system only recommends items of at least the requested relevance and may return less than *count* items when there is not enough data to fulfill it.
         /// </summary>
@@ -286,6 +328,43 @@ namespace Recombee.ApiClient.ApiRequests
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
         /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
+        /// <param name="reqlExpressions">A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </param>
         /// <param name="minRelevance">**Expert option:** If the *targetUserId* is provided:  Specifies the threshold of how relevant must the recommended items be to the user. Possible values one of: "low", "medium", "high". The default value is "low", meaning that the system attempts to recommend a number of items equal to *count* at any cost. If there is not enough data (such as interactions or item properties), this may even lead to bestseller-based recommendations being appended to reach the full *count*. This behavior may be suppressed by using "medium" or "high" values. In such case, the system only recommends items of at least the requested relevance and may return less than *count* items when there is not enough data to fulfill it.
         /// </param>
         /// <param name="rotationRate">**Expert option:** If the *targetUserId* is provided: If your users browse the system in real-time, it may easily happen that you wish to offer them recommendations multiple times. Here comes the question: how much should the recommendations change? Should they remain the same, or should they rotate? Recombee API allows you to control this per request in a backward fashion. You may penalize an item for being recommended in the near past. For the specific user, `rotationRate=1` means maximal rotation, `rotationRate=0` means absolutely no rotation. You may also use, for example, `rotationRate=0.2` for only slight rotation of recommended items.
@@ -296,7 +375,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return the name of the group to which the request belongs.
         /// </param>
-        public RecommendItemsToItemSegment (string contextSegmentId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        public RecommendItemsToItemSegment (string contextSegmentId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, string> reqlExpressions = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.contextSegmentId = contextSegmentId;
             this.targetUserId = targetUserId;
@@ -308,6 +387,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.filter = filter;
             this.booster = booster;
             this.logic = logic;
+            this.reqlExpressions = reqlExpressions;
             this.minRelevance = minRelevance;
             this.rotationRate = rotationRate;
             this.rotationTime = rotationTime;
@@ -356,6 +436,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["booster"] = this.Booster;
             if (this.Logic != null)
                 parameters["logic"] = this.Logic;
+            if (this.ReqlExpressions != null)
+                parameters["reqlExpressions"] = this.ReqlExpressions;
             if (this.MinRelevance != null)
                 parameters["minRelevance"] = this.MinRelevance;
             if (this.RotationRate.HasValue)

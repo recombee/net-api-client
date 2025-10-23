@@ -148,6 +148,48 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return logic;}
         }
+        private readonly Dictionary<string, string> reqlExpressions;
+        /// <summary>A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </summary>
+        public Dictionary<string, string> ReqlExpressions
+        {
+            get {return reqlExpressions;}
+        }
         private readonly Dictionary<string, object> expertSettings;
         /// <summary>Dictionary of custom options.
         /// </summary>
@@ -239,11 +281,48 @@ namespace Recombee.ApiClient.ApiRequests
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
         /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
+        /// <param name="reqlExpressions">A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return the name of the group to which the request belongs.
         /// </param>
-        public SearchItems (string userId, string searchQuery, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        public SearchItems (string userId, string searchQuery, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, string> reqlExpressions = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.searchQuery = searchQuery;
@@ -255,6 +334,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.filter = filter;
             this.booster = booster;
             this.logic = logic;
+            this.reqlExpressions = reqlExpressions;
             this.expertSettings = expertSettings;
             this.returnAbGroup = returnAbGroup;
         }
@@ -299,6 +379,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["booster"] = this.Booster;
             if (this.Logic != null)
                 parameters["logic"] = this.Logic;
+            if (this.ReqlExpressions != null)
+                parameters["reqlExpressions"] = this.ReqlExpressions;
             if (this.ExpertSettings != null)
                 parameters["expertSettings"] = this.ExpertSettings;
             if (this.ReturnAbGroup.HasValue)

@@ -143,6 +143,48 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return logic;}
         }
+        private readonly Dictionary<string, string> reqlExpressions;
+        /// <summary>A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </summary>
+        public Dictionary<string, string> ReqlExpressions
+        {
+            get {return reqlExpressions;}
+        }
         private readonly double? diversity;
         /// <summary>**Expert option:** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
         /// </summary>
@@ -263,6 +305,43 @@ namespace Recombee.ApiClient.ApiRequests
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
         /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
+        /// <param name="reqlExpressions">A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </param>
         /// <param name="diversity">**Expert option:** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
         /// </param>
         /// <param name="minRelevance">**Expert option:** Specifies the threshold of how relevant must the recommended items be to the user. Possible values one of: "low", "medium", "high". The default value is "low", meaning that the system attempts to recommend a number of items equal to *count* at any cost. If there is not enough data (such as interactions or item properties), this may even lead to bestseller-based recommendations to be appended to reach the full *count*. This behavior may be suppressed by using "medium" or "high" values. In such a case, the system only recommends items of at least the requested relevance and may return less than *count* items when there is not enough data to fulfill it.
@@ -275,7 +354,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return the name of the group to which the request belongs.
         /// </param>
-        public RecommendItemsToUser (string userId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        public RecommendItemsToUser (string userId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, string> reqlExpressions = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.count = count;
@@ -286,6 +365,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.filter = filter;
             this.booster = booster;
             this.logic = logic;
+            this.reqlExpressions = reqlExpressions;
             this.diversity = diversity;
             this.minRelevance = minRelevance;
             this.rotationRate = rotationRate;
@@ -333,6 +413,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["booster"] = this.Booster;
             if (this.Logic != null)
                 parameters["logic"] = this.Logic;
+            if (this.ReqlExpressions != null)
+                parameters["reqlExpressions"] = this.ReqlExpressions;
             if (this.Diversity.HasValue)
                 parameters["diversity"] = this.Diversity.Value;
             if (this.MinRelevance != null)

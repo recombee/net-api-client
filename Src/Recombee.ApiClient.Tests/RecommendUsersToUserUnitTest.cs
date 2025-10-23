@@ -27,6 +27,8 @@ namespace Recombee.ApiClient.Tests
             resp = client.Send(new RecommendUsersToUser("nonexisting", 9, cascadeCreate: true));
             // it 'recommends with expert settings'
             resp = client.Send(new RecommendUsersToUser("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){}));
+            // it 'recommends with reql expressions'
+            resp = client.Send(new RecommendUsersToUser("nonexisting2", 9, cascadeCreate: true, reqlExpressions: new Dictionary<string, string>(){{"boolean","true"}, {"number","if ('answer' > 0) then 1 else 2"}, {"string","\"test\""}}));
         }
 
         [Fact]
@@ -41,6 +43,8 @@ namespace Recombee.ApiClient.Tests
             resp = await client.SendAsync(new RecommendUsersToUser("nonexisting", 9, cascadeCreate: true));
             // it 'recommends with expert settings'
             resp = await client.SendAsync(new RecommendUsersToUser("nonexisting2", 9, cascadeCreate: true, expertSettings: new Dictionary<string, object>(){}));
+            // it 'recommends with reql expressions'
+            resp = await client.SendAsync(new RecommendUsersToUser("nonexisting2", 9, cascadeCreate: true, reqlExpressions: new Dictionary<string, string>(){{"boolean","true"}, {"number","if ('answer' > 0) then 1 else 2"}, {"string","\"test\""}}));
         }
     }
 }

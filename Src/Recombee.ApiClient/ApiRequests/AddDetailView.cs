@@ -58,6 +58,12 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return additionalData;}
         }
+        private readonly bool? autoPresented;
+        /// <summary>Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</summary>
+        public bool? AutoPresented
+        {
+            get {return autoPresented;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who viewed the item</param>
@@ -67,7 +73,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this detail view is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
-        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 3000)
+        /// <param name="autoPresented">Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</param>
+        public AddDetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null, bool? autoPresented = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -76,6 +83,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.cascadeCreate = cascadeCreate;
             this.recommId = recommId;
             this.additionalData = additionalData;
+            this.autoPresented = autoPresented;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -114,6 +122,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["recommId"] = this.RecommId;
             if (this.AdditionalData != null)
                 parameters["additionalData"] = this.AdditionalData;
+            if (this.AutoPresented.HasValue)
+                parameters["autoPresented"] = this.AutoPresented.Value;
             return parameters;
         }
     

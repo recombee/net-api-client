@@ -159,6 +159,51 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return logic;}
         }
+        private readonly Dictionary<string, string> reqlExpressions;
+        /// <summary>A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])",
+        ///     "isFromSameCompany": "'company' == context_item[\"company\"]"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2,
+        ///           "isFromSameCompany": false
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0,
+        ///           "isFromSameCompany": true
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </summary>
+        public Dictionary<string, string> ReqlExpressions
+        {
+            get {return reqlExpressions;}
+        }
         private readonly double? userImpact;
         /// <summary>**Expert option:** If *targetUserId* parameter is present, the recommendations are biased towards the given user. Using *userImpact*, you may control this bias. For an extreme case of `userImpact=0.0`, the interactions made by the user are not taken into account at all (with the exception of history-based blacklisting), for `userImpact=1.0`, you'll get a user-based recommendation. The default value is `0`.
         /// </summary>
@@ -298,6 +343,46 @@ namespace Recombee.ApiClient.ApiRequests
         /// The difference between `logic` and `scenario` is that `logic` specifies mainly behavior, while `scenario` specifies the place where recommendations are shown to the users.
         /// Logic can also be set to a [scenario](https://docs.recombee.com/scenarios) in the [Admin UI](https://admin.recombee.com).
         /// </param>
+        /// <param name="reqlExpressions">A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended item.
+        /// This can be used to compute additional properties of the recommended items that are not stored in the database.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "isInUsersCity": "context_user[\"city\"] in 'cities'",
+        ///     "distanceToUser": "earth_distance('location', context_user[\"location\"])",
+        ///     "isFromSameCompany": "'company' == context_item[\"company\"]"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "ce52ada4-e4d9-4885-943c-407db2dee837",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "restaurant-178",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": true,
+        ///           "distanceToUser": 5200.2,
+        ///           "isFromSameCompany": false
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "bar-42",
+        ///         "reqlEvaluations": {
+        ///           "isInUsersCity": false,
+        ///           "distanceToUser": 2516.0,
+        ///           "isFromSameCompany": true
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </param>
         /// <param name="userImpact">**Expert option:** If *targetUserId* parameter is present, the recommendations are biased towards the given user. Using *userImpact*, you may control this bias. For an extreme case of `userImpact=0.0`, the interactions made by the user are not taken into account at all (with the exception of history-based blacklisting), for `userImpact=1.0`, you'll get a user-based recommendation. The default value is `0`.
         /// </param>
         /// <param name="diversity">**Expert option:** Real number from [0.0, 1.0], which determines how mutually dissimilar the recommended items should be. The default value is 0.0, i.e., no diversification. Value 1.0 means maximal diversification.
@@ -312,7 +397,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return the name of the group to which the request belongs.
         /// </param>
-        public RecommendItemsToItem (string itemId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, double? userImpact = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        public RecommendItemsToItem (string itemId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, bool? returnProperties = null, string[] includedProperties = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, string> reqlExpressions = null, double? userImpact = null, double? diversity = null, string minRelevance = null, double? rotationRate = null, double? rotationTime = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
         {
             this.itemId = itemId;
             this.targetUserId = targetUserId;
@@ -324,6 +409,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.filter = filter;
             this.booster = booster;
             this.logic = logic;
+            this.reqlExpressions = reqlExpressions;
             this.userImpact = userImpact;
             this.diversity = diversity;
             this.minRelevance = minRelevance;
@@ -373,6 +459,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["booster"] = this.Booster;
             if (this.Logic != null)
                 parameters["logic"] = this.Logic;
+            if (this.ReqlExpressions != null)
+                parameters["reqlExpressions"] = this.ReqlExpressions;
             if (this.UserImpact.HasValue)
                 parameters["userImpact"] = this.UserImpact.Value;
             if (this.Diversity.HasValue)

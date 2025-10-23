@@ -52,8 +52,14 @@ namespace Recombee.ApiClient.Bindings
         {
             get {return additionalData;}
         }
+        private readonly bool? autoPresented;
+        /// <summary>Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</summary>
+        public bool? AutoPresented
+        {
+            get {return autoPresented;}
+        }
     
-        public DetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, string recommId = null, Dictionary<string, object> additionalData = null)
+        public DetailView (string userId, string itemId, DateTime? timestamp = null, long? duration = null, string recommId = null, Dictionary<string, object> additionalData = null, bool? autoPresented = null)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -61,6 +67,7 @@ namespace Recombee.ApiClient.Bindings
             this.duration = duration;
             this.recommId = recommId;
             this.additionalData = additionalData;
+            this.autoPresented = autoPresented;
         }
     
         /// <summary>Determines whether the specified object is equal to the current object</summary>
@@ -81,6 +88,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Duration)
                 .With(m => m.RecommId)
                 .With(m => m.AdditionalData)
+                .With(m => m.AutoPresented)
                 .Equals();
         }
         /// <summary>Hash function</summary>
@@ -94,6 +102,7 @@ namespace Recombee.ApiClient.Bindings
                 .With(m => m.Duration)
                 .With(m => m.RecommId)
                 .With(m => m.AdditionalData)
+                .With(m => m.AutoPresented)
                 .HashCode;
         }
     }

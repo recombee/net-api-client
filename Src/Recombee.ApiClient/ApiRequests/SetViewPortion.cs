@@ -65,6 +65,18 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return additionalData;}
         }
+        private readonly bool? autoPresented;
+        /// <summary>Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</summary>
+        public bool? AutoPresented
+        {
+            get {return autoPresented;}
+        }
+        private readonly double? timeSpent;
+        /// <summary>The duration (in seconds) that the user viewed the item. In update requests, this value may only increase and is required only if it has changed.</summary>
+        public double? TimeSpent
+        {
+            get {return timeSpent;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="userId">User who viewed a portion of the item</param>
@@ -75,7 +87,9 @@ namespace Recombee.ApiClient.ApiRequests
         /// <param name="cascadeCreate">Sets whether the given user/item should be created if not present in the database.</param>
         /// <param name="recommId">If this view portion is based on a recommendation request, `recommId` is the id of the clicked recommendation.</param>
         /// <param name="additionalData">A dictionary of additional data for the interaction.</param>
-        public SetViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null): base(HttpMethod.Post, 3000)
+        /// <param name="autoPresented">Indicates whether the item was automatically presented to the user (e.g., in a swiping feed) or explicitly requested by the user (e.g., by clicking on a link). Defaults to `false`.</param>
+        /// <param name="timeSpent">The duration (in seconds) that the user viewed the item. In update requests, this value may only increase and is required only if it has changed.</param>
+        public SetViewPortion (string userId, string itemId, double portion, string sessionId = null, DateTime? timestamp = null, bool? cascadeCreate = null, string recommId = null, Dictionary<string, object> additionalData = null, bool? autoPresented = null, double? timeSpent = null): base(HttpMethod.Post, 3000)
         {
             this.userId = userId;
             this.itemId = itemId;
@@ -85,6 +99,8 @@ namespace Recombee.ApiClient.ApiRequests
             this.cascadeCreate = cascadeCreate;
             this.recommId = recommId;
             this.additionalData = additionalData;
+            this.autoPresented = autoPresented;
+            this.timeSpent = timeSpent;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -124,6 +140,10 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["recommId"] = this.RecommId;
             if (this.AdditionalData != null)
                 parameters["additionalData"] = this.AdditionalData;
+            if (this.AutoPresented.HasValue)
+                parameters["autoPresented"] = this.AutoPresented.Value;
+            if (this.TimeSpent.HasValue)
+                parameters["timeSpent"] = this.TimeSpent.Value;
             return parameters;
         }
     
