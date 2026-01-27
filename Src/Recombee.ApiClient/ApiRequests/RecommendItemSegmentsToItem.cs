@@ -110,6 +110,45 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return returnAbGroup;}
         }
+        private readonly Dictionary<string, string> reqlExpressions;
+        /// <summary>A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended Item Segment.
+        /// This can be used to compute additional properties of the recommended Item Segments.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "countItems": "size(segment_items(\"categories\", 'segmentId'))"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "a7ac55a4-8d6e-4f19-addc-abac4164d8a8",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "category-fantasy-books",
+        ///         "reqlEvaluations": {
+        ///           "countItems": 486
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "category-sci-fi-costumes",
+        ///         "reqlEvaluations": {
+        ///           "countItems": 19
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </summary>
+        public Dictionary<string, string> ReqlExpressions
+        {
+            get {return reqlExpressions;}
+        }
     
         /// <summary>Construct the request</summary>
         /// <param name="itemId">ID of the item for which the recommendations are to be generated.</param>
@@ -148,7 +187,41 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="returnAbGroup">If there is a custom AB-testing running, return the name of the group to which the request belongs.
         /// </param>
-        public RecommendItemSegmentsToItem (string itemId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null): base(HttpMethod.Post, 3000)
+        /// <param name="reqlExpressions">A dictionary of [ReQL](https://docs.recombee.com/reql) expressions that will be executed for each recommended Item Segment.
+        /// This can be used to compute additional properties of the recommended Item Segments.
+        /// The keys are the names of the expressions, and the values are the actual ReQL expressions.
+        /// Example request:
+        /// ```json
+        /// {
+        ///   "reqlExpressions": {
+        ///     "countItems": "size(segment_items(\"categories\", 'segmentId'))"
+        ///   }
+        /// }
+        /// ```
+        /// Example response:
+        /// ```json
+        /// {
+        ///   "recommId": "a7ac55a4-8d6e-4f19-addc-abac4164d8a8",
+        ///   "recomms": 
+        ///     [
+        ///       {
+        ///         "id": "category-fantasy-books",
+        ///         "reqlEvaluations": {
+        ///           "countItems": 486
+        ///         }
+        ///       },
+        ///       {
+        ///         "id": "category-sci-fi-costumes",
+        ///         "reqlEvaluations": {
+        ///           "countItems": 19
+        ///         }
+        ///       }
+        ///     ],
+        ///    "numberNextRecommsCalls": 0
+        /// }
+        /// ```
+        /// </param>
+        public RecommendItemSegmentsToItem (string itemId, string targetUserId, long count, string scenario = null, bool? cascadeCreate = null, string filter = null, string booster = null, Logic logic = null, Dictionary<string, object> expertSettings = null, bool? returnAbGroup = null, Dictionary<string, string> reqlExpressions = null): base(HttpMethod.Post, 3000)
         {
             this.itemId = itemId;
             this.targetUserId = targetUserId;
@@ -160,6 +233,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.logic = logic;
             this.expertSettings = expertSettings;
             this.returnAbGroup = returnAbGroup;
+            this.reqlExpressions = reqlExpressions;
         }
     
         /// <returns>URI to the endpoint including path parameters</returns>
@@ -202,6 +276,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["expertSettings"] = this.ExpertSettings;
             if (this.ReturnAbGroup.HasValue)
                 parameters["returnAbGroup"] = this.ReturnAbGroup.Value;
+            if (this.ReqlExpressions != null)
+                parameters["reqlExpressions"] = this.ReqlExpressions;
             return parameters;
         }
     
