@@ -12,7 +12,7 @@ using Recombee.ApiClient.Util;
 namespace Recombee.ApiClient.ApiRequests
 {
     /// <summary>Composite Recommendation</summary>
-    /// <remarks>Composite Recommendation returns both a *source entity* (e.g., an Item or [Item Segment](https://docs.recombee.com/segmentations.html)) and a list of related recommendations in a single response.
+    /// <remarks>Composite Recommendation returns both a *source entity* (e.g., an Item or [Item Segment](https://docs.recombee.com/segmentations)) and a list of related recommendations in a single response.
     /// It is ideal for use cases such as personalized homepage sections (*Articles from <category>*), *Because You Watched <movie>*, or *Artists Related to Your Favorite Artist <artist>*.
     /// See detailed **examples and configuration guidance** in the [Composite Scenarios documentation](https://docs.recombee.com/scenarios#composite-recommendations).
     /// **Structure**
@@ -80,6 +80,13 @@ namespace Recombee.ApiClient.ApiRequests
         {
             get {return segmentId;}
         }
+        private readonly string searchQuery;
+        /// <summary>Search query provided by the user. It is used for the full-text search. Only applicable if the *scenario* corresponds to a search scenario.
+        /// </summary>
+        public string SearchQuery
+        {
+            get {return searchQuery;}
+        }
         private readonly bool? cascadeCreate;
         /// <summary>If the entity for the source recommendation does not exist in the database, returns a list of non-personalized recommendations and creates the user in the database. This allows, for example, rotations in the following recommendations for that entity, as the entity will be already known to the system.
         /// </summary>
@@ -127,6 +134,8 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="segmentId">ID of the segment from `contextSegmentationId` for which the recommendations are to be generated.
         /// </param>
+        /// <param name="searchQuery">Search query provided by the user. It is used for the full-text search. Only applicable if the *scenario* corresponds to a search scenario.
+        /// </param>
         /// <param name="cascadeCreate">If the entity for the source recommendation does not exist in the database, returns a list of non-personalized recommendations and creates the user in the database. This allows, for example, rotations in the following recommendations for that entity, as the entity will be already known to the system.
         /// </param>
         /// <param name="sourceSettings">Parameters applied for recommending the *Source* stage. The accepted parameters correspond with the recommendation sub-endpoint used to recommend the *Source*.
@@ -135,7 +144,7 @@ namespace Recombee.ApiClient.ApiRequests
         /// </param>
         /// <param name="expertSettings">Dictionary of custom options.
         /// </param>
-        public CompositeRecommendation (string scenario, long count, string itemId = null, string userId = null, Logic logic = null, string segmentId = null, bool? cascadeCreate = null, CompositeRecommendationStageParameters sourceSettings = null, CompositeRecommendationStageParameters resultSettings = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
+        public CompositeRecommendation (string scenario, long count, string itemId = null, string userId = null, Logic logic = null, string segmentId = null, string searchQuery = null, bool? cascadeCreate = null, CompositeRecommendationStageParameters sourceSettings = null, CompositeRecommendationStageParameters resultSettings = null, Dictionary<string, object> expertSettings = null): base(HttpMethod.Post, 3000)
         {
             this.scenario = scenario;
             this.count = count;
@@ -143,6 +152,7 @@ namespace Recombee.ApiClient.ApiRequests
             this.userId = userId;
             this.logic = logic;
             this.segmentId = segmentId;
+            this.searchQuery = searchQuery;
             this.cascadeCreate = cascadeCreate;
             this.sourceSettings = sourceSettings;
             this.resultSettings = resultSettings;
@@ -183,6 +193,8 @@ namespace Recombee.ApiClient.ApiRequests
                 parameters["logic"] = this.Logic;
             if (this.SegmentId != null)
                 parameters["segmentId"] = this.SegmentId;
+            if (this.SearchQuery != null)
+                parameters["searchQuery"] = this.SearchQuery;
             if (this.CascadeCreate.HasValue)
                 parameters["cascadeCreate"] = this.CascadeCreate.Value;
             if (this.SourceSettings != null)
