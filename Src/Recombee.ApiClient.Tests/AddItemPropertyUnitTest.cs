@@ -45,6 +45,28 @@ namespace Recombee.ApiClient.Tests
             {
                 Assert.Equal(409, (int)ex.StatusCode);
             }
+            // it 'does not fail with valid property role and metadata'
+            resp = client.Send(new AddItemProperty("title", "string", role: new PropertyRole("title")));
+            // it 'fails with duplicate property role or invalid metadata'
+            resp = client.Send(new AddItemProperty("str4", "string", role: new PropertyRole("summary")));
+            try
+            {
+                client.Send(new AddItemProperty("str4", "string", role: new PropertyRole("summary")));
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(409, (int)ex.StatusCode);
+            }
+            try
+            {
+                client.Send(new AddItemProperty("str5", "string", role: new PropertyRole("titl")));
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(404, (int)ex.StatusCode);
+            }
         }
 
         [Fact]
@@ -76,6 +98,28 @@ namespace Recombee.ApiClient.Tests
             catch (ResponseException ex)
             {
                 Assert.Equal(409, (int)ex.StatusCode);
+            }
+            // it 'does not fail with valid property role and metadata'
+            resp = await client.SendAsync(new AddItemProperty("title", "string", role: new PropertyRole("title")));
+            // it 'fails with duplicate property role or invalid metadata'
+            resp = await client.SendAsync(new AddItemProperty("str4", "string", role: new PropertyRole("summary")));
+            try
+            {
+                await client.SendAsync(new AddItemProperty("str4", "string", role: new PropertyRole("summary")));
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(409, (int)ex.StatusCode);
+            }
+            try
+            {
+                await client.SendAsync(new AddItemProperty("str5", "string", role: new PropertyRole("titl")));
+                Assert.True(false,"No exception thrown");
+            }
+            catch (ResponseException ex)
+            {
+                Assert.Equal(404, (int)ex.StatusCode);
             }
         }
     }
